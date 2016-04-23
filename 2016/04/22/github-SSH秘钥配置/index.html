@@ -80,19 +80,16 @@
 
 
 
-<meta name="description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。
-如何创建SSH打开你的终端，输入ssh-keygen -t rsa -C “xxxxx@xxxxx.com”，里面的邮箱是你的github账号，然后会弹出Enter file in which to save">
+<meta name="description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github SSH秘钥配置">
 <meta property="og:url" content="http://631106979/github.io/2016/04/22/github-SSH秘钥配置/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。
-如何创建SSH打开你的终端，输入ssh-keygen -t rsa -C “xxxxx@xxxxx.com”，里面的邮箱是你的github账号，然后会弹出Enter file in which to save">
-<meta property="og:updated_time" content="2016-04-23T04:20:54.000Z">
+<meta property="og:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
+<meta property="og:updated_time" content="2016-04-23T05:09:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github SSH秘钥配置">
-<meta name="twitter:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。
-如何创建SSH打开你的终端，输入ssh-keygen -t rsa -C “xxxxx@xxxxx.com”，里面的邮箱是你的github账号，然后会弹出Enter file in which to save">
+<meta name="twitter:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
 
 
 
@@ -287,7 +284,7 @@
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">-git</span>
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -319,8 +316,9 @@
       
 
       
-        <h2 id="github-SSH秘钥配置"><a href="#github-SSH秘钥配置" class="headerlink" title="github SSH秘钥配置"></a>github SSH秘钥配置</h2><p>从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。</p>
-<h2 id="如何创建SSH"><a href="#如何创建SSH" class="headerlink" title="如何创建SSH"></a>如何创建SSH</h2><p>打开你的终端，输入<strong>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”</strong>，里面的邮箱是你的github账号，然后会弹出<strong>Enter file in which to save the key (/Users/wangchonglei/.ssh/id_rsa):</strong>这里是系统默认的保存地址和文件名，你可以更改，例如：<strong>/Users/wangchonglei/.ssh/girhub_rsa</strong>（记住：不同的账号需要起不一样的名字），然后一直回车会出现类似下面这样的文字，就说明创建成功了；<br>The key’s randomart image is:<br>+—[RSA 2048]—-+<br>| o|<br>| . ..|<br>| o o o .|<br>| o + = = |<br>| . . S = o +oo|<br>| E o = + .. =|<br>| + + .+ =.|<br>| .<em> .o BB=|<br>| o=.o. o*</em>O|<br>+—-[SHA256]—–+</p>
+        <h2 id="github-SSH秘钥配置"><a href="#github-SSH秘钥配置" class="headerlink" title="github SSH秘钥配置"></a>github SSH秘钥配置</h2><p>从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。<br><a id="more"></a></p>
+<h2 id="如何创建SSH"><a href="#如何创建SSH" class="headerlink" title="如何创建SSH"></a>如何创建SSH</h2><p>打开你的终端，输入<strong>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”</strong>，里面的邮箱是你的github账号，然后会弹出<strong>Enter file in which to save the key (/Users/wangchonglei/.ssh/id_rsa):</strong>这里是系统默认的保存地址和文件名，你可以更改，例如：<strong>/Users/wangchonglei/.ssh/girhub_rsa</strong>（记住：不同的账号需要起不一样的名字），然后一直回车会出现类似下面这样的文字，就说明创建成功了；</p>
+<p>The key’s randomart image is:<br>+—[RSA 2048]—-+<br>| o|<br>| . ..|<br>| o o o .|<br>| o + = = |<br>| . . S = o +oo|<br>| E o = + .. =|<br>| + + .+ =.|<br>| .<em> .o BB=|<br>| o=.o. o*</em>O|<br>+—-[SHA256]—–+</p>
 <h2 id="如何查看你的rsa"><a href="#如何查看你的rsa" class="headerlink" title="如何查看你的rsa"></a>如何查看你的rsa</h2><p>有两种方式可以查看，第一种比较简单，直接<strong>cat ~/.ssh/#####.pub</strong>，这里是你刚刚自己输入的文件名，系统默认的是<strong>id_rsa.pub</strong>； 第二种使用vim编辑器查看，首先<strong>cd ~/.ssh</strong>，到文件目录下，然后vim 你的文件名，比如<strong>vim ####.pub</strong>就可以查看了。</p>
 <p>把你的SSH填写到github上</p>
 <p>这个比较简单，在github上点击你的头像，选择setting，进入后点击SSHKEYS后Add SSH key就行了</p>
@@ -430,7 +428,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
