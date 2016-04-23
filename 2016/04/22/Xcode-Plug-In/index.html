@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Xcode," />
 
 
 
@@ -80,16 +80,25 @@
 
 
 
-<meta name="description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
+<meta name="description" content="Alcatraz - 插件管理工具Alcatraz是一个开源的Xcode插件管理器，可以让你更便捷地发现、安装以及管理插件、模板和配色方案。只需要简单地点击或者勾选，就能下载安装和删除插件，建议选择的第一个Xcode插件。下载完成后通过Window—&amp;gt;Package Manager来打开。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="github SSH秘钥配置">
-<meta property="og:url" content="http://631106979/github.io/2016/04/22/github-SSH秘钥配置/index.html">
+<meta property="og:title" content="常用的Xcode插件">
+<meta property="og:url" content="http://631106979/github.io/2016/04/22/Xcode-Plug-In/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
-<meta property="og:updated_time" content="2016-04-23T05:09:42.000Z">
+<meta property="og:description" content="Alcatraz - 插件管理工具Alcatraz是一个开源的Xcode插件管理器，可以让你更便捷地发现、安装以及管理插件、模板和配色方案。只需要简单地点击或者勾选，就能下载安装和删除插件，建议选择的第一个Xcode插件。下载完成后通过Window—&amp;gt;Package Manager来打开。">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325225549776">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325234457278">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325234213322">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325231545006">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325232225891">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325232753314">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325233049119">
+<meta property="og:image" content="http://img.blog.csdn.net/20160325233630208">
+<meta property="og:updated_time" content="2016-04-23T07:12:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="github SSH秘钥配置">
-<meta name="twitter:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
+<meta name="twitter:title" content="常用的Xcode插件">
+<meta name="twitter:description" content="Alcatraz - 插件管理工具Alcatraz是一个开源的Xcode插件管理器，可以让你更便捷地发现、安装以及管理插件、模板和配色方案。只需要简单地点击或者勾选，就能下载安装和删除插件，建议选择的第一个Xcode插件。下载完成后通过Window—&amp;gt;Package Manager来打开。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160325225549776">
 
 
 
@@ -107,7 +116,7 @@
   };
 </script>
 
-  <title> github SSH秘钥配置 | W_C__L </title>
+  <title> 常用的Xcode插件 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +266,7 @@
             
             
               
-                github SSH秘钥配置
+                常用的Xcode插件
               
             
           </h1>
@@ -269,7 +278,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T23:33:59+08:00" content="2016-04-22">
+            <time itemprop="dateCreated" datetime="2016-04-22T22:47:06+08:00" content="2016-04-22">
               2016-04-22
             </time>
           </span>
@@ -283,8 +292,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/Xcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Xcode</span>
                   </a>
                 </span>
 
@@ -316,13 +325,23 @@
       
 
       
-        <h2 id="github-SSH秘钥配置"><a href="#github-SSH秘钥配置" class="headerlink" title="github SSH秘钥配置"></a>github SSH秘钥配置</h2><p>从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。<br><a id="more"></a></p>
-<h2 id="如何创建SSH"><a href="#如何创建SSH" class="headerlink" title="如何创建SSH"></a>如何创建SSH</h2><p>打开你的终端，输入<strong>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”</strong>，里面的邮箱是你的github账号，然后会弹出<strong>Enter file in which to save the key (/Users/wangchonglei/.ssh/id_rsa):</strong>这里是系统默认的保存地址和文件名，你可以更改，例如：<strong>/Users/wangchonglei/.ssh/girhub_rsa</strong>（记住：不同的账号需要起不一样的名字），然后一直回车会出现类似下面这样的文字，就说明创建成功了；</p>
-<p>The key’s randomart image is:<br>+—[RSA 2048]—-+<br>| o|<br>| . ..|<br>| o o o .|<br>| o + = = |<br>| . . S = o +oo|<br>| E o = + .. =|<br>| + + .+ =.|<br>| .<em> .o BB=|<br>| o=.o. o*</em>O|<br>+—-[SHA256]—–+</p>
-<h2 id="如何查看你的rsa"><a href="#如何查看你的rsa" class="headerlink" title="如何查看你的rsa"></a>如何查看你的rsa</h2><p>有两种方式可以查看，第一种比较简单，直接<strong>cat ~/.ssh/#####.pub</strong>，这里是你刚刚自己输入的文件名，系统默认的是<strong>id_rsa.pub</strong>； 第二种使用vim编辑器查看，首先<strong>cd ~/.ssh</strong>，到文件目录下，然后vim 你的文件名，比如<strong>vim ####.pub</strong>就可以查看了。</p>
-<p>把你的SSH填写到github上</p>
-<p>这个比较简单，在github上点击你的头像，选择setting，进入后点击SSHKEYS后Add SSH key就行了</p>
-<h2 id="测试是否设置成功"><a href="#测试是否设置成功" class="headerlink" title="测试是否设置成功"></a>测试是否设置成功</h2><p>在终端中输入<strong>ssh -T git@git.oschina.net</strong>，系统返回Welcome to Git@OSC，###是就表示添加成功了，就你可以用git remote add origin git@#####来关联你的远程库了。</p>
+        <h2 id="Alcatraz-插件管理工具"><a href="#Alcatraz-插件管理工具" class="headerlink" title="Alcatraz - 插件管理工具"></a><a href="https://github.com/mneorr/Alcatraz" target="_blank" rel="external">Alcatraz</a> - 插件管理工具</h2><p>Alcatraz是一个开源的Xcode插件管理器，可以让你更便捷地发现、安装以及管理插件、模板和配色方案。只需要简单地点击或者勾选，就能下载安装和删除插件，建议选择的第一个Xcode插件。<br>下载完成后通过Window—&gt;Package Manager来打开。<br><a id="more"></a><br><img src="http://img.blog.csdn.net/20160325225549776" alt="这里写图片描述"></p>
+<hr>
+<h2 id="VVDocumenter-规范注释生成器"><a href="#VVDocumenter-规范注释生成器" class="headerlink" title="VVDocumenter  - 规范注释生成器"></a><a href="https://github.com/onevcat/VVDocumenter-Xcode" target="_blank" rel="external">VVDocumenter</a>  - 规范注释生成器</h2><p> VVDocumenter是一个规范化的代码注释插件，在协同开发的时候，每个人的代码风格不一样，那么必要的代码注释就显得很关键，那么VVDocumenter一定是最好的选择，在需要填写注释的属性和方法上下只需要输入三个斜线”///“，就能生成相应的代码注释了，支持Xcode和swift。<br><img src="http://img.blog.csdn.net/20160325234457278" alt="这里写图片描述"></p>
+<hr>
+<h2 id="FuzzyAutocomplete-代码自动补全插件"><a href="#FuzzyAutocomplete-代码自动补全插件" class="headerlink" title="FuzzyAutocomplete  - 代码自动补全插件"></a><a href="https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin" target="_blank" rel="external">FuzzyAutocomplete</a>  - 代码自动补全插件</h2><p>FuzzyAutocompletePlugin是一个Xcode代码补全插件的插件，通过添加模糊匹配来提高Xcode代码自动补全功能，开发者无需遵循从头匹配的原则，只要记得方法里某个关键字即可进行匹配，很好地提高了工作效率。比系统自带的更高效，无需输入顺序即可匹配到相应代码。<br><img src="http://img.blog.csdn.net/20160325234213322" alt="这里写图片描述"></p>
+<hr>
+<h2 id="ESJsonFormat-JSON格式化输出为模型的属性的插件"><a href="#ESJsonFormat-JSON格式化输出为模型的属性的插件" class="headerlink" title="ESJsonFormat -  JSON格式化输出为模型的属性的插件"></a><a href="https://github.com/EnjoySR/ESJsonFormat-Xcode" target="_blank" rel="external">ESJsonFormat</a> -  JSON格式化输出为模型的属性的插件</h2><p>可以通过json字符串自动生成属性，同时支持<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">MJExtension</a>，具体效果见下图：<br><img src="http://img.blog.csdn.net/20160325231545006" alt="这里写图片描述"></p>
+<hr>
+<h2 id="IconMaker-AppIcon一键生成神器"><a href="#IconMaker-AppIcon一键生成神器" class="headerlink" title="IconMaker  - AppIcon一键生成神器"></a><a href="https://github.com/kaphacius/IconMaker" target="_blank" rel="external">IconMaker</a>  - AppIcon一键生成神器</h2><p>只需简单几部操作就能生成一套icon，再也不需要一个个手动替换了，再也不需要应为icon大小不对审核被拒绝了，只需要一步一键生成，要多方便有多方便。<br><img src="http://img.blog.csdn.net/20160325232225891" alt="这里写图片描述"></p>
+<hr>
+<h2 id="XAlign-一个用来对齐常规代码的Xcode插件"><a href="#XAlign-一个用来对齐常规代码的Xcode插件" class="headerlink" title="XAlign  - 一个用来对齐常规代码的Xcode插件"></a><a href="https://github.com/qfish/XAlign" target="_blank" rel="external">XAlign</a>  - 一个用来对齐常规代码的Xcode插件</h2><p>一个用来对齐常规代码的Xcode插件，十分强大的自定义对齐模式。只需键入command+shift+x就能自动帮你对齐你杂乱的代码了，强迫症专用。<br><img src="http://img.blog.csdn.net/20160325232753314" alt="这里写图片描述"></p>
+<hr>
+<h2 id="KSImageNamed-图片名自动补全插件"><a href="#KSImageNamed-图片名自动补全插件" class="headerlink" title="KSImageNamed - 图片名自动补全插件"></a><a href="https://github.com/ksuther/KSImageNamed-Xcode" target="_blank" rel="external">KSImageNamed</a> - 图片名自动补全插件</h2><p>为项目中使用的UIImage的imageNamed提供文件名自动补全功能。使用[UIImage imageNamed:@”xxx”]时，该插件会扫描整个workspace中的图片文件。<br><img src="http://img.blog.csdn.net/20160325233049119" alt="这里写图片描述"></p>
+<hr>
+<h2 id="Backlight-帮你找到当前正在输入位置的黑科技"><a href="#Backlight-帮你找到当前正在输入位置的黑科技" class="headerlink" title="Backlight - 帮你找到当前正在输入位置的黑科技"></a><a href="https://github.com/limejelly/Backlight-for-XCode" target="_blank" rel="external">Backlight</a> - 帮你找到当前正在输入位置的黑科技</h2><p>大家肯定遇到过，当你在输入时突然找不到输入光标在哪里了，这时候你能慢慢找，<a href="https://github.com/limejelly/Backlight-for-XCode" target="_blank" rel="external">Backlight</a> 帮你解决了这个问题，你不用再为找不到光标而烦恼了，绝对黑科技。<br><img src="http://img.blog.csdn.net/20160325233630208" alt="这里写图片描述"></p>
+<hr>
+<p>PS:今天就给大家分享到这里，这都是我用起来非常舒服的插件，以后有更好的我会在这里更新</p>
 
       
     </div>
@@ -341,18 +360,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Xcode/" rel="tag">#Xcode</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/常用的Xcode插件/" rel="next" title="常用的Xcode插件">
-                <i class="fa fa-chevron-left"></i> 常用的Xcode插件
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/22/github-SSH-Configure/" rel="prev" title="github SSH秘钥配置">
+                github SSH秘钥配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -435,6 +460,13 @@
           
 
           
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
         </nav>
 
@@ -444,20 +476,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/631106979" target="_blank" title="github">
+                <a href="https://github.com/631106979" target="_blank" title="Github">
                   
                     <i class="fa fa-globe"></i>
                   
-                  github
+                  Github
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://blog.csdn.net/wang631106979" target="_blank" title="csdn">
+                <a href="http://blog.csdn.net/wang631106979" target="_blank" title="CSDN">
                   
                     <i class="fa fa-globe"></i>
                   
-                  csdn
+                  CSDN
                 </a>
               </span>
             
@@ -479,7 +511,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-SSH秘钥配置"><span class="nav-number">1.</span> <span class="nav-text">github SSH秘钥配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建SSH"><span class="nav-number">2.</span> <span class="nav-text">如何创建SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何查看你的rsa"><span class="nav-number">3.</span> <span class="nav-text">如何查看你的rsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试是否设置成功"><span class="nav-number">4.</span> <span class="nav-text">测试是否设置成功</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Alcatraz-插件管理工具"><span class="nav-number">1.</span> <span class="nav-text">Alcatraz - 插件管理工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VVDocumenter-规范注释生成器"><span class="nav-number">2.</span> <span class="nav-text">VVDocumenter  - 规范注释生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FuzzyAutocomplete-代码自动补全插件"><span class="nav-number">3.</span> <span class="nav-text">FuzzyAutocomplete  - 代码自动补全插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ESJsonFormat-JSON格式化输出为模型的属性的插件"><span class="nav-number">4.</span> <span class="nav-text">ESJsonFormat -  JSON格式化输出为模型的属性的插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IconMaker-AppIcon一键生成神器"><span class="nav-number">5.</span> <span class="nav-text">IconMaker  - AppIcon一键生成神器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XAlign-一个用来对齐常规代码的Xcode插件"><span class="nav-number">6.</span> <span class="nav-text">XAlign  - 一个用来对齐常规代码的Xcode插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KSImageNamed-图片名自动补全插件"><span class="nav-number">7.</span> <span class="nav-text">KSImageNamed - 图片名自动补全插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backlight-帮你找到当前正在输入位置的黑科技"><span class="nav-number">8.</span> <span class="nav-text">Backlight - 帮你找到当前正在输入位置的黑科技</span></a></li></ol></div>
             
           </div>
         </section>
