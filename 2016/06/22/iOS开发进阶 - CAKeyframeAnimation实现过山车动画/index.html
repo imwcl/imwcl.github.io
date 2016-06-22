@@ -1,0 +1,832 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CALayer," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="偶然间在网页上看到一个过山车动画觉得很炫，就想用swift纯代码实现了一个类似的效果，因为没有设计天赋，所以就完全高仿的人家的效果-.-下面上效果图：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发进阶 - CAKeyframeAnimation实现过山车动画">
+<meta property="og:url" content="http://631106979/github.io/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/index.html">
+<meta property="og:site_name" content="W_C__L">
+<meta property="og:description" content="偶然间在网页上看到一个过山车动画觉得很炫，就想用swift纯代码实现了一个类似的效果，因为没有设计天赋，所以就完全高仿的人家的效果-.-下面上效果图：">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ahi8vslg30if0a8e81">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ax28scyj30ij09w74d">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ba1snf4j30ij0agtc7">
+<meta property="og:updated_time" content="2016-06-22T14:45:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发进阶 - CAKeyframeAnimation实现过山车动画">
+<meta name="twitter:description" content="偶然间在网页上看到一个过山车动画觉得很炫，就想用swift纯代码实现了一个类似的效果，因为没有设计天赋，所以就完全高仿的人家的效果-.-下面上效果图：">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ahi8vslg30if0a8e81">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'W_C__L'
+    }
+  };
+</script>
+
+  <title> iOS开发进阶 - CAKeyframeAnimation实现过山车动画 | W_C__L </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1d84a907789e15e71465ddb90d712f9d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">W_C__L</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我们都老得太快   却聪明的太迟~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fazALc6LekitUCtssZ2N','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发进阶 - CAKeyframeAnimation实现过山车动画
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T22:40:52+08:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+            <span id="/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/" class="leancloud_visitors" data-flag-title="iOS开发进阶 - CAKeyframeAnimation实现过山车动画">
+                &nbsp; | &nbsp;
+            <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数 </span>
+            <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>偶然间在网页上看到一个<a href="http://www.html5tricks.com/demo/html5-svg-shanche-animation/index.html" target="_blank" rel="external">过山车动画</a>觉得很炫，就想用<code>swift</code>纯代码实现了一个类似的效果，因为没有设计天赋，所以就完全高仿的人家的效果-.-下面上效果图：</p>
+</blockquote>
+<p><img src="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ahi8vslg30if0a8e81" alt="wcl.gif"></p>
+<a id="more"></a>
+<p>给大家介绍一下项目中主要会用到的类：</p>
+<ul>
+<li><code>CAShapeLayer</code></li>
+<li><code>CAGradientLayer</code></li>
+<li><code>CAKeyframeAnimation</code></li>
+</ul>
+<h3 id="实现的主要思路"><a href="#实现的主要思路" class="headerlink" title="实现的主要思路"></a>实现的主要思路</h3><p>渐变的背景用<code>CAGradientLayer</code>实现，其他例如山峰，草坪和轨道可以用<code>CAShapeLayer</code>配合<code>UIBezierPath</code>实现，然后云朵，树木和大地直接用<code>CALayer</code>通过设置<code>contents</code>实现，然后云朵和过山车的动画实现用<code>CAKeyframeAnimation</code>，这样分析其实做一个这样的动态效果并不是很难，下面就是实现过程和简单的代码示例。<a href="https://github.com/631106979/RollerCoasterAnimation" target="_blank" rel="external">下载demo有完整代码</a></p>
+<h3 id="CAGradientLayer"><a href="#CAGradientLayer" class="headerlink" title="CAGradientLayer"></a>CAGradientLayer</h3><p><code>CAGradientLayer</code>是用来生成两种或更多颜色平滑渐变的。相比于<code>Core Graphics</code>来说<code>CAGradientLayer</code>的真正好处在于绘制使用了硬件加速。这说明通过<code>CAGradientLayer</code>来绘制渐变的效果比用<code>Core Graphics</code>的效率更高。我们通过<code>CAGradientLayer</code>来实现这个项目中的背景<a href="https://github.com/631106979/RollerCoasterAnimation" target="_blank" rel="external">下载demo有完整代码</a>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化背景</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">initGradientLayer</span><span class="params">(size:CGSize)</span></span> -&gt; <span class="type">CAGradientLayer</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> layer:<span class="type">CAGradientLayer</span> = <span class="type">CAGradientLayer</span>()</span><br><span class="line">        layer.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: size.width, height: size.height - <span class="number">20</span>)</span><br><span class="line">        <span class="comment">//设置渐变的颜色</span></span><br><span class="line">        layer.colors = [<span class="type">UIColor</span>.<span class="keyword">init</span>(colorLiteralRed: <span class="number">178.0</span>/<span class="number">255.0</span>, green: <span class="number">226.0</span>/<span class="number">255.0</span>, blue: <span class="number">248.0</span>/<span class="number">255.0</span>, alpha: <span class="number">1.0</span>).<span class="type">CGColor</span>, <span class="type">UIColor</span>.<span class="keyword">init</span>(colorLiteralRed: <span class="number">232.0</span>/<span class="number">255.0</span>, green: <span class="number">244.0</span>/<span class="number">255.0</span>, blue: <span class="number">193.0</span>/<span class="number">255.0</span>, alpha: <span class="number">1.0</span>).<span class="type">CGColor</span>]</span><br><span class="line">        <span class="comment">//设置渐变的方向为从左上到右下</span></span><br><span class="line">        layer.startPoint = <span class="type">CGPoint</span>(x: <span class="number">0</span>, y: <span class="number">0</span>)</span><br><span class="line">        layer.endPoint = <span class="type">CGPoint</span>(x: <span class="number">1</span>, y: <span class="number">1</span>)</span><br><span class="line">        view.layer.addSublayer(layer)</span><br><span class="line">        <span class="keyword">return</span> layer</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ax28scyj30ij09w74d" alt="屏幕快照 2016-06-22 上午12.16.14.png"></p>
+<h3 id="CAShapeLayer"><a href="#CAShapeLayer" class="headerlink" title="CAShapeLayer"></a>CAShapeLayer</h3><p><code>CAShapeLayer</code>是一个通过矢量图形而不是<code>bitmap</code>来绘制的图层子类。你指定诸如颜色和线宽等属性，用<code>CGPath</code>来定义想要绘制的图形，最后CAShapeLayer就自动渲染出来了。当然，你也可以用<code>Core Graphics</code>直接向原始的CALyer的内容中绘制一个路径，相比直下，使用<code>CAShapeLayer</code>有以下一些优点：</p>
+<ul>
+<li>渲染快速。<code>CAShapeLayer</code>使用了硬件加速，绘制同一图形会比用<code>Core Graphics</code>快很多。</li>
+</ul>
+<ul>
+<li>高效使用内存。一个<code>CAShapeLayer</code>不需要像普通<code>CALayer</code>一样创建一个寄宿图形，所以无论有多大，都不会占用太多的内存。</li>
+</ul>
+<ul>
+<li>不会被图层边界剪裁掉。一个<code>CAShapeLayer</code>可以在边界之外绘制。你的图层路径不会像在使用<code>Core Graphics</code>的普通<code>CALayer</code>一样被剪裁掉（如我们在第二章所见）。</li>
+</ul>
+<ul>
+<li>不会出现像素化。当你给<code>CAShapeLayer</code>做<code>3D</code>变换时，它不像一个有寄宿图的普通图层一样变得像素化。</li>
+</ul>
+<p>我们用<code>CAShapeLayer</code>来绘制草地，山坡和过山车的轨道，下面给大家通过绘制草坪的代码简单介绍一下用法<a href="https://github.com/631106979/RollerCoasterAnimation" target="_blank" rel="external">下载demo有完整代码</a>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化草坪</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">initGrasslandlayer</span><span class="params">(size:CGSize)</span></span> -&gt; <span class="type">CAShapeLayer</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> grasslandOne = <span class="type">CAShapeLayer</span>()</span><br><span class="line">        <span class="comment">//通过UIBezierPath来绘制路径</span></span><br><span class="line">        <span class="keyword">let</span> pathOne:<span class="type">UIBezierPath</span> = <span class="type">UIBezierPath</span>()</span><br><span class="line">        pathOne.moveToPoint(<span class="type">CGPoint</span>(x: <span class="number">0</span>, y: size.height - <span class="number">20</span>))</span><br><span class="line">        pathOne.addLineToPoint(<span class="type">CGPoint</span>(x: <span class="number">0</span>, y: size.height - <span class="number">100</span>))</span><br><span class="line">        pathOne.addQuadCurveToPoint(<span class="type">CGPoint</span>(x: size.width/<span class="number">3.0</span>, y: size.height - <span class="number">20</span>), controlPoint: <span class="type">CGPoint</span>(x: size.width/<span class="number">6.0</span>, y: size.height - <span class="number">100</span>))</span><br><span class="line">        grasslandOne.path = pathOne.<span class="type">CGPath</span></span><br><span class="line">        <span class="comment">//设置草坪的颜色</span></span><br><span class="line">        grasslandOne.fillColor = <span class="type">UIColor</span>.<span class="keyword">init</span>(colorLiteralRed: <span class="number">82.0</span>/<span class="number">255.0</span>, green: <span class="number">177.0</span>/<span class="number">255.0</span>, blue: <span class="number">44.0</span>/<span class="number">255.0</span>, alpha: <span class="number">1.0</span>).<span class="type">CGColor</span></span><br><span class="line">        view.layer.addSublayer(grasslandOne)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/large/006tNbRwgw1f53ba1snf4j30ij0agtc7" alt="屏幕快照 2016-06-22 上午12.28.53.png"></p>
+<h3 id="CAKeyframeAnimation"><a href="#CAKeyframeAnimation" class="headerlink" title="CAKeyframeAnimation"></a>CAKeyframeAnimation</h3><p><code>CAKeyframeAnimation</code>类为对象提供了关键帧动画的功能。你创建一个<code>CAKeyframeAnimation</code>对象使用<code>animationWithKeyPath:</code>指定属性的关键路径，你可以指定要使用关键帧的值来控制时间和动画的行为。我们可以通过<code>CAKeyframeAnimation</code>来实现过山车在轨道上的的动画和云朵的动画，下面是一小段示例代码<a href="https://github.com/631106979/RollerCoasterAnimation" target="_blank" rel="external">下载demo有完整代码</a>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加绿色轨道的动画</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">addGreenCarPathAnimation</span><span class="params">(size:CGSize)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> carLayer:<span class="type">CALayer</span> = <span class="type">CALayer</span>()</span><br><span class="line">        carLayer.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">17</span>, height: <span class="number">11</span>)</span><br><span class="line">        carLayer.contents = <span class="type">UIImage</span>.<span class="keyword">init</span>(named: <span class="string">"otherCar"</span>)!.<span class="type">CGImage</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//绘制路径</span></span><br><span class="line">        <span class="keyword">let</span> path:<span class="type">UIBezierPath</span> = <span class="type">UIBezierPath</span>()</span><br><span class="line">        path.lineCapStyle = .<span class="type">Round</span></span><br><span class="line">        path.lineJoinStyle = .<span class="type">Round</span></span><br><span class="line">        path.moveToPoint(<span class="type">CGPoint</span>(x: size.width + <span class="number">10</span>, y: size.height - <span class="number">7</span>))</span><br><span class="line">        path.addLineToPoint(<span class="type">CGPoint</span>(x: size.width + <span class="number">10</span>, y: size.height - <span class="number">77</span>))</span><br><span class="line">        path.addQuadCurveToPoint(<span class="type">CGPoint</span>(x: size.width/<span class="number">1.8</span>, y: size.height - <span class="number">77</span>), controlPoint: <span class="type">CGPoint</span>(x: size.width - <span class="number">120</span>, y: <span class="number">193</span>))</span><br><span class="line">        path.addArcWithCenter(<span class="type">CGPoint</span>(x: size.width/<span class="number">1.9</span>, y: size.height - <span class="number">140</span>), radius: <span class="number">63</span>, startAngle: <span class="type">CGFloat</span>(<span class="number">0.5</span>*<span class="type">M_PI</span>), endAngle: <span class="type">CGFloat</span>(<span class="number">2.5</span>*<span class="type">M_PI</span>), clockwise: <span class="literal">true</span>)</span><br><span class="line">        path.addCurveToPoint(<span class="type">CGPoint</span>(x: <span class="number">0</span>, y: size.height - <span class="number">107</span>), controlPoint1: <span class="type">CGPoint</span>(x: size.width/<span class="number">1.8</span> - <span class="number">60</span>, y: size.height - <span class="number">67</span>), controlPoint2: <span class="type">CGPoint</span>(x: <span class="number">150</span>, y: size.height/<span class="number">2.3</span>-<span class="number">7</span>))</span><br><span class="line">        path.addLineToPoint(<span class="type">CGPoint</span>(x: -<span class="number">100</span>, y: size.height + <span class="number">7</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//关键帧动画作用于position</span></span><br><span class="line">        <span class="keyword">let</span> animation:<span class="type">CAKeyframeAnimation</span> = <span class="type">CAKeyframeAnimation</span>.<span class="keyword">init</span>(keyPath: <span class="string">"position"</span>)</span><br><span class="line">        animation.path = path.<span class="type">CGPath</span></span><br><span class="line">        <span class="comment">//动画节奏为线性动画</span></span><br><span class="line">        animation.timingFunction = <span class="type">CAMediaTimingFunction</span>.<span class="keyword">init</span>(name: kCAMediaTimingFunctionLinear)</span><br><span class="line">        <span class="comment">//动画时间</span></span><br><span class="line">        animation.duration = <span class="number">6</span></span><br><span class="line">        <span class="comment">//动画重复次数</span></span><br><span class="line">        animation.repeatCount = <span class="type">MAXFLOAT</span></span><br><span class="line">        <span class="comment">//动画是否逆转</span></span><br><span class="line">        animation.autoreverses = <span class="literal">false</span></span><br><span class="line">        animation.calculationMode = kCAAnimationCubicPaced</span><br><span class="line">        <span class="comment">//动画角度是否调整</span></span><br><span class="line">        animation.rotationMode = kCAAnimationRotateAuto</span><br><span class="line">        view.layer.addSublayer(carLayer)</span><br><span class="line">        carLayer.addAnimation(animation, forKey: <span class="string">"carAnimation"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的代码只是简单的示例，完整代码得去<a href="https://github.com/631106979/RollerCoasterAnimation" target="_blank" rel="external">我的github</a>上去下载，到这里也就基本上完成了，大家有什么疑问可以留言评论，谢谢大家的观看</p>
+</blockquote>
+<p><a href="https://github.com/631106979/RollerCoasterAnimation" target="_blank" rel="external">demo地址</a></p>
+<p><a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="external">参考文档（非常好的一篇关于介绍CALayer学习中文翻译文档，学习必看）</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CALayer/" rel="tag">#CALayer</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/02/iOS开发进阶-实现类似微信和支付宝的密码输入框（UIKeyInput协议）/" rel="next" title="iOS开发进阶 - 实现类似微信和支付宝的密码输入框（UIKeyInput协议）">
+                <i class="fa fa-chevron-left"></i> iOS开发进阶 - 实现类似微信和支付宝的密码输入框（UIKeyInput协议）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/"
+     data-title="iOS开发进阶 - CAKeyframeAnimation实现过山车动画"
+     data-content=""
+     data-url="http://631106979/github.io/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/"
+           data-title="iOS开发进阶 - CAKeyframeAnimation实现过山车动画" data-url="http://631106979/github.io/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140"
+               alt="W_C__L" />
+          <p class="site-author-name" itemprop="name">W_C__L</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/631106979" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/wang631106979" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现的主要思路"><span class="nav-number">1.</span> <span class="nav-text">实现的主要思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAGradientLayer"><span class="nav-number">2.</span> <span class="nav-text">CAGradientLayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAShapeLayer"><span class="nav-number">3.</span> <span class="nav-text">CAShapeLayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAKeyframeAnimation"><span class="nav-number">4.</span> <span class="nav-text">CAKeyframeAnimation</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">W_C__L</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"imwcl"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("h5TFTaYd4vSD30AbJR4yoqI7-gzGzoHsz", "SxOSQ7muMvq1jf3aWSIOseEH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
