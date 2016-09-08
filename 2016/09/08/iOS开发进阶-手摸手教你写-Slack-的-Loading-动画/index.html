@@ -1,0 +1,846 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS动画进阶进阶," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前几天看了一篇关于动画的博客叫手摸手教你写 Slack 的 Loading 动画，看着挺炫，但是是安卓版的，寻思的着仿造着写一篇iOS版的，下面是我写这个动画的分解~
+
+老规矩先上图和demo地址：
+
+刚看到这个动画的时候，脑海里出现了两个方案，一种是通过drawRect画出来，然后配合CADisplayLink不停的绘制线的样式；第二种是通过CAShapeLayer配合CAAnimation来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画">
+<meta property="og:url" content="http://631106979/github.io/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/index.html">
+<meta property="og:site_name" content="W_C__L">
+<meta property="og:description" content="前几天看了一篇关于动画的博客叫手摸手教你写 Slack 的 Loading 动画，看着挺炫，但是是安卓版的，寻思的着仿造着写一篇iOS版的，下面是我写这个动画的分解~
+
+老规矩先上图和demo地址：
+
+刚看到这个动画的时候，脑海里出现了两个方案，一种是通过drawRect画出来，然后配合CADisplayLink不停的绘制线的样式；第二种是通过CAShapeLayer配合CAAnimation来">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908162326530">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908172029899">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908173322904">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908173750890">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908174341119">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908174810436">
+<meta property="og:image" content="http://img.blog.csdn.net/20160908175802790">
+<meta property="og:updated_time" content="2016-09-08T10:13:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画">
+<meta name="twitter:description" content="前几天看了一篇关于动画的博客叫手摸手教你写 Slack 的 Loading 动画，看着挺炫，但是是安卓版的，寻思的着仿造着写一篇iOS版的，下面是我写这个动画的分解~
+
+老规矩先上图和demo地址：
+
+刚看到这个动画的时候，脑海里出现了两个方案，一种是通过drawRect画出来，然后配合CADisplayLink不停的绘制线的样式；第二种是通过CAShapeLayer配合CAAnimation来">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160908162326530">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'W_C__L'
+    }
+  };
+</script>
+
+  <title> iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画 | W_C__L </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1d84a907789e15e71465ddb90d712f9d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">W_C__L</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我们都老得太快   却聪明的太迟~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fazALc6LekitUCtssZ2N','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-08T18:08:43+08:00" content="2016-09-08">
+              2016-09-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+            <span id="/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/" class="leancloud_visitors" data-flag-title="iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画">
+                &nbsp; | &nbsp;
+            <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数 </span>
+            <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>前几天看了一篇关于动画的博客叫<a href="http://www.diycode.cc/topics/240" target="_blank" rel="external">手摸手教你写 Slack 的 Loading 动画</a>，看着挺炫，但是是安卓版的，寻思的着仿造着写一篇iOS版的，下面是我写这个动画的分解~</p>
+</blockquote>
+<p>老规矩先上图和<a href="https://github.com/631106979/WCLLoadingView" target="_blank" rel="external">demo地址</a>：</p>
+<p><img src="http://img.blog.csdn.net/20160908162326530" alt="这里写图片描述"></p>
+<p>刚看到这个动画的时候，脑海里出现了两个方案，一种是通过<code>drawRect</code>画出来，然后配合<code>CADisplayLink</code>不停的绘制线的样式；第二种是通过<code>CAShapeLayer</code>配合<code>CAAnimation</code>来实现动画效果。再三考虑觉得使用后者，因为前者需要计算很多，比较复杂，而且经过测试前者相比于后者消耗更多的CPU，下面将我的思路写下来：</p>
+<a id="more"></a>
+<h1 id="相关配置和初始化方法"><a href="#相关配置和初始化方法" class="headerlink" title="相关配置和初始化方法"></a>相关配置和初始化方法</h1><p>在写这个动画之前，我们把先需要的属性写好，比如线条的粗细，动画的时间等等，下面是相关的配置和初识化方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//线的宽度</span></span><br><span class="line"><span class="keyword">var</span> lineWidth:<span class="type">CGFloat</span> = <span class="number">0</span></span><br><span class="line"><span class="comment">//线的长度</span></span><br><span class="line"><span class="keyword">var</span> lineLength:<span class="type">CGFloat</span> = <span class="number">0</span></span><br><span class="line"><span class="comment">//边距</span></span><br><span class="line"><span class="keyword">var</span> margin:<span class="type">CGFloat</span> = <span class="number">0</span></span><br><span class="line"><span class="comment">//动画时间</span></span><br><span class="line"><span class="keyword">var</span> duration:<span class="type">Double</span> = <span class="number">2</span></span><br><span class="line"><span class="comment">//动画的间隔时间</span></span><br><span class="line"><span class="keyword">var</span> interval:<span class="type">Double</span> = <span class="number">1</span></span><br><span class="line"><span class="comment">//四条线的颜色</span></span><br><span class="line"><span class="keyword">var</span> colors:[<span class="type">UIColor</span>] = [<span class="type">UIColor</span>.<span class="keyword">init</span>(rgba: <span class="string">"#9DD4E9"</span>) , <span class="type">UIColor</span>.<span class="keyword">init</span>(rgba: <span class="string">"#F5BD58"</span>),  <span class="type">UIColor</span>.<span class="keyword">init</span>(rgba: <span class="string">"#FF317E"</span>) , <span class="type">UIColor</span>.<span class="keyword">init</span>(rgba: <span class="string">"#6FC9B5"</span>)]</span><br><span class="line"><span class="comment">//动画的状态</span></span><br><span class="line"><span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">var</span> status:<span class="type">AnimationStatus</span> = .<span class="type">Normal</span></span><br><span class="line"><span class="comment">//四条线</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> lines:[<span class="type">CAShapeLayer</span>] = []</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">AnimationStatus</span> </span>&#123;</span><br><span class="line">    <span class="comment">//普通状态</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Normal</span></span><br><span class="line">    <span class="comment">//动画中</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Animating</span></span><br><span class="line">    <span class="comment">//暂停</span></span><br><span class="line">    <span class="keyword">case</span> pause</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//MARK: Initial Methods</span></span><br><span class="line"><span class="keyword">convenience</span> <span class="keyword">init</span>(fram: <span class="type">CGRect</span> , colors: [<span class="type">UIColor</span>]) &#123;</span><br><span class="line">    <span class="keyword">self</span>.<span class="keyword">init</span>()</span><br><span class="line">    <span class="keyword">self</span>.frame = frame</span><br><span class="line">    <span class="keyword">self</span>.colors = colors</span><br><span class="line">    config()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    config()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">required</span> <span class="keyword">init</span>?(coder aDecoder: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</span><br><span class="line">    config()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">config</span><span class="params">()</span></span> &#123;</span><br><span class="line">    lineLength = <span class="built_in">max</span>(frame.width, frame.height)</span><br><span class="line">    lineWidth  = lineLength/<span class="number">6.0</span></span><br><span class="line">    margin     = lineLength/<span class="number">4.5</span> + lineWidth/<span class="number">2</span></span><br><span class="line">    drawLineShapeLayer()</span><br><span class="line">    transform = <span class="type">CGAffineTransformRotate</span>(<span class="type">CGAffineTransformIdentity</span>, angle(-<span class="number">30</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="通过CAShapeLayer绘制线条"><a href="#通过CAShapeLayer绘制线条" class="headerlink" title="通过CAShapeLayer绘制线条"></a>通过CAShapeLayer绘制线条</h1><p>看到这个线条我就想到了用<code>CAShapeLayer</code>来处理，因为<code>CAShapeLayer</code>完全可以实现这种效果，而且它的<code>strokeEnd</code>的属性可以用来实现线条的长度变化的动画，下面上绘制四根线条的代码：</p>
+<p><img src="http://img.blog.csdn.net/20160908172029899" alt="这里写图片描述"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: 绘制线</span></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     绘制四条线</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">drawLineShapeLayer</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//开始点</span></span><br><span class="line">        <span class="keyword">let</span> startPoint = [point(lineWidth/<span class="number">2</span>, y: margin),</span><br><span class="line">                          point(lineLength - margin, y: lineWidth/<span class="number">2</span>),</span><br><span class="line">                          point(lineLength - lineWidth/<span class="number">2</span>, y: lineLength - margin),</span><br><span class="line">                          point(margin, y: lineLength - lineWidth/<span class="number">2</span>)]</span><br><span class="line">        <span class="comment">//结束点</span></span><br><span class="line">        <span class="keyword">let</span> endPoint   = [point(lineLength - lineWidth/<span class="number">2</span>, y: margin) ,</span><br><span class="line">                         point(lineLength - margin, y: lineLength - lineWidth/<span class="number">2</span>) ,</span><br><span class="line">                         point(lineWidth/<span class="number">2</span>, y: lineLength - margin) ,</span><br><span class="line">                         point(margin, y: lineWidth/<span class="number">2</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="number">3</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> line:<span class="type">CAShapeLayer</span> = <span class="type">CAShapeLayer</span>()</span><br><span class="line">            line.lineWidth   = lineWidth</span><br><span class="line">            line.lineCap     = kCALineCapRound</span><br><span class="line">            line.opacity     = <span class="number">0.8</span></span><br><span class="line">            line.strokeColor = colors[i].<span class="type">CGColor</span></span><br><span class="line">            line.path        = getLinePath(startPoint[i], endPoint: endPoint[i]).<span class="type">CGPath</span></span><br><span class="line">            layer.addSublayer(line)</span><br><span class="line">            lines.append(line)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     获取线的路径</span><br><span class="line">     </span><br><span class="line">     - parameter startPoint: 开始点</span><br><span class="line">     - parameter endPoint:   结束点</span><br><span class="line">     </span><br><span class="line">     - returns: 线的路径</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">getLinePath</span><span class="params">(startPoint: CGPoint, endPoint: CGPoint)</span></span> -&gt; <span class="type">UIBezierPath</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> path = <span class="type">UIBezierPath</span>()</span><br><span class="line">        path.moveToPoint(startPoint)</span><br><span class="line">        path.addLineToPoint(endPoint)</span><br><span class="line">        <span class="keyword">return</span> path</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">point</span><span class="params">(x:CGFloat , y:CGFloat)</span></span> -&gt; <span class="type">CGPoint</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">CGPointMake</span>(x, y)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">angle</span><span class="params">(angle: Double)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">CGFloat</span>(angle *  (<span class="type">M_PI</span>/<span class="number">180</span>))</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>执行完后就跟上图一样的效果了~~~</p>
+<h1 id="动画分解"><a href="#动画分解" class="headerlink" title="动画分解"></a>动画分解</h1><p>经过分析，可以将动画分为四个步骤：</p>
+<ul>
+<li>画布的旋转动画，旋转两圈</li>
+<li>线条由长变短的动画，更画布选择的动画一起执行，旋转一圈的时候结束</li>
+<li>线条的位移动画，线条逐渐向中间靠拢，再画笔旋转完一圈的时候执行，两圈的时候结束</li>
+<li>线条由短变长的动画，画布旋转完两圈的时候执行</li>
+</ul>
+<h2 id="第一步画布旋转动画"><a href="#第一步画布旋转动画" class="headerlink" title="第一步画布旋转动画"></a>第一步画布旋转动画</h2><p>这里我们使用<code>CABasicAnimation</code>基础动画，<code>keyPath</code>作用于画布的<code>transform.rotation.z</code>，以z轴为目标进行旋转，下面是效果图和代码：</p>
+<p><img src="http://img.blog.csdn.net/20160908173322904" alt="这里写图片描述"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: 动画步骤</span></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     旋转的动画，旋转两圈</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">angleAnimation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> angleAnimation                 = <span class="type">CABasicAnimation</span>.<span class="keyword">init</span>(keyPath: <span class="string">"transform.rotation.z"</span>)</span><br><span class="line">        angleAnimation.fromValue           = angle(-<span class="number">30</span>)</span><br><span class="line">        angleAnimation.toValue             = angle(<span class="number">690</span>)</span><br><span class="line">        angleAnimation.fillMode            = kCAFillModeForwards</span><br><span class="line">        angleAnimation.removedOnCompletion = <span class="literal">false</span></span><br><span class="line">        angleAnimation.duration            = duration</span><br><span class="line">        angleAnimation.delegate            = <span class="keyword">self</span></span><br><span class="line">        layer.addAnimation(angleAnimation, forKey: <span class="string">"angleAnimation"</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第二步线条由长变短的动画"><a href="#第二步线条由长变短的动画" class="headerlink" title="第二步线条由长变短的动画"></a>第二步线条由长变短的动画</h2><p>这里我们还是使用<code>CABasicAnimation</code>基础动画，<code>keyPath</code>作用于线条的<code>strokeEnd</code>属性，让<code>strokeEnd</code>从1到0来实现线条长短的动画，下面是效果图和代码：</p>
+<p><img src="http://img.blog.csdn.net/20160908173750890" alt="这里写图片描述"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     线的第一步动画，线长从长变短</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">lineAnimationOne</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> lineAnimationOne                 = <span class="type">CABasicAnimation</span>.<span class="keyword">init</span>(keyPath: <span class="string">"strokeEnd"</span>)</span><br><span class="line">        lineAnimationOne.duration            = duration/<span class="number">2</span></span><br><span class="line">        lineAnimationOne.fillMode            = kCAFillModeForwards</span><br><span class="line">        lineAnimationOne.removedOnCompletion = <span class="literal">false</span></span><br><span class="line">        lineAnimationOne.fromValue           = <span class="number">1</span></span><br><span class="line">        lineAnimationOne.toValue             = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="number">3</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> lineLayer = lines[i]</span><br><span class="line">            lineLayer.addAnimation(lineAnimationOne, forKey: <span class="string">"lineAnimationOne"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第三步线条的位移动画"><a href="#第三步线条的位移动画" class="headerlink" title="第三步线条的位移动画"></a>第三步线条的位移动画</h2><p>这里我们也是使用<code>CABasicAnimation</code>基础动画，<code>keyPath</code>作用于线条的<code>transform.translation.x</code>和<code>transform.translation.y</code>属性，来实现向中间聚拢的效果，下面是效果图和代码：</p>
+<p><img src="http://img.blog.csdn.net/20160908174341119" alt="这里写图片描述"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     线的第二步动画，线向中间平移</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">lineAnimationTwo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="number">3</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> keypath = <span class="string">"transform.translation.x"</span></span><br><span class="line">            <span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">                keypath = <span class="string">"transform.translation.y"</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> lineAnimationTwo = <span class="type">CABasicAnimation</span>.<span class="keyword">init</span>(keyPath: keypath)</span><br><span class="line">            lineAnimationTwo.beginTime = <span class="type">CACurrentMediaTime</span>() + duration/<span class="number">2</span></span><br><span class="line">            lineAnimationTwo.duration = duration/<span class="number">4</span></span><br><span class="line">            lineAnimationTwo.fillMode = kCAFillModeForwards</span><br><span class="line">            lineAnimationTwo.removedOnCompletion = <span class="literal">false</span></span><br><span class="line">            lineAnimationTwo.autoreverses = <span class="literal">true</span></span><br><span class="line">            lineAnimationTwo.fromValue = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="number">2</span> &#123;</span><br><span class="line">                lineAnimationTwo.toValue = lineLength/<span class="number">4</span></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                lineAnimationTwo.toValue = -lineLength/<span class="number">4</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> lineLayer = lines[i]</span><br><span class="line">            lineLayer.addAnimation(lineAnimationTwo, forKey: <span class="string">"lineAnimationTwo"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//三角形两边的比例</span></span><br><span class="line">        <span class="keyword">let</span> scale = (lineLength - <span class="number">2</span>*margin)/(lineLength - lineWidth)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="number">3</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> keypath = <span class="string">"transform.translation.y"</span></span><br><span class="line">            <span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">                keypath = <span class="string">"transform.translation.x"</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> lineAnimationTwo = <span class="type">CABasicAnimation</span>.<span class="keyword">init</span>(keyPath: keypath)</span><br><span class="line">            lineAnimationTwo.beginTime = <span class="type">CACurrentMediaTime</span>() + duration/<span class="number">2</span></span><br><span class="line">            lineAnimationTwo.duration = duration/<span class="number">4</span></span><br><span class="line">            lineAnimationTwo.fillMode = kCAFillModeForwards</span><br><span class="line">            lineAnimationTwo.removedOnCompletion = <span class="literal">false</span></span><br><span class="line">            lineAnimationTwo.autoreverses = <span class="literal">true</span></span><br><span class="line">            lineAnimationTwo.fromValue = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span> || i == <span class="number">3</span> &#123;</span><br><span class="line">                lineAnimationTwo.toValue = lineLength/<span class="number">4</span> * scale</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                lineAnimationTwo.toValue = -lineLength/<span class="number">4</span> * scale</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> lineLayer = lines[i]</span><br><span class="line">            lineLayer.addAnimation(lineAnimationTwo, forKey: <span class="string">"lineAnimationThree"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第四步线条恢复的原来长度的动画"><a href="#第四步线条恢复的原来长度的动画" class="headerlink" title="第四步线条恢复的原来长度的动画"></a>第四步线条恢复的原来长度的动画</h2><p>这里我们还是使用<code>CABasicAnimation</code>基础动画，<code>keyPath</code>作用于线条的<code>strokeEnd</code>属性，让<code>strokeEnd</code>从0到1来实现线条长短的动画，下面是效果图和代码：</p>
+<p><img src="http://img.blog.csdn.net/20160908174810436" alt="这里写图片描述"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     线的第三步动画，线由短变长</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">lineAnimationThree</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//线移动的动画</span></span><br><span class="line">        <span class="keyword">let</span> lineAnimationFour                 = <span class="type">CABasicAnimation</span>.<span class="keyword">init</span>(keyPath: <span class="string">"strokeEnd"</span>)</span><br><span class="line">        lineAnimationFour.beginTime            = <span class="type">CACurrentMediaTime</span>() + duration</span><br><span class="line">        lineAnimationFour.duration            = duration/<span class="number">4</span></span><br><span class="line">        lineAnimationFour.fillMode            = kCAFillModeForwards</span><br><span class="line">        lineAnimationFour.removedOnCompletion = <span class="literal">false</span></span><br><span class="line">        lineAnimationFour.fromValue           = <span class="number">0</span></span><br><span class="line">        lineAnimationFour.toValue             = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...<span class="number">3</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">3</span> &#123;</span><br><span class="line">                lineAnimationFour.delegate = <span class="keyword">self</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> lineLayer = lines[i]</span><br><span class="line">            lineLayer.addAnimation(lineAnimationFour, forKey: <span class="string">"lineAnimationFour"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最后一步需要将动画组合起来"><a href="#最后一步需要将动画组合起来" class="headerlink" title="最后一步需要将动画组合起来"></a>最后一步需要将动画组合起来</h2><p>关于动画组合我没用到<code>CAAnimationGroup</code>，因为这些动画并不是加到同一个layer上，再加上动画类型有点多加起来也比较麻烦，我就通过动画的<code>beginTime</code>属性来控制动画的执行顺序，还加了动画暂停喝继续的功能，效果和代码见下图：</p>
+<p><img src="http://img.blog.csdn.net/20160908175802790" alt="这里写图片描述"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: Public Methods</span></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     开始动画</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">startAnimation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        angleAnimation()</span><br><span class="line">        lineAnimationOne()</span><br><span class="line">        lineAnimationTwo()</span><br><span class="line">        lineAnimationThree()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">      暂停动画</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pauseAnimation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        layer.pauseAnimation()</span><br><span class="line">        <span class="keyword">for</span> lineLayer <span class="keyword">in</span> lines &#123;</span><br><span class="line">            lineLayer.pauseAnimation()</span><br><span class="line">        &#125;</span><br><span class="line">        status = .pause</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     继续动画</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">resumeAnimation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        layer.resumeAnimation()</span><br><span class="line">        <span class="keyword">for</span> lineLayer <span class="keyword">in</span> lines &#123;</span><br><span class="line">            lineLayer.resumeAnimation()</span><br><span class="line">        &#125;</span><br><span class="line">        status = .<span class="type">Animating</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">extension</span> <span class="title">CALayer</span> </span>&#123;</span><br><span class="line">    <span class="comment">//暂停动画</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pauseAnimation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 将当前时间CACurrentMediaTime转换为layer上的时间, 即将parent time转换为localtime</span></span><br><span class="line">        <span class="keyword">let</span> pauseTime = convertTime(<span class="type">CACurrentMediaTime</span>(), fromLayer: <span class="literal">nil</span>)</span><br><span class="line">        <span class="comment">// 设置layer的timeOffset, 在继续操作也会使用到</span></span><br><span class="line">        timeOffset    = pauseTime</span><br><span class="line">        <span class="comment">// localtime与parenttime的比例为0, 意味着localtime暂停了</span></span><br><span class="line">        speed         = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//继续动画</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">resumeAnimation</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> pausedTime = timeOffset</span><br><span class="line">        speed          = <span class="number">1</span></span><br><span class="line">        timeOffset     = <span class="number">0</span>;</span><br><span class="line">        beginTime      = <span class="number">0</span></span><br><span class="line">        <span class="comment">// 计算暂停时间</span></span><br><span class="line">        <span class="keyword">let</span> sincePause = convertTime(<span class="type">CACurrentMediaTime</span>(), fromLayer: <span class="literal">nil</span>) - pausedTime</span><br><span class="line">        <span class="comment">// local time相对于parent time时间的beginTime</span></span><br><span class="line">        beginTime      = sincePause</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: Animation Delegate</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">animationDidStart</span><span class="params">(anim: CAAnimation)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> animation = anim <span class="keyword">as</span>? <span class="type">CABasicAnimation</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> animation.keyPath == <span class="string">"transform.rotation.z"</span> &#123;</span><br><span class="line">                status = .<span class="type">Animating</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">animationDidStop</span><span class="params">(anim: CAAnimation, finished flag: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> animation = anim <span class="keyword">as</span>? <span class="type">CABasicAnimation</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> animation.keyPath == <span class="string">"strokeEnd"</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> flag &#123;</span><br><span class="line">                    status = .<span class="type">Normal</span></span><br><span class="line">                    dispatch_after(dispatch_time(<span class="type">DISPATCH_TIME_NOW</span>, <span class="type">Int64</span>(interval) * <span class="type">Int64</span>(<span class="type">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), &#123;</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">self</span>.status != .<span class="type">Animating</span> &#123;</span><br><span class="line">                            <span class="keyword">self</span>.startAnimation()</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//MARK: Override</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> status &#123;</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Animating</span>:</span><br><span class="line">            pauseAnimation()</span><br><span class="line">        <span class="keyword">case</span> .pause:</span><br><span class="line">            resumeAnimation()</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Normal</span>:</span><br><span class="line">            startAnimation()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>动画看起来挺复杂，但是细细划分出来也就那么回事，在写动画之前要先想好动画的步骤，这个很关键，希望大家通过这篇博客可以学到东西，有什么好的建议可以随时提出来，谢谢大家阅读~~<a href="https://github.com/631106979/WCLLoadingView" target="_blank" rel="external">demo地址</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS动画进阶进阶/" rel="tag">#iOS动画进阶进阶</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/24/iOS开发进阶-使用shell脚本自动打包上传到fir上/" rel="next" title=" iOS开发进阶 - 使用shell脚本自动打包上传到fir上">
+                <i class="fa fa-chevron-left"></i>  iOS开发进阶 - 使用shell脚本自动打包上传到fir上
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/"
+     data-title="iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画"
+     data-content=""
+     data-url="http://631106979/github.io/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/"
+           data-title="iOS开发进阶 - 手摸手教你写 Slack 的 Loading 动画" data-url="http://631106979/github.io/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140"
+               alt="W_C__L" />
+          <p class="site-author-name" itemprop="name">W_C__L</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/631106979" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/wang631106979" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关配置和初始化方法"><span class="nav-number">1.</span> <span class="nav-text">相关配置和初始化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过CAShapeLayer绘制线条"><span class="nav-number">2.</span> <span class="nav-text">通过CAShapeLayer绘制线条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画分解"><span class="nav-number">3.</span> <span class="nav-text">动画分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步画布旋转动画"><span class="nav-number">3.1.</span> <span class="nav-text">第一步画布旋转动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步线条由长变短的动画"><span class="nav-number">3.2.</span> <span class="nav-text">第二步线条由长变短的动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步线条的位移动画"><span class="nav-number">3.3.</span> <span class="nav-text">第三步线条的位移动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步线条恢复的原来长度的动画"><span class="nav-number">3.4.</span> <span class="nav-text">第四步线条恢复的原来长度的动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后一步需要将动画组合起来"><span class="nav-number">3.5.</span> <span class="nav-text">最后一步需要将动画组合起来</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">W_C__L</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"imwcl"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("h5TFTaYd4vSD30AbJR4yoqI7-gzGzoHsz", "SxOSQ7muMvq1jf3aWSIOseEH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
