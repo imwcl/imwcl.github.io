@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[iOS动画进阶 - 手摸手教你写 Slack 的 Loading 动画]]></title>
-      <url>http://631106979/github.io/2016/09/08/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99-Slack-%E7%9A%84-Loading-%E5%8A%A8%E7%94%BB/</url>
+      <url>http://imwcl.com/2016/09/08/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99-Slack-%E7%9A%84-Loading-%E5%8A%A8%E7%94%BB/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>前几天看了一篇关于动画的博客叫<a href="http://www.diycode.cc/topics/240" target="_blank" rel="external">手摸手教你写 Slack 的 Loading 动画</a>，看着挺炫，但是是安卓版的，寻思的着仿造着写一篇iOS版的，下面是我写这个动画的分解~</p>
 </blockquote>
@@ -47,7 +47,7 @@
     
     <entry>
       <title><![CDATA[ iOS开发进阶 - 使用shell脚本自动打包上传到fir上]]></title>
-      <url>http://631106979/github.io/2016/08/24/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0fir%E4%B8%8A/</url>
+      <url>http://imwcl.com/2016/08/24/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0fir%E4%B8%8A/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>用fir.im测试已经好长时间了，感觉每次打包上传都很麻烦，想着是不是可以用脚本自动打包，在网上搜了一下确实有，下面总结一下如何使用脚本自动打包上传到fir.im，以及打包过程中遇到的问题和解决办法</p>
 </blockquote>
@@ -105,7 +105,7 @@
     
     <entry>
       <title><![CDATA[iOS开发进阶 - 实现类似美颜相机的相机启动动画]]></title>
-      <url>http://631106979/github.io/2016/08/16/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E7%BE%8E%E9%A2%9C%E7%9B%B8%E6%9C%BA%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/</url>
+      <url>http://imwcl.com/2016/08/16/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E7%BE%8E%E9%A2%9C%E7%9B%B8%E6%9C%BA%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>最近在写一个相册的demo，偶尔看到了美拍的相机过载动画觉得很有意思，就想在我的相册demo中加入一个这种特效，下面把我的想法和实现过程给大家分享一下</p>
 </blockquote>
@@ -136,7 +136,7 @@
     
     <entry>
       <title><![CDATA[iOS开发进阶 - 隐藏UINavigationBar的小技巧]]></title>
-      <url>http://631106979/github.io/2016/07/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%9A%90%E8%97%8FUINavigationBar%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+      <url>http://imwcl.com/2016/07/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%9A%90%E8%97%8FUINavigationBar%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~</p>
 </blockquote>
@@ -159,7 +159,7 @@
     
     <entry>
       <title><![CDATA[GCD深入学习之GCD的初识]]></title>
-      <url>http://631106979/github.io/2016/06/27/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0%E4%B9%8BGCD%E7%9A%84%E5%88%9D%E8%AF%86/</url>
+      <url>http://imwcl.com/2016/06/27/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0%E4%B9%8BGCD%E7%9A%84%E5%88%9D%E8%AF%86/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>现在网上关于GCD的介绍已经很多了，在项目中也经常用到，但是没怎么深入研究过，打算写一系列关于GCD使用，参考其他大神写的博客和Apple的技术文档总结一下，一是自己深入学习一下，二是以后忘了可以回过头来温习一下~</p>
 </blockquote>
@@ -323,7 +323,7 @@
     
     <entry>
       <title><![CDATA[iOS开发进阶 - CAKeyframeAnimation实现过山车动画]]></title>
-      <url>http://631106979/github.io/2016/06/22/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20CAKeyframeAnimation%E5%AE%9E%E7%8E%B0%E8%BF%87%E5%B1%B1%E8%BD%A6%E5%8A%A8%E7%94%BB/</url>
+      <url>http://imwcl.com/2016/06/22/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20CAKeyframeAnimation%E5%AE%9E%E7%8E%B0%E8%BF%87%E5%B1%B1%E8%BD%A6%E5%8A%A8%E7%94%BB/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>偶然间在网页上看到一个<a href="http://www.html5tricks.com/demo/html5-svg-shanche-animation/index.html" target="_blank" rel="external">过山车动画</a>觉得很炫，就想用<code>swift</code>纯代码实现了一个类似的效果，因为没有设计天赋，所以就完全高仿的人家的效果-.-下面上效果图：</p>
 </blockquote>
@@ -367,7 +367,7 @@
     
     <entry>
       <title><![CDATA[iOS开发进阶 - 实现类似微信和支付宝的密码输入框（UIKeyInput协议）]]></title>
-      <url>http://631106979/github.io/2016/06/02/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E5%BE%AE%E4%BF%A1%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E7%9A%84%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%EF%BC%88UIKeyInput%E5%8D%8F%E8%AE%AE%EF%BC%89/</url>
+      <url>http://imwcl.com/2016/06/02/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E5%BE%AE%E4%BF%A1%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E7%9A%84%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%EF%BC%88UIKeyInput%E5%8D%8F%E8%AE%AE%EF%BC%89/</url>
       <content type="html"><![CDATA[<p>目前在项目中需要实现发红包的功能，自己就写了一个密码输入框的控件，主要用到了<code>UIKeyInput</code>协议和<code>CoreGraphics</code>框架，效果类似微信支付，感觉还行就把我的思路和制作过程写下来给大家分享一下。（<a href="https://github.com/631106979/WCLPassWordView" target="_blank" rel="external">demo地址</a>觉得有用的可以star一下）</p>
 <p><img src="http://ww2.sinaimg.cn/large/72f96cbagw1f4g3avwocig20a80ii78g" alt="wcl.gif"></p>
 <a id="more"></a>
@@ -383,7 +383,7 @@
     
     <entry>
       <title><![CDATA[iOS开发进阶 - 用AVFoundation自定义视频录制功能]]></title>
-      <url>http://631106979/github.io/2016/05/25/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20%E7%94%A8AVFoundation%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8A%9F%E8%83%BD/</url>
+      <url>http://imwcl.com/2016/05/25/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20%E7%94%A8AVFoundation%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8A%9F%E8%83%BD/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>系统自带的录制视频的功能显然无法满足美工和项目经理的要求，自定义视频录制就非常重要了，那么下面来带大家制作属于自己的视频录制界面。</p>
 </blockquote>
@@ -435,7 +435,7 @@
     
     <entry>
       <title><![CDATA[iOS开发-通过PUT请求上传数据]]></title>
-      <url>http://631106979/github.io/2016/05/17/iOS%E5%BC%80%E5%8F%91-%E9%80%9A%E8%BF%87PUT%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE/</url>
+      <url>http://imwcl.com/2016/05/17/iOS%E5%BC%80%E5%8F%91-%E9%80%9A%E8%BF%87PUT%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>一般服务器上传数据一般都是用POST请求，这样通过AFNetworking的POST请求稳稳的，但是有一天遇到一个问题，服务器上传数据用的是PUT请求，发现用AFNetworking并不是那么好用，今天就来讲一下如何通过PUT请求上传数据。</p>
 </blockquote>
@@ -456,7 +456,7 @@
     
     <entry>
       <title><![CDATA[iOS开发 - 使用自定义字体]]></title>
-      <url>http://631106979/github.io/2016/05/16/iOS%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/</url>
+      <url>http://imwcl.com/2016/05/16/iOS%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/</url>
       <content type="html"><![CDATA[<p>APP开发过程中，根据美工的需求可能会用到一些特殊的字体，然而在苹果自带字体中并没有，那就必须我们开发来来实现这些功能呢，下面以<strong>冬青黑体简体中文(Hiragino Sans GB)</strong>为例子给大家演示一下自定义字体的步骤：<br><a id="more"></a></p>
 <ul>
 <li>首先将下好的字体放到工程里面</li>
@@ -481,7 +481,7 @@
     
     <entry>
       <title><![CDATA[CALayer学习之CAEmitterLayer，粒子发射系统]]></title>
-      <url>http://631106979/github.io/2016/04/27/CALayer%E5%AD%A6%E4%B9%A0%E4%B9%8BCAEmitterLayer%EF%BC%8C%E7%B2%92%E5%AD%90%E5%8F%91%E5%B0%84%E7%B3%BB%E7%BB%9F/</url>
+      <url>http://imwcl.com/2016/04/27/CALayer%E5%AD%A6%E4%B9%A0%E4%B9%8BCAEmitterLayer%EF%BC%8C%E7%B2%92%E5%AD%90%E5%8F%91%E5%B0%84%E7%B3%BB%E7%BB%9F/</url>
       <content type="html"><![CDATA[<p><strong>CAEmitterLayer</strong>是ios5中苹果引入了一个新的CALayer子类。CAEmitterLayer是一个高性能的粒子引擎，可以用来做一些绚丽的粒子系统，比如爆炸，雪花火焰等等。</p>
 <ul>
 <li><a href="http://blog.csdn.net/wang631106979/article/details/51258020" target="_blank" rel="external">CSDN链接地址</a></li>
@@ -720,7 +720,7 @@
     
     <entry>
       <title><![CDATA[github SSH秘钥配置]]></title>
-      <url>http://631106979/github.io/2016/04/22/github-SSH-Configure/</url>
+      <url>http://imwcl.com/2016/04/22/github-SSH-Configure/</url>
       <content type="html"><![CDATA[<h2 id="github-SSH秘钥配置"><a href="#github-SSH秘钥配置" class="headerlink" title="github SSH秘钥配置"></a>github SSH秘钥配置</h2><p>从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。<br><a id="more"></a></p>
 <h2 id="如何创建SSH"><a href="#如何创建SSH" class="headerlink" title="如何创建SSH"></a>如何创建SSH</h2><p>打开你的终端，输入<strong>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”</strong>，里面的邮箱是你的github账号，然后会弹出<strong>Enter file in which to save the key (/Users/wangchonglei/.ssh/id_rsa):</strong>这里是系统默认的保存地址和文件名，你可以更改，例如：<strong>/Users/wangchonglei/.ssh/girhub_rsa</strong>（记住：不同的账号需要起不一样的名字），然后一直回车会出现类似下面这样的文字，就说明创建成功了；</p>
 <p>The key’s randomart image is:<br>+—[RSA 2048]—-+<br>| o|<br>| . ..|<br>| o o o .|<br>| o + = = |<br>| . . S = o +oo|<br>| E o = + .. =|<br>| + + .+ =.|<br>| .<em> .o BB=|<br>| o=.o. o*</em>O|<br>+—-[SHA256]—–+</p>
@@ -733,7 +733,7 @@
     
     <entry>
       <title><![CDATA[常用的Xcode插件]]></title>
-      <url>http://631106979/github.io/2016/04/22/Xcode-Plug-In/</url>
+      <url>http://imwcl.com/2016/04/22/Xcode-Plug-In/</url>
       <content type="html"><![CDATA[<h2 id="Alcatraz-插件管理工具"><a href="#Alcatraz-插件管理工具" class="headerlink" title="Alcatraz - 插件管理工具"></a><a href="https://github.com/mneorr/Alcatraz" target="_blank" rel="external">Alcatraz</a> - 插件管理工具</h2><p>Alcatraz是一个开源的Xcode插件管理器，可以让你更便捷地发现、安装以及管理插件、模板和配色方案。只需要简单地点击或者勾选，就能下载安装和删除插件，建议选择的第一个Xcode插件。<br>下载完成后通过Window—&gt;Package Manager来打开。<br><a id="more"></a><br><img src="http://img.blog.csdn.net/20160325225549776" alt="这里写图片描述"></p>
 <hr>
 <h2 id="VVDocumenter-规范注释生成器"><a href="#VVDocumenter-规范注释生成器" class="headerlink" title="VVDocumenter  - 规范注释生成器"></a><a href="https://github.com/onevcat/VVDocumenter-Xcode" target="_blank" rel="external">VVDocumenter</a>  - 规范注释生成器</h2><p> VVDocumenter是一个规范化的代码注释插件，在协同开发的时候，每个人的代码风格不一样，那么必要的代码注释就显得很关键，那么VVDocumenter一定是最好的选择，在需要填写注释的属性和方法上下只需要输入三个斜线”///“，就能生成相应的代码注释了，支持Xcode和swift。<br><img src="http://img.blog.csdn.net/20160325234457278" alt="这里写图片描述"></p>

@@ -1535,7 +1535,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7e9670;
+  background: #04ad46;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2497,4 +2497,36 @@ a.search-result {
 }
 body {
   background: url("/images/backGround.jpg");
+}
+.site-author:before,
+.site-author:after {
+  content: " ";
+  display: table;
+}
+.site-author:after {
+  clear: both;
+}
+::selection {
+  background: #262a30;
+  color: #fff;
+}
+.site-author-image {
+  display: block;
+  margin: 0 auto;
+  padding: 2px;
+  max-width: 120px;
+  height: auto;
+  border: 1px solid #eee;
+}
+.site-author-name {
+  margin: 0;
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+}
+.site-description {
+  margin-top: 0;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
 }

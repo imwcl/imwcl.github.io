@@ -4,9 +4,9 @@
   <subtitle>我们都老得太快   却聪明的太迟~</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://631106979/github.io/"/>
+  <link href="http://imwcl.com/"/>
   <updated>2016-09-08T10:32:46.000Z</updated>
-  <id>http://631106979/github.io/</id>
+  <id>http://imwcl.com/</id>
   
   <author>
     <name>W_C__L</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>iOS动画进阶 - 手摸手教你写 Slack 的 Loading 动画</title>
-    <link href="http://631106979/github.io/2016/09/08/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99-Slack-%E7%9A%84-Loading-%E5%8A%A8%E7%94%BB/"/>
-    <id>http://631106979/github.io/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/</id>
+    <link href="http://imwcl.com/2016/09/08/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99-Slack-%E7%9A%84-Loading-%E5%8A%A8%E7%94%BB/"/>
+    <id>http://imwcl.com/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/</id>
     <published>2016-09-08T10:08:43.000Z</published>
     <updated>2016-09-08T10:32:46.000Z</updated>
     
@@ -72,14 +72,14 @@
     </summary>
     
     
-      <category term="iOS动画进阶进阶" scheme="http://631106979/github.io/tags/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS动画进阶进阶" scheme="http://imwcl.com/tags/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
   <entry>
     <title> iOS开发进阶 - 使用shell脚本自动打包上传到fir上</title>
-    <link href="http://631106979/github.io/2016/08/24/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0fir%E4%B8%8A/"/>
-    <id>http://631106979/github.io/2016/08/24/iOS开发进阶-使用shell脚本自动打包上传到fir上/</id>
+    <link href="http://imwcl.com/2016/08/24/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0fir%E4%B8%8A/"/>
+    <id>http://imwcl.com/2016/08/24/iOS开发进阶-使用shell脚本自动打包上传到fir上/</id>
     <published>2016-08-24T04:07:06.000Z</published>
     <updated>2016-08-24T04:12:55.000Z</updated>
     
@@ -148,14 +148,14 @@
     </summary>
     
     
-      <category term="iOS开发进阶 shell脚本" scheme="http://631106979/github.io/tags/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-shell%E8%84%9A%E6%9C%AC/"/>
+      <category term="iOS开发进阶 shell脚本" scheme="http://imwcl.com/tags/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-shell%E8%84%9A%E6%9C%AC/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 实现类似美颜相机的相机启动动画</title>
-    <link href="http://631106979/github.io/2016/08/16/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E7%BE%8E%E9%A2%9C%E7%9B%B8%E6%9C%BA%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/"/>
-    <id>http://631106979/github.io/2016/08/16/iOS开发进阶-实现类似美颜相机的相机启动动画/</id>
+    <link href="http://imwcl.com/2016/08/16/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E7%BE%8E%E9%A2%9C%E7%9B%B8%E6%9C%BA%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/"/>
+    <id>http://imwcl.com/2016/08/16/iOS开发进阶-实现类似美颜相机的相机启动动画/</id>
     <published>2016-08-16T07:59:59.000Z</published>
     <updated>2016-08-16T08:01:11.000Z</updated>
     
@@ -197,14 +197,14 @@
     </summary>
     
     
-      <category term="iOS动画" scheme="http://631106979/github.io/tags/iOS%E5%8A%A8%E7%94%BB/"/>
+      <category term="iOS动画" scheme="http://imwcl.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 隐藏UINavigationBar的小技巧</title>
-    <link href="http://631106979/github.io/2016/07/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%9A%90%E8%97%8FUINavigationBar%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>http://631106979/github.io/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/</id>
+    <link href="http://imwcl.com/2016/07/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%9A%90%E8%97%8FUINavigationBar%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/</id>
     <published>2016-07-28T15:45:24.000Z</published>
     <updated>2016-07-28T15:48:24.000Z</updated>
     
@@ -239,14 +239,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://631106979/github.io/tags/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>GCD深入学习之GCD的初识</title>
-    <link href="http://631106979/github.io/2016/06/27/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0%E4%B9%8BGCD%E7%9A%84%E5%88%9D%E8%AF%86/"/>
-    <id>http://631106979/github.io/2016/06/27/GCD深入学习之GCD的初识/</id>
+    <link href="http://imwcl.com/2016/06/27/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0%E4%B9%8BGCD%E7%9A%84%E5%88%9D%E8%AF%86/"/>
+    <id>http://imwcl.com/2016/06/27/GCD深入学习之GCD的初识/</id>
     <published>2016-06-27T15:01:41.000Z</published>
     <updated>2016-06-30T02:57:05.000Z</updated>
     
@@ -424,14 +424,14 @@
     </summary>
     
     
-      <category term="GCD" scheme="http://631106979/github.io/tags/GCD/"/>
+      <category term="GCD" scheme="http://imwcl.com/tags/GCD/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - CAKeyframeAnimation实现过山车动画</title>
-    <link href="http://631106979/github.io/2016/06/22/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20CAKeyframeAnimation%E5%AE%9E%E7%8E%B0%E8%BF%87%E5%B1%B1%E8%BD%A6%E5%8A%A8%E7%94%BB/"/>
-    <id>http://631106979/github.io/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/</id>
+    <link href="http://imwcl.com/2016/06/22/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20CAKeyframeAnimation%E5%AE%9E%E7%8E%B0%E8%BF%87%E5%B1%B1%E8%BD%A6%E5%8A%A8%E7%94%BB/"/>
+    <id>http://imwcl.com/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/</id>
     <published>2016-06-22T14:40:52.000Z</published>
     <updated>2016-06-22T14:45:25.000Z</updated>
     
@@ -485,14 +485,14 @@
     </summary>
     
     
-      <category term="CALayer" scheme="http://631106979/github.io/tags/CALayer/"/>
+      <category term="CALayer" scheme="http://imwcl.com/tags/CALayer/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 实现类似微信和支付宝的密码输入框（UIKeyInput协议）</title>
-    <link href="http://631106979/github.io/2016/06/02/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E5%BE%AE%E4%BF%A1%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E7%9A%84%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%EF%BC%88UIKeyInput%E5%8D%8F%E8%AE%AE%EF%BC%89/"/>
-    <id>http://631106979/github.io/2016/06/02/iOS开发进阶-实现类似微信和支付宝的密码输入框（UIKeyInput协议）/</id>
+    <link href="http://imwcl.com/2016/06/02/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E5%BE%AE%E4%BF%A1%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E7%9A%84%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%EF%BC%88UIKeyInput%E5%8D%8F%E8%AE%AE%EF%BC%89/"/>
+    <id>http://imwcl.com/2016/06/02/iOS开发进阶-实现类似微信和支付宝的密码输入框（UIKeyInput协议）/</id>
     <published>2016-06-02T05:57:31.000Z</published>
     <updated>2016-07-28T15:48:34.000Z</updated>
     
@@ -516,14 +516,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://631106979/github.io/tags/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 用AVFoundation自定义视频录制功能</title>
-    <link href="http://631106979/github.io/2016/05/25/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20%E7%94%A8AVFoundation%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8A%9F%E8%83%BD/"/>
-    <id>http://631106979/github.io/2016/05/25/iOS开发进阶 - 用AVFoundation自定义视频录制功能/</id>
+    <link href="http://imwcl.com/2016/05/25/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20%E7%94%A8AVFoundation%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8A%9F%E8%83%BD/"/>
+    <id>http://imwcl.com/2016/05/25/iOS开发进阶 - 用AVFoundation自定义视频录制功能/</id>
     <published>2016-05-25T06:09:01.000Z</published>
     <updated>2016-07-28T15:49:01.000Z</updated>
     
@@ -585,17 +585,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://631106979/github.io/categories/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/categories/iOS/"/>
     
     
-      <category term="AVFoundation" scheme="http://631106979/github.io/tags/AVFoundation/"/>
+      <category term="AVFoundation" scheme="http://imwcl.com/tags/AVFoundation/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发-通过PUT请求上传数据</title>
-    <link href="http://631106979/github.io/2016/05/17/iOS%E5%BC%80%E5%8F%91-%E9%80%9A%E8%BF%87PUT%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE/"/>
-    <id>http://631106979/github.io/2016/05/17/iOS开发-通过PUT请求上传数据/</id>
+    <link href="http://imwcl.com/2016/05/17/iOS%E5%BC%80%E5%8F%91-%E9%80%9A%E8%BF%87PUT%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE/"/>
+    <id>http://imwcl.com/2016/05/17/iOS开发-通过PUT请求上传数据/</id>
     <published>2016-05-17T14:19:41.000Z</published>
     <updated>2016-07-28T15:48:54.000Z</updated>
     
@@ -625,14 +625,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://631106979/github.io/tags/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发 - 使用自定义字体</title>
-    <link href="http://631106979/github.io/2016/05/16/iOS%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/"/>
-    <id>http://631106979/github.io/2016/05/16/iOS开发-使用自定义字体/</id>
+    <link href="http://imwcl.com/2016/05/16/iOS%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/"/>
+    <id>http://imwcl.com/2016/05/16/iOS开发-使用自定义字体/</id>
     <published>2016-05-16T04:05:57.000Z</published>
     <updated>2016-07-28T15:48:51.000Z</updated>
     
@@ -664,14 +664,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://631106979/github.io/tags/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>CALayer学习之CAEmitterLayer，粒子发射系统</title>
-    <link href="http://631106979/github.io/2016/04/27/CALayer%E5%AD%A6%E4%B9%A0%E4%B9%8BCAEmitterLayer%EF%BC%8C%E7%B2%92%E5%AD%90%E5%8F%91%E5%B0%84%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://631106979/github.io/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/</id>
+    <link href="http://imwcl.com/2016/04/27/CALayer%E5%AD%A6%E4%B9%A0%E4%B9%8BCAEmitterLayer%EF%BC%8C%E7%B2%92%E5%AD%90%E5%8F%91%E5%B0%84%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://imwcl.com/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/</id>
     <published>2016-04-27T03:08:19.000Z</published>
     <updated>2016-07-28T15:48:47.000Z</updated>
     
@@ -922,17 +922,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://631106979/github.io/categories/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/categories/iOS/"/>
     
     
-      <category term="CALayer" scheme="http://631106979/github.io/tags/CALayer/"/>
+      <category term="CALayer" scheme="http://imwcl.com/tags/CALayer/"/>
     
   </entry>
   
   <entry>
     <title>github SSH秘钥配置</title>
-    <link href="http://631106979/github.io/2016/04/22/github-SSH-Configure/"/>
-    <id>http://631106979/github.io/2016/04/22/github-SSH-Configure/</id>
+    <link href="http://imwcl.com/2016/04/22/github-SSH-Configure/"/>
+    <id>http://imwcl.com/2016/04/22/github-SSH-Configure/</id>
     <published>2016-04-22T15:33:59.000Z</published>
     <updated>2016-04-23T07:11:48.000Z</updated>
     
@@ -951,17 +951,17 @@
     
     </summary>
     
-      <category term="git" scheme="http://631106979/github.io/categories/git/"/>
+      <category term="git" scheme="http://imwcl.com/categories/git/"/>
     
     
-      <category term="git" scheme="http://631106979/github.io/tags/git/"/>
+      <category term="git" scheme="http://imwcl.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>常用的Xcode插件</title>
-    <link href="http://631106979/github.io/2016/04/22/Xcode-Plug-In/"/>
-    <id>http://631106979/github.io/2016/04/22/Xcode-Plug-In/</id>
+    <link href="http://imwcl.com/2016/04/22/Xcode-Plug-In/"/>
+    <id>http://imwcl.com/2016/04/22/Xcode-Plug-In/</id>
     <published>2016-04-22T14:47:06.000Z</published>
     <updated>2016-07-28T15:48:38.000Z</updated>
     
@@ -990,10 +990,10 @@
     
     </summary>
     
-      <category term="Xcode" scheme="http://631106979/github.io/categories/Xcode/"/>
+      <category term="Xcode" scheme="http://imwcl.com/categories/Xcode/"/>
     
     
-      <category term="iOS" scheme="http://631106979/github.io/tags/iOS/"/>
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
