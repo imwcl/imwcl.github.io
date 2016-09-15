@@ -1535,7 +1535,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #04ad46;
+  background: #ff1c9a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2498,21 +2498,12 @@ a.search-result {
 body {
   background: url("/images/backGround.jpg");
 }
-.site-author:before,
-.site-author:after {
-  content: " ";
-  display: table;
-}
-.site-author:after {
-  clear: both;
-}
-::selection {
-  background: #262a30;
-  color: #fff;
-}
 .site-author-image {
   display: block;
-  margin: 0 auto;
+  margin-top: 0px;
+  margin-right: 45px;
+  margin-bottom: 0px;
+  margin-left: 45px;
   padding: 2px;
   max-width: 120px;
   height: auto;
