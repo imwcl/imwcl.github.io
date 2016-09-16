@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CALayer," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -94,33 +94,40 @@
 
 
 
-<meta name="description" content="CAEmitterLayer是ios5中苹果引入了一个新的CALayer子类。CAEmitterLayer是一个高性能的粒子引擎，可以用来做一些绚丽的粒子系统，比如爆炸，雪花火焰等等。
+<meta name="description" content="使用XMPP已经有一段时间了，但是一直都没深入研究过，只是使用SDK做一些简单的操作，看了许多大神的博客，自己总结一下，准备写一系列关于XMPP的使用博客，以便于自己更加深入学习~
 
-CSDN链接地址
-demo的github下载地址（大家喜欢可以点个star）
-
-基于CAEmitterLayer做的点赞效果图：">
+IM协议及服务器选型http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/协议选型：XMPP已经成为标准的IM协议。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CALayer学习之CAEmitterLayer，粒子发射系统">
-<meta property="og:url" content="http://imwcl.com/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/index.html">
+<meta property="og:title" content="iOS基于XMPP实现即时通讯之一、环境的搭建">
+<meta property="og:url" content="http://imwcl.com/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="CAEmitterLayer是ios5中苹果引入了一个新的CALayer子类。CAEmitterLayer是一个高性能的粒子引擎，可以用来做一些绚丽的粒子系统，比如爆炸，雪花火焰等等。
+<meta property="og:description" content="使用XMPP已经有一段时间了，但是一直都没深入研究过，只是使用SDK做一些简单的操作，看了许多大神的博客，自己总结一下，准备写一系列关于XMPP的使用博客，以便于自己更加深入学习~
 
-CSDN链接地址
-demo的github下载地址（大家喜欢可以点个star）
-
-基于CAEmitterLayer做的点赞效果图：">
-<meta property="og:image" content="http://img.blog.csdn.net/20160426232735405">
-<meta property="og:updated_time" content="2016-07-28T15:48:47.000Z">
+IM协议及服务器选型http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/协议选型：XMPP已经成为标准的IM协议。">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916132616906">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916132635422">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916140022624">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916140241828">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916141553080">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916141613117">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916143123858">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916160948387">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193304787">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193312553">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193322506">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193331803">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193340006">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193348913">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193404522">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193412210">
+<meta property="og:image" content="http://img.blog.csdn.net/20160916193422991">
+<meta property="og:updated_time" content="2016-09-16T11:42:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CALayer学习之CAEmitterLayer，粒子发射系统">
-<meta name="twitter:description" content="CAEmitterLayer是ios5中苹果引入了一个新的CALayer子类。CAEmitterLayer是一个高性能的粒子引擎，可以用来做一些绚丽的粒子系统，比如爆炸，雪花火焰等等。
+<meta name="twitter:title" content="iOS基于XMPP实现即时通讯之一、环境的搭建">
+<meta name="twitter:description" content="使用XMPP已经有一段时间了，但是一直都没深入研究过，只是使用SDK做一些简单的操作，看了许多大神的博客，自己总结一下，准备写一系列关于XMPP的使用博客，以便于自己更加深入学习~
 
-CSDN链接地址
-demo的github下载地址（大家喜欢可以点个star）
-
-基于CAEmitterLayer做的点赞效果图：">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160426232735405">
+IM协议及服务器选型http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/协议选型：XMPP已经成为标准的IM协议。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160916132616906">
 
 
 
@@ -138,7 +145,7 @@ demo的github下载地址（大家喜欢可以点个star）
   };
 </script>
 
-  <title> CALayer学习之CAEmitterLayer，粒子发射系统 | W_C__L </title>
+  <title> iOS基于XMPP实现即时通讯之一、环境的搭建 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +318,7 @@ demo的github下载地址（大家喜欢可以点个star）
             
             
               
-                CALayer学习之CAEmitterLayer，粒子发射系统
+                iOS基于XMPP实现即时通讯之一、环境的搭建
               
             
           </h1>
@@ -323,8 +330,8 @@ demo的github下载地址（大家喜欢可以点个star）
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:08:19+08:00" content="2016-04-27">
-              2016-04-27
+            <time itemprop="dateCreated" datetime="2016-09-16T13:27:59+08:00" content="2016-09-16">
+              2016-09-16
             </time>
           </span>
 
@@ -337,8 +344,8 @@ demo的github下载地址（大家喜欢可以点个star）
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/XMPP学习/" itemprop="url" rel="index">
+                    <span itemprop="name">XMPP学习</span>
                   </a>
                 </span>
 
@@ -353,8 +360,8 @@ demo的github下载地址（大家喜欢可以点个star）
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/" itemprop="commentsCount"></span>
+                <a href="/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -364,7 +371,7 @@ demo的github下载地址（大家喜欢可以点个star）
 
           
           
-            <span id="/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/" class="leancloud_visitors" data-flag-title="CALayer学习之CAEmitterLayer，粒子发射系统">
+            <span id="/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/" class="leancloud_visitors" data-flag-title="iOS基于XMPP实现即时通讯之一、环境的搭建">
                 &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -387,239 +394,82 @@ demo的github下载地址（大家喜欢可以点个star）
       
 
       
-        <p><strong>CAEmitterLayer</strong>是ios5中苹果引入了一个新的CALayer子类。CAEmitterLayer是一个高性能的粒子引擎，可以用来做一些绚丽的粒子系统，比如爆炸，雪花火焰等等。</p>
-<ul>
-<li><a href="http://blog.csdn.net/wang631106979/article/details/51258020" target="_blank" rel="external">CSDN链接地址</a></li>
-<li><a href="https://github.com/631106979/WclEmitterButton" target="_blank" rel="external">demo的github下载地址（大家喜欢可以点个star）</a></li>
-</ul>
-<p>基于CAEmitterLayer做的点赞效果图：</p>
-<p><img src="http://img.blog.csdn.net/20160426232735405" alt="效果图"></p>
+        <blockquote>
+<p>使用XMPP已经有一段时间了，但是一直都没深入研究过，只是使用SDK做一些简单的操作，看了许多大神的博客，自己总结一下，准备写一系列关于XMPP的使用博客，以便于自己更加深入学习~</p>
+</blockquote>
+<h1 id="IM协议及服务器选型"><a href="#IM协议及服务器选型" class="headerlink" title="IM协议及服务器选型"></a>IM协议及服务器选型</h1><p><a href="http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/" target="_blank" rel="external">http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/</a><br>协议选型：<strong>XMPP</strong>已经成为标准的IM协议。<strong>XMPP</strong>官网：<a href="http://XMPP.org/" target="_blank" rel="external">http://XMPP.org/</a><br>服务器型：使用广泛的是ejabberd，jabberd 2.x， Openfire，Tigase。从编程语言角度来看主要是JAVA和Erlang。JAVA语言的优势是类库完备，容易招人。Erlang的优势是hot code swap，live console， 高并发。而且ejabberd是对XMPP协议支持最好、实现最为全面的server。因此企业在不考虑独立开发服务器的情况下，初期选型基本建议采用ejabberd。</p>
+<p>本文我们主要实践iOS端流程，不考虑太多服务器实现，因为Openfire易安装，插件功能丰富，我们使用<strong>Openfire</strong></p>
 <a id="more"></a>
-<h2 id="CAEmitterCell"><a href="#CAEmitterCell" class="headerlink" title="CAEmitterCell"></a>CAEmitterCell</h2><p><strong>CAEmitterCell</strong>: CAEmitterCell是粒子发射系统里的粒子，用CAEmitterCell来定义你所需要的粒子的样式，图片，颜色，方向，运动，缩放比例和生命周期等等。</p>
+<h1 id="MAC上搭建MySQL"><a href="#MAC上搭建MySQL" class="headerlink" title="MAC上搭建MySQL"></a>MAC上搭建MySQL</h1><p>因为服务器需要数据库支撑，所以我们在搭建Openfire前要先搭建数据库。</p>
+<h2 id="下载MySQL安装包"><a href="#下载MySQL安装包" class="headerlink" title="下载MySQL安装包"></a>下载MySQL安装包</h2><p>我们先去<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external"><strong>MySQL官网</strong></a>去下载<strong>MySQL</strong>的安装包，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160916132616906" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160916132635422" alt="这里写图片描述"></p>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>下载完后，开始安装<strong>MySQL</strong>如下图：</p>
+<p><img src="http://img.blog.csdn.net/20160916140022624" alt="这里写图片描述"></p>
+<p><strong>注意事项：</strong>因为安装完<strong>MySQL</strong>后它会自动给你生成一个密码，所以你要保存好这个密码，后面修改密码的时候会用到，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160916140241828" alt="这里写图片描述"></p>
+<h2 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h2><h3 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h3><p>首先在设置里面找到MySQL的启动按钮，启动MySQL服务，如下图：</p>
+<p><img src="http://img.blog.csdn.net/20160916141553080" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160916141613117" alt="这里写图片描述"></p>
+<h3 id="定义MySQL别名"><a href="#定义MySQL别名" class="headerlink" title="定义MySQL别名"></a>定义MySQL别名</h3><p>然后需要将<strong>MySQL</strong>的指令重新定义一下，因为<strong>MySQL</strong>的指令集在<code>/usr/local/mysql/bin/mysql</code>路径下，需要执行一下命令行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 定义mysql别名</span><br><span class="line">alias mysql=/usr/local/mysql/bin/mysql</span><br><span class="line"># mysqladmin</span><br><span class="line">alias mysqladmin=/usr/local/mysql/bin/mysqladmin</span><br></pre></td></tr></table></figure>
+<h3 id="修改MySQL账户密码"><a href="#修改MySQL账户密码" class="headerlink" title="修改MySQL账户密码"></a>修改MySQL账户密码</h3><p>之前安装完成后系统给我们了一个默认的密码，因为那个密码很繁琐不容易记住，所以我们需要重新设置一个密码，我们先输入如下指令设置新密码，”newpassword”为你要设置的新密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password &quot;newpassword&quot;</span><br><span class="line">#然后 Enter password: 【输入原来的密码】</span><br></pre></td></tr></table></figure>
+<p>如下图所示表示密码修改成功：</p>
+<p><img src="http://img.blog.csdn.net/20160916143123858" alt="这里写图片描述"></p>
+<p>完成后以后root账户需要密码就用你新设置的密码就行了~</p>
+<h3 id="连接数据库，创建Openfire数据库"><a href="#连接数据库，创建Openfire数据库" class="headerlink" title="连接数据库，创建Openfire数据库"></a>连接数据库，创建Openfire数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 连接数据库</span><br><span class="line">mysql -u root -p</span><br><span class="line"># 创建Openfire数据库</span><br><span class="line">create database openfire;</span><br></pre></td></tr></table></figure>
+<h2 id="完全卸载MySQL"><a href="#完全卸载MySQL" class="headerlink" title="完全卸载MySQL"></a>完全卸载MySQL</h2><p>在系统内存不够时有时候我们会需要删除掉<strong>MySQL</strong>，一下就是删除<strong>MySQL</strong>的方法：</p>
+<p>从 <strong>Yosemite</strong> 系统开始，<code>/etc/hostconfig</code> 这个文件已经移除，所以 <strong>Yosemite</strong> 后的系统可以忽略下面的命令</p>
+<p><code>sudo nano /etc/hostconfig</code>  </p>
+<p>然后以下是终端执行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/local/mysql  </span><br><span class="line">sudo rm -rf /usr/local/mysql*  </span><br><span class="line">sudo rm -rf /Library/StartupItems/MySQLCOM  </span><br><span class="line">sudo rm -rf /Library/PreferencePanes/My*  </span><br><span class="line">sudo nano /etc/hostconfig     (复制前面部分回车，然后删掉这一行: MYSQLCOM=-YES-，control+O回车保存，control+X退出编辑界面)  </span><br><span class="line">sudo rm -rf ~/Library/PreferencePanes/My*  </span><br><span class="line">sudo rm -rf /Library/Receipts/mysql*  </span><br><span class="line">sudo rm -rf /Library/Receipts/MySQL*  </span><br><span class="line">sudo rm -rf /var/db/receipts/com.mysql.*</span><br></pre></td></tr></table></figure>
+<h1 id="MAC上搭建Openfire"><a href="#MAC上搭建Openfire" class="headerlink" title="MAC上搭建Openfire"></a>MAC上搭建Openfire</h1><h2 id="下载并安装openfire"><a href="#下载并安装openfire" class="headerlink" title="下载并安装openfire"></a>下载并安装openfire</h2><p>去<a href="http://www.igniterealtime.org/downloads/index.jsp" target="_blank" rel="external"><strong>openfire</strong>官网</a>上去下载相应的包：</p>
+<p><img src="http://img.blog.csdn.net/20160916160948387" alt="这里写图片描述"></p>
+<p>双击进行傻瓜式的安装就好了，安装完毕后会在系统偏好设置里面找到<strong>openfire</strong>的启动器</p>
+<p><img src="http://img.blog.csdn.net/20160916193304787" alt=""></p>
+<p>点击<strong>Openfire</strong>会进入启动页面</p>
+<p><img src="http://img.blog.csdn.net/20160916193312553" alt=""></p>
+<p>点击<strong>Open Admin Console</strong>进入浏览器设置页面，语言选择简体中文</p>
+<p><img src="http://img.blog.csdn.net/20160916193322506" alt=""></p>
+<p>接着设置服务器的名字</p>
+<p><img src="http://img.blog.csdn.net/20160916193331803" alt=""></p>
+<p>链接数据库</p>
+<blockquote>
+<p>注意里面的用户名和密码是你数据库的用户名和密码，用户名一般是root，密码是你之前重新设置的密码~~~</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160916193340006" alt=""></p>
+<p>然后一直继续就OK了，最后需要我们登录到<strong>openfire</strong></p>
+<blockquote>
+<p>密码就是之前设置的密码</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160916193348913" alt=""></p>
+<h2 id="openfire启动失败解决办法"><a href="#openfire启动失败解决办法" class="headerlink" title="openfire启动失败解决办法"></a>openfire启动失败解决办法</h2><blockquote>
+<p>当你发现你的电脑上的<strong>openfire</strong>无论你是重新安装还是重启都无法启动的情况下你可以按照我下面写的那些终端指令来启动你的<strong>openfire</strong>不用再去重新做你的系统了.</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160916193404522" alt=""></p>
+<p>一般你发现你的<strong>openfire</strong>打开出现这样的窗口后你就可以想到你的<strong>openfire</strong>出问题了,极个别的时候你可以通过重新安装来解决.</p>
+<p>如果大家的问题重新安装后没有解决那就试下我下面的方法.</p>
+<p>先打开自己电脑上的终端然后输入以下指令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 获取权限</span><br><span class="line">sudo chmod -R 777 /usr/local/openfire/bin</span><br><span class="line">cd /usr/local/openfire/bin</span><br><span class="line">export JAVA_HOME=`/usr/libexec/java_home` # 记住这里不是单引号而是英文下数字1左边的按键.</span><br><span class="line">echo $JAVA_HOME</span><br><span class="line"># 终端上打印的内容 /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home</span><br><span class="line">cd /usr/local/openfire/bin</span><br><span class="line">./openfire.sh</span><br><span class="line"># 终端上打印的内容</span><br><span class="line"># Openfire 4.0.3 [Sep 16, 2016 4:19:21 PM]</span><br><span class="line"># Admin console listening at http://wangchongleidemacbook-air.local:9090</span><br></pre></td></tr></table></figure>
+<p>一般你输入完成这些指令后你再打开你的openfire就会发现这样的情况.</p>
+<p><img src="http://img.blog.csdn.net/20160916193412210" alt=""></p>
+<h2 id="安装openfire后admin无法登录管理控制平台"><a href="#安装openfire后admin无法登录管理控制平台" class="headerlink" title="安装openfire后admin无法登录管理控制平台"></a>安装openfire后admin无法登录管理控制平台</h2><p><img src="http://img.blog.csdn.net/20160916193422991" alt=""></p>
+<p>解决方案如下：</p>
 <ul>
-<li>属性列表</li>
+<li>使用Mysql查看工具进入数据库，进入表“ofuser”，将该表清空，然后执行SQL 语句</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alphaRange</td>
-<td>一个粒子的颜色alpha能改变的范围</td>
-</tr>
-<tr>
-<td>alphaSpeed</td>
-<td>粒子透明度在生命周期内的改变速度</td>
-</tr>
-<tr>
-<td>birthrate</td>
-<td>每秒发射的粒子数量</td>
-</tr>
-<tr>
-<td>blueRange</td>
-<td>一个粒子的颜色blue 能改变的范围</td>
-</tr>
-<tr>
-<td>blueSpeed</td>
-<td>粒子blue在生命周期内的改变速度</td>
-</tr>
-<tr>
-<td>color</td>
-<td>粒子的颜色</td>
-</tr>
-<tr>
-<td>contents</td>
-<td>是个CGImageRef的对象,既粒子要展现的图片</td>
-</tr>
-<tr>
-<td>contentsRect</td>
-<td>应该画在contents里的子rectangle</td>
-</tr>
-<tr>
-<td>emissionLatitude</td>
-<td>发射的z轴方向的角度</td>
-</tr>
-<tr>
-<td>emissionLongitude</td>
-<td>x-y平面的发射方向</td>
-</tr>
-<tr>
-<td>emissionRange</td>
-<td>周围发射角度</td>
-</tr>
-<tr>
-<td>emitterCells</td>
-<td>粒子发射的粒子的数组</td>
-</tr>
-<tr>
-<td>enabled</td>
-<td>粒子是否被渲染</td>
-</tr>
-<tr>
-<td>greenrange</td>
-<td>一个粒子的颜色green 能改变的范围</td>
-</tr>
-<tr>
-<td>greenSpeed</td>
-<td>粒子green在生命周期内的改变速度</td>
-</tr>
-<tr>
-<td>lifetime</td>
-<td>生命周期</td>
-</tr>
-<tr>
-<td>lifetimeRange</td>
-<td>生命周期范围 lifetime= lifetime(+/-) lifetimeRange</td>
-</tr>
-<tr>
-<td>magnificationFilter</td>
-<td>增加自己的大小</td>
-</tr>
-<tr>
-<td>minificatonFilter</td>
-<td>减小自己的大小</td>
-</tr>
-<tr>
-<td>minificationFilterBias</td>
-<td>减小大小的因子</td>
-</tr>
-<tr>
-<td>name</td>
-<td>粒子的名字</td>
-</tr>
-<tr>
-<td>redRange</td>
-<td>一个粒子的颜色red 能改变的范围</td>
-</tr>
-<tr>
-<td>redSpeed</td>
-<td>粒子red在生命周期内的改变速度</td>
-</tr>
-<tr>
-<td>scale</td>
-<td>缩放比例</td>
-</tr>
-<tr>
-<td>scaleRange</td>
-<td>缩放比例范围</td>
-</tr>
-<tr>
-<td>scaleSpeed</td>
-<td>缩放比例速度</td>
-</tr>
-<tr>
-<td>spin</td>
-<td>子旋转角度</td>
-</tr>
-<tr>
-<td>spinrange</td>
-<td>子旋转角度范围</td>
-</tr>
-<tr>
-<td>velocity</td>
-<td>速度</td>
-</tr>
-<tr>
-<td>velocityRange</td>
-<td>速度范围</td>
-</tr>
-<tr>
-<td>xAcceleration</td>
-<td>粒子x方向的加速度分量</td>
-</tr>
-<tr>
-<td>yAcceleration</td>
-<td>粒子y方向的加速度分量</td>
-</tr>
-<tr>
-<td>zAcceleration</td>
-<td>粒子z方向的加速度分量</td>
-</tr>
-</tbody>
-</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ofUser (username, plainPassword, name, email, creationDate, modificationDate) VALUES (&apos;admin&apos;, &apos;admin&apos;, &apos;Administrator&apos;, &apos;admin@example.com&apos;, &apos;0&apos;, &apos;0&apos;);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>代码示例</li>
+<li>关闭openfire服务，就是从其控制台stop然后再start，再用用户名：admin,密码：admin登录即可.</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> explosionCell           = <span class="type">CAEmitterCell</span>()</span><br><span class="line">explosionCell.name          = <span class="string">"explosion"</span></span><br><span class="line">explosionCell.alphaRange    = <span class="number">0.10</span></span><br><span class="line">explosionCell.alphaSpeed    = -<span class="number">1.0</span></span><br><span class="line">explosionCell.lifetime      = <span class="number">0.7</span></span><br><span class="line">explosionCell.lifetimeRange = <span class="number">0.3</span></span><br><span class="line">explosionCell.birthRate     = <span class="number">0</span></span><br><span class="line">explosionCell.velocity      = <span class="number">40.00</span></span><br><span class="line">explosionCell.velocityRange = <span class="number">10.00</span></span><br><span class="line">explosionCell.scale         = <span class="number">0.03</span></span><br><span class="line">explosionCell.scaleRange    = <span class="number">0.02</span></span><br><span class="line">explosionCell.contents      = <span class="type">UIImage</span>(named: <span class="string">"Sparkle"</span>)?.<span class="type">CGImage</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="CAEmitterLayer"><a href="#CAEmitterLayer" class="headerlink" title="CAEmitterLayer"></a>CAEmitterLayer</h2><p><strong>CAEmitterLayer</strong> ：CAEmitterLayer类提供了一个粒子发射器系统为核心的动画。这些粒子是由CAEmitterCell组成的实例，它相当于一个管理者，来管理 CAEmitterCell的发射的一些细节，比如发射的位置，发射形状等等。</p>
-<ul>
-<li>属性列表</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>做用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>emitterPosition</td>
-<td>发射位置</td>
-</tr>
-<tr>
-<td>emitterSize</td>
-<td>发射源的大小</td>
-</tr>
-<tr>
-<td>emitterMode</td>
-<td>发射模式</td>
-</tr>
-<tr>
-<td>emitterShape</td>
-<td>发射源的形状</td>
-</tr>
-<tr>
-<td>renderMode</td>
-<td>渲染模式</td>
-</tr>
-<tr>
-<td>birthRate</td>
-<td>粒子产生系数，默认1.0</td>
-</tr>
-<tr>
-<td>emitterCells</td>
-<td>装着CAEmitterCell对象的数组，被用于把粒子投放到layer上</td>
-</tr>
-<tr>
-<td>emitterDepth</td>
-<td>决定粒子形状的深度联系</td>
-</tr>
-<tr>
-<td>emitterZposition</td>
-<td>发射源的z坐标位置</td>
-</tr>
-<tr>
-<td>lifetime</td>
-<td>粒子生命周期</td>
-</tr>
-<tr>
-<td>scale</td>
-<td>粒子的缩放比例</td>
-</tr>
-<tr>
-<td>seed</td>
-<td>用于初始化随机数产生的种子</td>
-</tr>
-<tr>
-<td>spin</td>
-<td>自旋转速度</td>
-</tr>
-<tr>
-<td>velocity</td>
-<td>粒子速度</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>代码示例</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">explosionLayer = CAEmitterLayer()</span><br><span class="line">explosionLayer.name          = &quot;emitterLayer&quot;</span><br><span class="line">explosionLayer.emitterShape  = kCAEmitterLayerCircle;</span><br><span class="line">explosionLayer.emitterMode   = kCAEmitterLayerOutline;</span><br><span class="line">explosionLayer.emitterSize   = CGSizeMake(10, 0);</span><br><span class="line">explosionLayer.emitterCells  = [explosionCell]</span><br><span class="line">explosionLayer.renderMode    = kCAEmitterLayerOldestFirst;</span><br><span class="line">explosionLayer.masksToBounds = false</span><br><span class="line">explosionLayer.position      = CGPointMake(self.frame.size.width/2.0, self.frame.size.height/2.0);</span><br><span class="line">explosionLayer.zPosition     = -1;</span><br><span class="line">layer.addSublayer(explosionLayer)</span><br></pre></td></tr></table></figure>
+<h2 id="彻底删除openfire服务器的"><a href="#彻底删除openfire服务器的" class="headerlink" title="彻底删除openfire服务器的"></a>彻底删除openfire服务器的</h2><p>首先,确保你已经关掉了openfire<br>打开终端 (在应用程序–&gt;实用工具–&gt;)<br>输入以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/PreferencePanes/Openfire.prefPane</span><br><span class="line">sudo rm -rf /usr/local/openfire</span><br><span class="line">sudo rm -rf /Library/LaunchDaemons/org.jivesoftware.openfire.plist</span><br></pre></td></tr></table></figure>
+<p>第一条会让你输入管理员密码,尽管你输入的时候,终端不会显示,不必担心,正确输入后按回车,它就执行了。<br>三条命令以后，<strong>openfire</strong>就彻底消失了.但是需要重启一下系统偏设置。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>配置过程还是比较繁琐的，一共需要好几个步骤，需要装的有<strong>MySQL</strong>、<strong>JAVA环境</strong>和<strong>openfire</strong>，里面有一步没做好都没法使用，自己完整配置下来也花了很长时间，大家如果有什么问题可以留言问我，谢谢大家的阅读~~</p>
+<h1 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h1><p><a href="http://www.cnblogs.com/xiaodao/archive/2013/04/04/2999426.html" target="_blank" rel="external">http://www.cnblogs.com/xiaodao/archive/2013/04/04/2999426.html</a></p>
+<p><a href="http://www.cnblogs.com/xiaodao/archive/2013/04/05/3000554.html" target="_blank" rel="external">http://www.cnblogs.com/xiaodao/archive/2013/04/05/3000554.html</a></p>
+<p><a href="http://www.jianshu.com/p/5d88fe201c71" target="_blank" rel="external">http://www.jianshu.com/p/5d88fe201c71</a></p>
 
       
     </div>
@@ -640,7 +490,7 @@ demo的github下载地址（大家喜欢可以点个star）
       
         <div class="post-tags">
           
-            <a href="/tags/CALayer/" rel="tag">#CALayer</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -649,17 +499,13 @@ demo的github下载地址（大家喜欢可以点个star）
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/github-SSH-Configure/" rel="next" title="iOS开发小结 - github SSH秘钥配置">
-                <i class="fa fa-chevron-left"></i> iOS开发小结 - github SSH秘钥配置
+              <a href="/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/" rel="next" title="iOS动画进阶 - 手摸手教你写 Slack 的 Loading 动画">
+                <i class="fa fa-chevron-left"></i> iOS动画进阶 - 手摸手教你写 Slack 的 Loading 动画
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/16/iOS开发-使用自定义字体/" rel="prev" title="iOS开发小结 - 使用自定义字体">
-                iOS开发小结 - 使用自定义字体 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -674,10 +520,10 @@ demo的github下载地址（大家喜欢可以点个star）
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/"
-     data-title="CALayer学习之CAEmitterLayer，粒子发射系统"
+        <div class="ds-share flat" data-thread-key="2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/"
+     data-title="iOS基于XMPP实现即时通讯之一、环境的搭建"
      data-content=""
-     data-url="http://imwcl.com/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/">
+     data-url="http://imwcl.com/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -704,8 +550,8 @@ demo的github下载地址（大家喜欢可以点个star）
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/"
-           data-title="CALayer学习之CAEmitterLayer，粒子发射系统" data-url="http://imwcl.com/2016/04/27/CALayer学习之CAEmitterLayer，粒子发射系统/">
+      <div class="ds-thread" data-thread-key="2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/"
+           data-title="iOS基于XMPP实现即时通讯之一、环境的搭建" data-url="http://imwcl.com/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/">
       </div>
     
   </div>
@@ -837,7 +683,7 @@ demo的github下载地址（大家喜欢可以点个star）
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAEmitterCell"><span class="nav-number">1.</span> <span class="nav-text">CAEmitterCell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAEmitterLayer"><span class="nav-number">2.</span> <span class="nav-text">CAEmitterLayer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IM协议及服务器选型"><span class="nav-number">1.</span> <span class="nav-text">IM协议及服务器选型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC上搭建MySQL"><span class="nav-number">2.</span> <span class="nav-text">MAC上搭建MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载MySQL安装包"><span class="nav-number">2.1.</span> <span class="nav-text">下载MySQL安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MySQL"><span class="nav-number">2.2.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置MySQL"><span class="nav-number">2.3.</span> <span class="nav-text">配置MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动MySQL"><span class="nav-number">2.3.1.</span> <span class="nav-text">启动MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义MySQL别名"><span class="nav-number">2.3.2.</span> <span class="nav-text">定义MySQL别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改MySQL账户密码"><span class="nav-number">2.3.3.</span> <span class="nav-text">修改MySQL账户密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接数据库，创建Openfire数据库"><span class="nav-number">2.3.4.</span> <span class="nav-text">连接数据库，创建Openfire数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完全卸载MySQL"><span class="nav-number">2.4.</span> <span class="nav-text">完全卸载MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC上搭建Openfire"><span class="nav-number">3.</span> <span class="nav-text">MAC上搭建Openfire</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装openfire"><span class="nav-number">3.1.</span> <span class="nav-text">下载并安装openfire</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openfire启动失败解决办法"><span class="nav-number">3.2.</span> <span class="nav-text">openfire启动失败解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装openfire后admin无法登录管理控制平台"><span class="nav-number">3.3.</span> <span class="nav-text">安装openfire后admin无法登录管理控制平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#彻底删除openfire服务器的"><span class="nav-number">3.4.</span> <span class="nav-text">彻底删除openfire服务器的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档："><span class="nav-number">5.</span> <span class="nav-text">参考文档：</span></a></li></ol></div>
             
           </div>
         </section>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imwcl.com/"/>
-  <updated>2016-09-08T10:32:46.000Z</updated>
+  <updated>2016-09-16T11:42:44.000Z</updated>
   <id>http://imwcl.com/</id>
   
   <author>
@@ -16,11 +16,113 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS基于XMPP实现即时通讯之一、环境的搭建</title>
+    <link href="http://imwcl.com/2016/09/16/iOS%E5%9F%BA%E4%BA%8EXMPP%E5%AE%9E%E7%8E%B0%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF%E4%B9%8B%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>http://imwcl.com/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/</id>
+    <published>2016-09-16T05:27:59.000Z</published>
+    <updated>2016-09-16T11:42:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>使用XMPP已经有一段时间了，但是一直都没深入研究过，只是使用SDK做一些简单的操作，看了许多大神的博客，自己总结一下，准备写一系列关于XMPP的使用博客，以便于自己更加深入学习~</p>
+</blockquote>
+<h1 id="IM协议及服务器选型"><a href="#IM协议及服务器选型" class="headerlink" title="IM协议及服务器选型"></a>IM协议及服务器选型</h1><p><a href="http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/" target="_blank" rel="external">http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/</a><br>协议选型：<strong>XMPP</strong>已经成为标准的IM协议。<strong>XMPP</strong>官网：<a href="http://XMPP.org/" target="_blank" rel="external">http://XMPP.org/</a><br>服务器型：使用广泛的是ejabberd，jabberd 2.x， Openfire，Tigase。从编程语言角度来看主要是JAVA和Erlang。JAVA语言的优势是类库完备，容易招人。Erlang的优势是hot code swap，live console， 高并发。而且ejabberd是对XMPP协议支持最好、实现最为全面的server。因此企业在不考虑独立开发服务器的情况下，初期选型基本建议采用ejabberd。</p>
+<p>本文我们主要实践iOS端流程，不考虑太多服务器实现，因为Openfire易安装，插件功能丰富，我们使用<strong>Openfire</strong></p>
+<a id="more"></a>
+<h1 id="MAC上搭建MySQL"><a href="#MAC上搭建MySQL" class="headerlink" title="MAC上搭建MySQL"></a>MAC上搭建MySQL</h1><p>因为服务器需要数据库支撑，所以我们在搭建Openfire前要先搭建数据库。</p>
+<h2 id="下载MySQL安装包"><a href="#下载MySQL安装包" class="headerlink" title="下载MySQL安装包"></a>下载MySQL安装包</h2><p>我们先去<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external"><strong>MySQL官网</strong></a>去下载<strong>MySQL</strong>的安装包，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160916132616906" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160916132635422" alt="这里写图片描述"></p>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>下载完后，开始安装<strong>MySQL</strong>如下图：</p>
+<p><img src="http://img.blog.csdn.net/20160916140022624" alt="这里写图片描述"></p>
+<p><strong>注意事项：</strong>因为安装完<strong>MySQL</strong>后它会自动给你生成一个密码，所以你要保存好这个密码，后面修改密码的时候会用到，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160916140241828" alt="这里写图片描述"></p>
+<h2 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h2><h3 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h3><p>首先在设置里面找到MySQL的启动按钮，启动MySQL服务，如下图：</p>
+<p><img src="http://img.blog.csdn.net/20160916141553080" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160916141613117" alt="这里写图片描述"></p>
+<h3 id="定义MySQL别名"><a href="#定义MySQL别名" class="headerlink" title="定义MySQL别名"></a>定义MySQL别名</h3><p>然后需要将<strong>MySQL</strong>的指令重新定义一下，因为<strong>MySQL</strong>的指令集在<code>/usr/local/mysql/bin/mysql</code>路径下，需要执行一下命令行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 定义mysql别名</span><br><span class="line">alias mysql=/usr/local/mysql/bin/mysql</span><br><span class="line"># mysqladmin</span><br><span class="line">alias mysqladmin=/usr/local/mysql/bin/mysqladmin</span><br></pre></td></tr></table></figure>
+<h3 id="修改MySQL账户密码"><a href="#修改MySQL账户密码" class="headerlink" title="修改MySQL账户密码"></a>修改MySQL账户密码</h3><p>之前安装完成后系统给我们了一个默认的密码，因为那个密码很繁琐不容易记住，所以我们需要重新设置一个密码，我们先输入如下指令设置新密码，”newpassword”为你要设置的新密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password &quot;newpassword&quot;</span><br><span class="line">#然后 Enter password: 【输入原来的密码】</span><br></pre></td></tr></table></figure>
+<p>如下图所示表示密码修改成功：</p>
+<p><img src="http://img.blog.csdn.net/20160916143123858" alt="这里写图片描述"></p>
+<p>完成后以后root账户需要密码就用你新设置的密码就行了~</p>
+<h3 id="连接数据库，创建Openfire数据库"><a href="#连接数据库，创建Openfire数据库" class="headerlink" title="连接数据库，创建Openfire数据库"></a>连接数据库，创建Openfire数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 连接数据库</span><br><span class="line">mysql -u root -p</span><br><span class="line"># 创建Openfire数据库</span><br><span class="line">create database openfire;</span><br></pre></td></tr></table></figure>
+<h2 id="完全卸载MySQL"><a href="#完全卸载MySQL" class="headerlink" title="完全卸载MySQL"></a>完全卸载MySQL</h2><p>在系统内存不够时有时候我们会需要删除掉<strong>MySQL</strong>，一下就是删除<strong>MySQL</strong>的方法：</p>
+<p>从 <strong>Yosemite</strong> 系统开始，<code>/etc/hostconfig</code> 这个文件已经移除，所以 <strong>Yosemite</strong> 后的系统可以忽略下面的命令</p>
+<p><code>sudo nano /etc/hostconfig</code>  </p>
+<p>然后以下是终端执行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/local/mysql  </span><br><span class="line">sudo rm -rf /usr/local/mysql*  </span><br><span class="line">sudo rm -rf /Library/StartupItems/MySQLCOM  </span><br><span class="line">sudo rm -rf /Library/PreferencePanes/My*  </span><br><span class="line">sudo nano /etc/hostconfig     (复制前面部分回车，然后删掉这一行: MYSQLCOM=-YES-，control+O回车保存，control+X退出编辑界面)  </span><br><span class="line">sudo rm -rf ~/Library/PreferencePanes/My*  </span><br><span class="line">sudo rm -rf /Library/Receipts/mysql*  </span><br><span class="line">sudo rm -rf /Library/Receipts/MySQL*  </span><br><span class="line">sudo rm -rf /var/db/receipts/com.mysql.*</span><br></pre></td></tr></table></figure>
+<h1 id="MAC上搭建Openfire"><a href="#MAC上搭建Openfire" class="headerlink" title="MAC上搭建Openfire"></a>MAC上搭建Openfire</h1><h2 id="下载并安装openfire"><a href="#下载并安装openfire" class="headerlink" title="下载并安装openfire"></a>下载并安装openfire</h2><p>去<a href="http://www.igniterealtime.org/downloads/index.jsp" target="_blank" rel="external"><strong>openfire</strong>官网</a>上去下载相应的包：</p>
+<p><img src="http://img.blog.csdn.net/20160916160948387" alt="这里写图片描述"></p>
+<p>双击进行傻瓜式的安装就好了，安装完毕后会在系统偏好设置里面找到<strong>openfire</strong>的启动器</p>
+<p><img src="http://img.blog.csdn.net/20160916193304787" alt=""></p>
+<p>点击<strong>Openfire</strong>会进入启动页面</p>
+<p><img src="http://img.blog.csdn.net/20160916193312553" alt=""></p>
+<p>点击<strong>Open Admin Console</strong>进入浏览器设置页面，语言选择简体中文</p>
+<p><img src="http://img.blog.csdn.net/20160916193322506" alt=""></p>
+<p>接着设置服务器的名字</p>
+<p><img src="http://img.blog.csdn.net/20160916193331803" alt=""></p>
+<p>链接数据库</p>
+<blockquote>
+<p>注意里面的用户名和密码是你数据库的用户名和密码，用户名一般是root，密码是你之前重新设置的密码~~~</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160916193340006" alt=""></p>
+<p>然后一直继续就OK了，最后需要我们登录到<strong>openfire</strong></p>
+<blockquote>
+<p>密码就是之前设置的密码</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160916193348913" alt=""></p>
+<h2 id="openfire启动失败解决办法"><a href="#openfire启动失败解决办法" class="headerlink" title="openfire启动失败解决办法"></a>openfire启动失败解决办法</h2><blockquote>
+<p>当你发现你的电脑上的<strong>openfire</strong>无论你是重新安装还是重启都无法启动的情况下你可以按照我下面写的那些终端指令来启动你的<strong>openfire</strong>不用再去重新做你的系统了.</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20160916193404522" alt=""></p>
+<p>一般你发现你的<strong>openfire</strong>打开出现这样的窗口后你就可以想到你的<strong>openfire</strong>出问题了,极个别的时候你可以通过重新安装来解决.</p>
+<p>如果大家的问题重新安装后没有解决那就试下我下面的方法.</p>
+<p>先打开自己电脑上的终端然后输入以下指令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 获取权限</span><br><span class="line">sudo chmod -R 777 /usr/local/openfire/bin</span><br><span class="line">cd /usr/local/openfire/bin</span><br><span class="line">export JAVA_HOME=`/usr/libexec/java_home` # 记住这里不是单引号而是英文下数字1左边的按键.</span><br><span class="line">echo $JAVA_HOME</span><br><span class="line"># 终端上打印的内容 /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home</span><br><span class="line">cd /usr/local/openfire/bin</span><br><span class="line">./openfire.sh</span><br><span class="line"># 终端上打印的内容</span><br><span class="line"># Openfire 4.0.3 [Sep 16, 2016 4:19:21 PM]</span><br><span class="line"># Admin console listening at http://wangchongleidemacbook-air.local:9090</span><br></pre></td></tr></table></figure>
+<p>一般你输入完成这些指令后你再打开你的openfire就会发现这样的情况.</p>
+<p><img src="http://img.blog.csdn.net/20160916193412210" alt=""></p>
+<h2 id="安装openfire后admin无法登录管理控制平台"><a href="#安装openfire后admin无法登录管理控制平台" class="headerlink" title="安装openfire后admin无法登录管理控制平台"></a>安装openfire后admin无法登录管理控制平台</h2><p><img src="http://img.blog.csdn.net/20160916193422991" alt=""></p>
+<p>解决方案如下：</p>
+<ul>
+<li>使用Mysql查看工具进入数据库，进入表“ofuser”，将该表清空，然后执行SQL 语句</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ofUser (username, plainPassword, name, email, creationDate, modificationDate) VALUES (&apos;admin&apos;, &apos;admin&apos;, &apos;Administrator&apos;, &apos;admin@example.com&apos;, &apos;0&apos;, &apos;0&apos;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关闭openfire服务，就是从其控制台stop然后再start，再用用户名：admin,密码：admin登录即可.</li>
+</ul>
+<h2 id="彻底删除openfire服务器的"><a href="#彻底删除openfire服务器的" class="headerlink" title="彻底删除openfire服务器的"></a>彻底删除openfire服务器的</h2><p>首先,确保你已经关掉了openfire<br>打开终端 (在应用程序–&gt;实用工具–&gt;)<br>输入以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/PreferencePanes/Openfire.prefPane</span><br><span class="line">sudo rm -rf /usr/local/openfire</span><br><span class="line">sudo rm -rf /Library/LaunchDaemons/org.jivesoftware.openfire.plist</span><br></pre></td></tr></table></figure>
+<p>第一条会让你输入管理员密码,尽管你输入的时候,终端不会显示,不必担心,正确输入后按回车,它就执行了。<br>三条命令以后，<strong>openfire</strong>就彻底消失了.但是需要重启一下系统偏设置。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>配置过程还是比较繁琐的，一共需要好几个步骤，需要装的有<strong>MySQL</strong>、<strong>JAVA环境</strong>和<strong>openfire</strong>，里面有一步没做好都没法使用，自己完整配置下来也花了很长时间，大家如果有什么问题可以留言问我，谢谢大家的阅读~~</p>
+<h1 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h1><p><a href="http://www.cnblogs.com/xiaodao/archive/2013/04/04/2999426.html" target="_blank" rel="external">http://www.cnblogs.com/xiaodao/archive/2013/04/04/2999426.html</a></p>
+<p><a href="http://www.cnblogs.com/xiaodao/archive/2013/04/05/3000554.html" target="_blank" rel="external">http://www.cnblogs.com/xiaodao/archive/2013/04/05/3000554.html</a></p>
+<p><a href="http://www.jianshu.com/p/5d88fe201c71" target="_blank" rel="external">http://www.jianshu.com/p/5d88fe201c71</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;使用XMPP已经有一段时间了，但是一直都没深入研究过，只是使用SDK做一些简单的操作，看了许多大神的博客，自己总结一下，准备写一系列关于XMPP的使用博客，以便于自己更加深入学习~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;IM协议及服务器选型&quot;&gt;&lt;a href=&quot;#IM协议及服务器选型&quot; class=&quot;headerlink&quot; title=&quot;IM协议及服务器选型&quot;&gt;&lt;/a&gt;IM协议及服务器选型&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/&quot;&gt;http://liudanking.me/arch/xmpp%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E5%9E%8B/&lt;/a&gt;&lt;br&gt;协议选型：&lt;strong&gt;XMPP&lt;/strong&gt;已经成为标准的IM协议。&lt;strong&gt;XMPP&lt;/strong&gt;官网：&lt;a href=&quot;http://XMPP.org/&quot;&gt;http://XMPP.org/&lt;/a&gt;&lt;br&gt;服务器型：使用广泛的是ejabberd，jabberd 2.x， Openfire，Tigase。从编程语言角度来看主要是JAVA和Erlang。JAVA语言的优势是类库完备，容易招人。Erlang的优势是hot code swap，live console， 高并发。而且ejabberd是对XMPP协议支持最好、实现最为全面的server。因此企业在不考虑独立开发服务器的情况下，初期选型基本建议采用ejabberd。&lt;/p&gt;
+&lt;p&gt;本文我们主要实践iOS端流程，不考虑太多服务器实现，因为Openfire易安装，插件功能丰富，我们使用&lt;strong&gt;Openfire&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="XMPP学习" scheme="http://imwcl.com/categories/XMPP%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS动画进阶 - 手摸手教你写 Slack 的 Loading 动画</title>
     <link href="http://imwcl.com/2016/09/08/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99-Slack-%E7%9A%84-Loading-%E5%8A%A8%E7%94%BB/"/>
     <id>http://imwcl.com/2016/09/08/iOS开发进阶-手摸手教你写-Slack-的-Loading-动画/</id>
     <published>2016-09-08T10:08:43.000Z</published>
-    <updated>2016-09-08T10:32:46.000Z</updated>
+    <updated>2016-09-16T11:43:10.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>前几天看了一篇关于动画的博客叫<a href="http://www.diycode.cc/topics/240" target="_blank" rel="external">手摸手教你写 Slack 的 Loading 动画</a>，看着挺炫，但是是安卓版的，寻思的着仿造着写一篇iOS版的，下面是我写这个动画的分解~</p>
@@ -71,6 +173,8 @@
     
     </summary>
     
+      <category term="iOS动画进阶" scheme="http://imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
+    
     
       <category term="iOS动画进阶进阶" scheme="http://imwcl.com/tags/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6%E8%BF%9B%E9%98%B6/"/>
     
@@ -81,7 +185,7 @@
     <link href="http://imwcl.com/2016/08/24/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8shell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0fir%E4%B8%8A/"/>
     <id>http://imwcl.com/2016/08/24/iOS开发进阶-使用shell脚本自动打包上传到fir上/</id>
     <published>2016-08-24T04:07:06.000Z</published>
-    <updated>2016-08-24T04:12:55.000Z</updated>
+    <updated>2016-09-16T11:43:22.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>用fir.im测试已经好长时间了，感觉每次打包上传都很麻烦，想着是不是可以用脚本自动打包，在网上搜了一下确实有，下面总结一下如何使用脚本自动打包上传到fir.im，以及打包过程中遇到的问题和解决办法</p>
@@ -147,6 +251,8 @@
     
     </summary>
     
+      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+    
     
       <category term="iOS开发进阶 shell脚本" scheme="http://imwcl.com/tags/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-shell%E8%84%9A%E6%9C%AC/"/>
     
@@ -157,7 +263,7 @@
     <link href="http://imwcl.com/2016/08/16/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E7%BE%8E%E9%A2%9C%E7%9B%B8%E6%9C%BA%E7%9A%84%E7%9B%B8%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/"/>
     <id>http://imwcl.com/2016/08/16/iOS开发进阶-实现类似美颜相机的相机启动动画/</id>
     <published>2016-08-16T07:59:59.000Z</published>
-    <updated>2016-08-16T08:01:11.000Z</updated>
+    <updated>2016-09-16T11:43:51.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近在写一个相册的demo，偶尔看到了美拍的相机过载动画觉得很有意思，就想在我的相册demo中加入一个这种特效，下面把我的想法和实现过程给大家分享一下</p>
@@ -196,6 +302,8 @@
     
     </summary>
     
+      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+    
     
       <category term="iOS动画" scheme="http://imwcl.com/tags/iOS%E5%8A%A8%E7%94%BB/"/>
     
@@ -206,7 +314,7 @@
     <link href="http://imwcl.com/2016/07/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%9A%90%E8%97%8FUINavigationBar%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     <id>http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/</id>
     <published>2016-07-28T15:45:24.000Z</published>
-    <updated>2016-07-28T15:48:24.000Z</updated>
+    <updated>2016-09-16T11:43:32.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~</p>
@@ -238,6 +346,8 @@
     
     </summary>
     
+      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+    
     
       <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
@@ -248,7 +358,7 @@
     <link href="http://imwcl.com/2016/06/27/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0%E4%B9%8BGCD%E7%9A%84%E5%88%9D%E8%AF%86/"/>
     <id>http://imwcl.com/2016/06/27/GCD深入学习之GCD的初识/</id>
     <published>2016-06-27T15:01:41.000Z</published>
-    <updated>2016-06-30T02:57:05.000Z</updated>
+    <updated>2016-09-16T11:44:15.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>现在网上关于GCD的介绍已经很多了，在项目中也经常用到，但是没怎么深入研究过，打算写一系列关于GCD使用，参考其他大神写的博客和Apple的技术文档总结一下，一是自己深入学习一下，二是以后忘了可以回过头来温习一下~</p>
@@ -423,8 +533,10 @@
     
     </summary>
     
+      <category term="GCD深入学习" scheme="http://imwcl.com/categories/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="GCD" scheme="http://imwcl.com/tags/GCD/"/>
+    
+      <category term="多线程" scheme="http://imwcl.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
@@ -433,7 +545,7 @@
     <link href="http://imwcl.com/2016/06/22/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20CAKeyframeAnimation%E5%AE%9E%E7%8E%B0%E8%BF%87%E5%B1%B1%E8%BD%A6%E5%8A%A8%E7%94%BB/"/>
     <id>http://imwcl.com/2016/06/22/iOS开发进阶 - CAKeyframeAnimation实现过山车动画/</id>
     <published>2016-06-22T14:40:52.000Z</published>
-    <updated>2016-06-22T14:45:25.000Z</updated>
+    <updated>2016-09-16T11:44:52.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>偶然间在网页上看到一个<a href="http://www.html5tricks.com/demo/html5-svg-shanche-animation/index.html" target="_blank" rel="external">过山车动画</a>觉得很炫，就想用<code>swift</code>纯代码实现了一个类似的效果，因为没有设计天赋，所以就完全高仿的人家的效果-.-下面上效果图：</p>
@@ -484,8 +596,10 @@
     
     </summary>
     
+      <category term="iOS动画进阶" scheme="http://imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
     
-      <category term="CALayer" scheme="http://imwcl.com/tags/CALayer/"/>
+    
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
@@ -494,7 +608,7 @@
     <link href="http://imwcl.com/2016/06/02/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%BC%BC%E5%BE%AE%E4%BF%A1%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E7%9A%84%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%EF%BC%88UIKeyInput%E5%8D%8F%E8%AE%AE%EF%BC%89/"/>
     <id>http://imwcl.com/2016/06/02/iOS开发进阶-实现类似微信和支付宝的密码输入框（UIKeyInput协议）/</id>
     <published>2016-06-02T05:57:31.000Z</published>
-    <updated>2016-07-28T15:48:34.000Z</updated>
+    <updated>2016-09-16T11:50:35.000Z</updated>
     
     <content type="html"><![CDATA[<p>目前在项目中需要实现发红包的功能，自己就写了一个密码输入框的控件，主要用到了<code>UIKeyInput</code>协议和<code>CoreGraphics</code>框架，效果类似微信支付，感觉还行就把我的思路和制作过程写下来给大家分享一下。（<a href="https://github.com/631106979/WCLPassWordView" target="_blank" rel="external">demo地址</a>觉得有用的可以star一下）</p>
 <p><img src="http://ww2.sinaimg.cn/large/72f96cbagw1f4g3avwocig20a80ii78g" alt="wcl.gif"></p>
@@ -515,6 +629,8 @@
     
     </summary>
     
+      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+    
     
       <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
@@ -525,7 +641,7 @@
     <link href="http://imwcl.com/2016/05/25/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6%20-%20%E7%94%A8AVFoundation%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8A%9F%E8%83%BD/"/>
     <id>http://imwcl.com/2016/05/25/iOS开发进阶 - 用AVFoundation自定义视频录制功能/</id>
     <published>2016-05-25T06:09:01.000Z</published>
-    <updated>2016-07-28T15:49:01.000Z</updated>
+    <updated>2016-09-16T11:45:49.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>系统自带的录制视频的功能显然无法满足美工和项目经理的要求，自定义视频录制就非常重要了，那么下面来带大家制作属于自己的视频录制界面。</p>
@@ -585,7 +701,7 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://imwcl.com/categories/iOS/"/>
+      <category term="视频相关" scheme="http://imwcl.com/categories/%E8%A7%86%E9%A2%91%E7%9B%B8%E5%85%B3/"/>
     
     
       <category term="AVFoundation" scheme="http://imwcl.com/tags/AVFoundation/"/>
@@ -593,11 +709,11 @@
   </entry>
   
   <entry>
-    <title>iOS开发-通过PUT请求上传数据</title>
+    <title>iOS开发小结 - 通过PUT请求上传数据</title>
     <link href="http://imwcl.com/2016/05/17/iOS%E5%BC%80%E5%8F%91-%E9%80%9A%E8%BF%87PUT%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE/"/>
     <id>http://imwcl.com/2016/05/17/iOS开发-通过PUT请求上传数据/</id>
     <published>2016-05-17T14:19:41.000Z</published>
-    <updated>2016-07-28T15:48:54.000Z</updated>
+    <updated>2016-09-16T11:46:28.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>一般服务器上传数据一般都是用POST请求，这样通过AFNetworking的POST请求稳稳的，但是有一天遇到一个问题，服务器上传数据用的是PUT请求，发现用AFNetworking并不是那么好用，今天就来讲一下如何通过PUT请求上传数据。</p>
@@ -624,17 +740,19 @@
     
     </summary>
     
+      <category term="iOS开发小结" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E7%BB%93/"/>
+    
     
       <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
-    <title>iOS开发 - 使用自定义字体</title>
+    <title>iOS开发小结 - 使用自定义字体</title>
     <link href="http://imwcl.com/2016/05/16/iOS%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/"/>
     <id>http://imwcl.com/2016/05/16/iOS开发-使用自定义字体/</id>
     <published>2016-05-16T04:05:57.000Z</published>
-    <updated>2016-07-28T15:48:51.000Z</updated>
+    <updated>2016-09-16T11:51:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>APP开发过程中，根据美工的需求可能会用到一些特殊的字体，然而在苹果自带字体中并没有，那就必须我们开发来来实现这些功能呢，下面以<strong>冬青黑体简体中文(Hiragino Sans GB)</strong>为例子给大家演示一下自定义字体的步骤：<br><a id="more"></a></p>
 <ul>
@@ -662,6 +780,8 @@
       &lt;p&gt;APP开发过程中，根据美工的需求可能会用到一些特殊的字体，然而在苹果自带字体中并没有，那就必须我们开发来来实现这些功能呢，下面以&lt;strong&gt;冬青黑体简体中文(Hiragino Sans GB)&lt;/strong&gt;为例子给大家演示一下自定义字体的步骤：&lt;br&gt;
     
     </summary>
+    
+      <category term="iOS开发小结" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E7%BB%93/"/>
     
     
       <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
@@ -930,11 +1050,11 @@
   </entry>
   
   <entry>
-    <title>github SSH秘钥配置</title>
+    <title>iOS开发小结 - github SSH秘钥配置</title>
     <link href="http://imwcl.com/2016/04/22/github-SSH-Configure/"/>
     <id>http://imwcl.com/2016/04/22/github-SSH-Configure/</id>
     <published>2016-04-22T15:33:59.000Z</published>
-    <updated>2016-04-23T07:11:48.000Z</updated>
+    <updated>2016-09-16T11:48:00.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="github-SSH秘钥配置"><a href="#github-SSH秘钥配置" class="headerlink" title="github SSH秘钥配置"></a>github SSH秘钥配置</h2><p>从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。<br><a id="more"></a></p>
 <h2 id="如何创建SSH"><a href="#如何创建SSH" class="headerlink" title="如何创建SSH"></a>如何创建SSH</h2><p>打开你的终端，输入<strong>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”</strong>，里面的邮箱是你的github账号，然后会弹出<strong>Enter file in which to save the key (/Users/wangchonglei/.ssh/id_rsa):</strong>这里是系统默认的保存地址和文件名，你可以更改，例如：<strong>/Users/wangchonglei/.ssh/girhub_rsa</strong>（记住：不同的账号需要起不一样的名字），然后一直回车会出现类似下面这样的文字，就说明创建成功了；</p>
@@ -951,7 +1071,7 @@
     
     </summary>
     
-      <category term="git" scheme="http://imwcl.com/categories/git/"/>
+      <category term="iOS开发小结" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E7%BB%93/"/>
     
     
       <category term="git" scheme="http://imwcl.com/tags/git/"/>
@@ -959,11 +1079,11 @@
   </entry>
   
   <entry>
-    <title>常用的Xcode插件</title>
+    <title>iOS开发进阶 - 常用的Xcode插件</title>
     <link href="http://imwcl.com/2016/04/22/Xcode-Plug-In/"/>
     <id>http://imwcl.com/2016/04/22/Xcode-Plug-In/</id>
     <published>2016-04-22T14:47:06.000Z</published>
-    <updated>2016-07-28T15:48:38.000Z</updated>
+    <updated>2016-09-16T11:48:38.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Alcatraz-插件管理工具"><a href="#Alcatraz-插件管理工具" class="headerlink" title="Alcatraz - 插件管理工具"></a><a href="https://github.com/mneorr/Alcatraz" target="_blank" rel="external">Alcatraz</a> - 插件管理工具</h2><p>Alcatraz是一个开源的Xcode插件管理器，可以让你更便捷地发现、安装以及管理插件、模板和配色方案。只需要简单地点击或者勾选，就能下载安装和删除插件，建议选择的第一个Xcode插件。<br>下载完成后通过Window—&gt;Package Manager来打开。<br><a id="more"></a><br><img src="http://img.blog.csdn.net/20160325225549776" alt="这里写图片描述"></p>
 <hr>
@@ -990,10 +1110,10 @@
     
     </summary>
     
-      <category term="Xcode" scheme="http://imwcl.com/categories/Xcode/"/>
+      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="Xcode" scheme="http://imwcl.com/tags/Xcode/"/>
     
   </entry>
   
