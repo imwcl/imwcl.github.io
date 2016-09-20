@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -94,16 +94,22 @@
 
 
 
-<meta name="description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
+<meta name="description" content="最近在研究Swift，一不小心发现一个好的的管理iOS第三方库Carthage，就跟第一次使用CocoaPods时一样兴奋不已，在研究了大半天后终于能用了，使用起来还是很方便的，比起CocoaPods有不足也有优点，两个配合起来用也是很爽的^ - ^">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发小结 - github SSH秘钥配置">
-<meta property="og:url" content="http://imwcl.com/2016/04/22/github-SSH-Configure/index.html">
+<meta property="og:title" content="iOS开发进阶 - 使用Carthage管理iOS第三方库">
+<meta property="og:url" content="http://imwcl.com/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
-<meta property="og:updated_time" content="2016-09-17T12:04:07.000Z">
+<meta property="og:description" content="最近在研究Swift，一不小心发现一个好的的管理iOS第三方库Carthage，就跟第一次使用CocoaPods时一样兴奋不已，在研究了大半天后终于能用了，使用起来还是很方便的，比起CocoaPods有不足也有优点，两个配合起来用也是很爽的^ - ^">
+<meta property="og:image" content="http://img.blog.csdn.net/20160920225432049">
+<meta property="og:image" content="http://img.blog.csdn.net/20160920212737795">
+<meta property="og:image" content="http://img.blog.csdn.net/20160920220309400">
+<meta property="og:image" content="http://img.blog.csdn.net/20160920220544981">
+<meta property="og:image" content="http://img.blog.csdn.net/20160920220906190">
+<meta property="og:updated_time" content="2016-09-20T15:03:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发小结 - github SSH秘钥配置">
-<meta name="twitter:description" content="github SSH秘钥配置从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。">
+<meta name="twitter:title" content="iOS开发进阶 - 使用Carthage管理iOS第三方库">
+<meta name="twitter:description" content="最近在研究Swift，一不小心发现一个好的的管理iOS第三方库Carthage，就跟第一次使用CocoaPods时一样兴奋不已，在研究了大半天后终于能用了，使用起来还是很方便的，比起CocoaPods有不足也有优点，两个配合起来用也是很爽的^ - ^">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160920225432049">
 
 
 
@@ -121,7 +127,7 @@
   };
 </script>
 
-  <title> iOS开发小结 - github SSH秘钥配置 | W_C__L </title>
+  <title> iOS开发进阶 - 使用Carthage管理iOS第三方库 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +300,7 @@
             
             
               
-                iOS开发小结 - github SSH秘钥配置
+                iOS开发进阶 - 使用Carthage管理iOS第三方库
               
             
           </h1>
@@ -306,8 +312,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T23:33:59+08:00" content="2016-04-22">
-              2016-04-22
+            <time itemprop="dateCreated" datetime="2016-09-20T22:56:41+08:00" content="2016-09-20">
+              2016-09-20
             </time>
           </span>
 
@@ -320,8 +326,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发小结/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发小结</span>
+                  <a href="/categories/iOS开发进阶/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发进阶</span>
                   </a>
                 </span>
 
@@ -336,8 +342,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/22/github-SSH-Configure/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/github-SSH-Configure/" itemprop="commentsCount"></span>
+                <a href="/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,7 +353,7 @@
 
           
           
-            <span id="/2016/04/22/github-SSH-Configure/" class="leancloud_visitors" data-flag-title="iOS开发小结 - github SSH秘钥配置">
+            <span id="/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/" class="leancloud_visitors" data-flag-title="iOS开发进阶 - 使用Carthage管理iOS第三方库">
                 &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -370,15 +376,64 @@
       
 
       
-        <h2 id="github-SSH秘钥配置"><a href="#github-SSH秘钥配置" class="headerlink" title="github SSH秘钥配置"></a>github SSH秘钥配置</h2><p>从github上clone代码下来，或者关联你的远程仓库有两种链接，一种是Https的链接，一种是ssh的链接，今天要讲的是用ssh链时出现的一些问题和解决办法。<br><a id="more"></a></p>
-<h2 id="如何创建SSH"><a href="#如何创建SSH" class="headerlink" title="如何创建SSH"></a>如何创建SSH</h2><p>打开你的终端，输入<strong>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”</strong>，里面的邮箱是你的github账号，然后会弹出<strong>Enter file in which to save the key (/Users/wangchonglei/.ssh/id_rsa):</strong>这里是系统默认的保存地址和文件名，你可以更改，例如：<strong>/Users/wangchonglei/.ssh/girhub_rsa</strong>（记住：不同的账号需要起不一样的名字），然后一直回车会出现类似下面这样的文字，就说明创建成功了；</p>
-<p>The key’s randomart image is:<br>+—[RSA 2048]—-+<br>| o|<br>| . ..|<br>| o o o .|<br>| o + = = |<br>| . . S = o +oo|<br>| E o = + .. =|<br>| + + .+ =.|<br>| .<em> .o BB=|<br>| o=.o. o*</em>O|<br>+—-[SHA256]—–+</p>
-<h2 id="如何查看你的rsa"><a href="#如何查看你的rsa" class="headerlink" title="如何查看你的rsa"></a>如何查看你的rsa</h2><p>有两种方式可以查看，第一种比较简单，直接<strong>cat ~/.ssh/#####.pub</strong>，这里是你刚刚自己输入的文件名，系统默认的是<strong>id_rsa.pub</strong>； 第二种使用vim编辑器查看，首先<strong>cd ~/.ssh</strong>，到文件目录下，然后vim 你的文件名，比如<strong>vim ####.pub</strong>就可以查看了。</p>
-<p>把你的SSH填写到github上</p>
-<p>这个比较简单，在github上点击你的头像，选择setting，进入后点击SSHKEYS后Add SSH key就行了</p>
-<h2 id="测试是否设置成功"><a href="#测试是否设置成功" class="headerlink" title="测试是否设置成功"></a>测试是否设置成功</h2><p>在终端中输入<strong>ssh -T git@git.oschina.net</strong>，系统返回Welcome to Git@OSC，###是就表示添加成功了，就你可以用git remote add origin git@#####来关联你的远程库了。</p>
+        <p><img src="http://img.blog.csdn.net/20160920225432049" alt=""></p>
+<blockquote>
+<p>最近在研究<strong>Swift</strong>，一不小心发现一个好的的管理iOS第三方库<strong>Carthage</strong>，就跟第一次使用<strong>CocoaPods</strong>时一样兴奋不已，在研究了大半天后终于能用了，使用起来还是很方便的，比起<strong>CocoaPods</strong>有不足也有优点，两个配合起来用也是很爽的^ - ^</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="初识Carthage"><a href="#初识Carthage" class="headerlink" title="初识Carthage"></a>初识<a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a></h1><p>最近在用<strong>Swift3.0</strong>做项目，想导入一些支持<strong>Swift3.0</strong>的第三方库来使用，就想到<strong><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a></strong>，看<strong>README</strong>时发现了一个新的名词<strong>Carthage</strong>，What？，这是个什么东西，居然也可以用它来管理第三方库，之前都没见到过，赶紧百度了一下补充了下知识：</p>
+<p><strong>Carthage</strong>：迦太基（地中海地区古城），好吧这是百度百科的解释，至于为什么用这个单词，我也不太清楚，可能比较屌吧，看下图你就知道它是用来干什么的了：</p>
+<p><img src="http://img.blog.csdn.net/20160920212737795" alt="这里写图片描述"></p>
+<blockquote>
+<p>Carthage的目标是用最简单的方式来管理Cocoa第三方框架</p>
+</blockquote>
+<p>是的，你没看错，它可以用来管理第三方库<strong><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a></strong>，然后查了一下，还有很多第三方库都可以用它来管理，跟<strong>CocoaPods</strong>一样可以用来管理第三方库，看了一下它的崛起时间大概是iOS8之后<strong>Swift</strong>出来的时候，与现在流行的 <strong>CocoaPods</strong> 不同，它是一个去中心化的解决方案。<strong>CocoaPods</strong>的方法更易于使用，但<strong>Carthage</strong>更灵活并且是非侵入性的。</p>
+<p> 大家都知道<strong>Swift</strong>是支持动态库的，所以<strong>Carthage</strong>应势而生，它没有总项目的列表，这能够减少维护工作并且避免任何中心化带来的问题）。不过，这样也有一些缺点，就是想修改第三方库源码的话很费劲，还需要重新编译打包。</p>
+<h2 id="安装和使用Carthage"><a href="#安装和使用Carthage" class="headerlink" title="安装和使用Carthage"></a>安装和使用Carthage</h2><p>首先到<strong>github</strong>上Download或者Clone Git 或者使用<strong>HomeBrew</strong>（没有安装的可以自行百度去装一个）安装~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update #先更新</span><br><span class="line">brew install carthage #安装Carthage</span><br></pre></td></tr></table></figure>
+<p>当你安装好Carthage后，在终端执行来判断是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">carthage version</span><br></pre></td></tr></table></figure>
+<p>即可看到当前的<strong>Carthage</strong>版本, 当我写这篇文章的时候，<strong>Carthage</strong>的版本为0.18（还是很年轻的嘛） 。</p>
+<p>现在，你已经安装好了<strong>Carthage</strong>，接下来就是在你的项目中使用carthage了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim Cartfile #创建一个叫Cartfile的文件</span><br></pre></td></tr></table></figure>
+<p>输入你想要编译成Framework的<strong>Swift</strong>第三方库，比如说<strong>SnapKit</strong>和<strong>Alamofire</strong>，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">github &quot;Alamofire/Alamofire&quot; ~&gt; 4.0  #支持Swift3.0</span><br><span class="line">github &quot;SnapKit/SnapKit&quot; ~&gt; 3.0 #支持Swift3.0</span><br></pre></td></tr></table></figure>
+<p>github代表源，而后面的就是用户名和版本库的名字，而”~&gt;” 后面是版本号哈！</p>
+<p>保存退出，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">carthage update --platform iOS #因为是打包iOS的所以后面加iOS，有的库支持mac、watch的话会打几个包</span><br></pre></td></tr></table></figure>
+<p>之后会发现在跟目录下多出了<strong>Carthage</strong>文件夹和<strong>Cartfile.resolved</strong>文件。进入<strong>Carthage/Checkouts</strong>下可以看到刚刚得到的<strong>Alamofire</strong>和<strong>SnapKit</strong>，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160920220309400" alt="这里写图片描述">现在打开你的项目，点击<strong>project</strong>，选择<strong>target</strong>, 再选择上方的<strong>General</strong>，将需要的<strong>framework</strong>文件拖到 <strong>Linked frameworks and Binaries</strong>内：</p>
+<p><img src="http://img.blog.csdn.net/20160920220544981" alt="这里写图片描述"></p>
+<p>然后这是很重要的一步，点击<strong>Build Phrase tab</strong>选项，添加相应的<strong>run script</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/carthage copy-frameworks</span><br><span class="line">$(SRCROOT)/Carthage/Build/iOS/你的framework</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20160920220906190" alt="这里写图片描述"></p>
+<p>然后就可以去项目里面<code>import</code>你得第三方库了~~可以愉快的使用了，不过有一点要吐槽一下<code>`build</code>的速度真是有点慢- . -</p>
+<h1 id="CocoaPods的优势与劣势"><a href="#CocoaPods的优势与劣势" class="headerlink" title="CocoaPods的优势与劣势"></a>CocoaPods的优势与劣势</h1><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>使用方便，除编写 Podfile 以外其他几乎都是自动完成；</li>
+<li>软件包数量多，主流支持；</li>
+<li>支持 iOS 8 Framework，当然也支持旧的静态编译；</li>
+<li>开发者使用比较简单，但是如果创建兼容 CocoaPods  的库，就会相对繁琐一些（尽管有了命令行）~</li>
+</ul>
+<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li>每次clean后都得重新编译，编译比较耗时，Archive也会变慢；</li>
+<li>每次更新环境都需要连接到中心仓库，比较耗时~</li>
+</ul>
+<h1 id="Carthage的优势与劣势"><a href="#Carthage的优势与劣势" class="headerlink" title="Carthage的优势与劣势"></a>Carthage的优势与劣势</h1><h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>build一次后就能在项目里面使用，增加编译速度；</li>
+<li>可以与<strong>CocoaPods</strong>无缝集成；</li>
+<li>它是去中心化的，没有中心服务器，这意味着每次配置和更新环境，只会去更新具体的库，而不会有一个向中心服务器获取最新库的索引这么个过程，如此一来，又省了很多时间；</li>
+<li>不会影响你的项目配置的，相对<strong>CocoaPods</strong>而言更加独立，Carthage 使用的是一种非侵入性的哲学；</li>
+</ul>
+<h2 id="劣势-1"><a href="#劣势-1" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li>库依然不如 CocoaPods 丰富：尽管很多库不需要声明并改造就直接可以被 Carthage 用，但依然有大量 CocoaPods 能用的库不支持，我相信时间能解决这个问题；</li>
+<li>只支持 Framework，所以是 iOS 8 Only 了，随着时间推移，这个也不会是问题；</li>
+<li>无法在 Xcode 里定位到源码：如果你在写代码过程中，想跳转到一个第三方库去看具体的实现，这是无法办到的，Carthage 的配置只能让你看到一个库的头文件~</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>我觉得不管怎样，好不好用，做为iOS程序员我们都应该去尝试的了解一下它，通过它去学到更多的东西，至于什么第三方库用<strong>CocoaPods</strong>，什么去用<strong>Carthage</strong>，我觉得一些比较稳定大的库可以用<strong>Carthage</strong>，而一些变动比较大，自己还有可能去修改的库我们肯定首选<strong>CocoaPods</strong>。最后希望大家看到这篇博客能学到东西，大家有问题可以提出来，谢谢大家的阅读~~</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="http://www.jianshu.com/p/5ccde5f22a17" target="_blank" rel="external">http://www.jianshu.com/p/5ccde5f22a17</a></p>
+<p><a href="https://imtx.me/archives/1939.html" target="_blank" rel="external">https://imtx.me/archives/1939.html</a></p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 04月 22日</p>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 09月 20日</p>
 
       
     </div>
@@ -420,7 +475,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag">#git</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -429,17 +484,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/Xcode-Plug-In/" rel="next" title="iOS开发进阶 - 常用的Xcode插件">
-                <i class="fa fa-chevron-left"></i> iOS开发进阶 - 常用的Xcode插件
+              <a href="/2016/09/16/iOS基于XMPP实现即时通讯之一、环境的搭建/" rel="next" title="iOS基于XMPP实现即时通讯之一、环境的搭建">
+                <i class="fa fa-chevron-left"></i> iOS基于XMPP实现即时通讯之一、环境的搭建
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/16/iOS开发-使用自定义字体/" rel="prev" title="iOS开发小结 - 使用自定义字体">
-                iOS开发小结 - 使用自定义字体 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,10 +505,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/04/22/github-SSH-Configure/"
-     data-title="iOS开发小结 - github SSH秘钥配置"
+        <div class="ds-share flat" data-thread-key="2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/"
+     data-title="iOS开发进阶 - 使用Carthage管理iOS第三方库"
      data-content=""
-     data-url="http://imwcl.com/2016/04/22/github-SSH-Configure/">
+     data-url="http://imwcl.com/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -484,8 +535,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/22/github-SSH-Configure/"
-           data-title="iOS开发小结 - github SSH秘钥配置" data-url="http://imwcl.com/2016/04/22/github-SSH-Configure/">
+      <div class="ds-thread" data-thread-key="2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/"
+           data-title="iOS开发进阶 - 使用Carthage管理iOS第三方库" data-url="http://imwcl.com/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/">
       </div>
     
   </div>
@@ -617,7 +668,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-SSH秘钥配置"><span class="nav-number">1.</span> <span class="nav-text">github SSH秘钥配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建SSH"><span class="nav-number">2.</span> <span class="nav-text">如何创建SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何查看你的rsa"><span class="nav-number">3.</span> <span class="nav-text">如何查看你的rsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试是否设置成功"><span class="nav-number">4.</span> <span class="nav-text">测试是否设置成功</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初识Carthage"><span class="nav-number">1.</span> <span class="nav-text">初识Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和使用Carthage"><span class="nav-number">1.1.</span> <span class="nav-text">安装和使用Carthage</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CocoaPods的优势与劣势"><span class="nav-number">2.</span> <span class="nav-text">CocoaPods的优势与劣势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">2.1.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#劣势"><span class="nav-number">2.2.</span> <span class="nav-text">劣势</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Carthage的优势与劣势"><span class="nav-number">3.</span> <span class="nav-text">Carthage的优势与劣势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优势-1"><span class="nav-number">3.1.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#劣势-1"><span class="nav-number">3.2.</span> <span class="nav-text">劣势</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
           </div>
         </section>
