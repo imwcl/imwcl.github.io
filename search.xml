@@ -4,6 +4,205 @@
   
     
     <entry>
+      <title><![CDATA[Shell学习小结 - 深入认识变量]]></title>
+      <url>http://imwcl.com/2016/10/23/Shell%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93-%E6%B7%B1%E5%85%A5%E8%AE%A4%E8%AF%86%E5%8F%98%E9%87%8F/</url>
+      <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20161023225816555" alt="这里写图片描述"></p>
+<h2 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h2><p>对于初学者来说，可以简单的理解为，变量就是保存在计算机内存中的一系列的键值对。</p>
+<a id="more"></a>
+<p>列如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str=&quot;hello&quot;</span><br></pre></td></tr></table></figure>
+<p>这里的<code>str</code>就是变量名，而<code>hello</code>就是变量的值</p>
+<blockquote>
+<p>注意在<code>shell</code>中变量名的大小是敏感的，因此大小写不同的两个变量名并不代表同一个变量</p>
+</blockquote>
+<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>根据变量的类型确实，可以将程序设计语言分为两类，分别是<strong>静态类型语言</strong>和<strong>动态类型语言</strong></p>
+<ul>
+<li><strong>静态类型语言：</strong> 是在编译期间就确定变量类型的语言，例如<code>JAVA</code>、<code>C++</code>、<code>PASCAL</code>，在这些语言中使用变量时，必须首先声明其类型。</li>
+<li><strong>动态设计语言：</strong> 实在程序执行过程中才确定变量的数据类型的语言。常见的有<code>VBScript</code>、<code>PHP</code>及<code>Python</code>。在这些语言中，变量的数据类型根据第一次赋给该变量的值的数据类型来确定。</li>
+</ul>
+<p>根据变量是否强制要求类型定义，可以将程序设计语言分为<strong>强类型语言</strong>和<strong>弱类型语言</strong></p>
+<ul>
+<li><strong>强类型语言：</strong> 要求用户在定义变量的时候必须明确指定其数据类型，例如<code>JAVA</code>和<code>C++</code>。在强类型语言中，数据类型之间的转换非常重要。</li>
+<li><strong>弱类型语言：</strong> 不要求用户明确指定变量的数据类型，例如<code>VBScript</code>。用户可以将任意类型的数值赋给该变量。并且，变量的数据类型之间的转换也无需明确进行。</li>
+</ul>
+<blockquote>
+<p><code>Shell</code>是一种动态类型语言和弱类型语言</p>
+</blockquote>
+<h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><p>在<code>Shell</code>中。通常情况下用户可以直接使用变量，无需先进行定义，当用户第一次使用某个变量名时，实际上就同时定义了这个变量，在变量的作用域内，用户都可以使用该变量。如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#定义变量a</span><br><span class="line">a=1</span><br><span class="line">#定义变量b</span><br><span class="line">b=&quot;hello&quot;</span><br><span class="line">#定义变量c</span><br><span class="line">c=&quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+<p>还可以通过<code>declare</code>关键字来定义变量，它可以对变量的读写属性和变量类型进行设置，改命令的基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare attribute variable</span><br></pre></td></tr></table></figure>
+<p>其中，<code>attribute</code>表示变量的属性，常用的属性如下所诉：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>显示所有变量的值</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>将变量定义为整数。在之后就可以直接对表达式求值，结果只能是整数。如果求值失败或者不是整数，就设置为0</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>将变量声明为只读变量。只读变量不允许修改，也不允许删除</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>变量声明为数组变量。但这没必要。所有变量都不必显式定义就可以用做数组，事实上，在某种意义上，所有变量都是数组，而且赋值给没有下标的变量与赋值给下标为0的数组元素相同。</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>显示所有自定义函数，包括名称和函数体</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>将变量设置成环境变量，这样在随后的脚本和程序中可以使用</td>
+</tr>
+</tbody>
+</table>
+<h2 id="变量与引号"><a href="#变量与引号" class="headerlink" title="变量与引号"></a>变量与引号</h2><p>在<code>Shell</code>语言中一共有3种引号，分别为<strong>单引号（’ ‘）、双引号（” “）和反引号（``）</strong>，它们的作用是不同。</p>
+<ul>
+<li><strong>单引号：</strong> 括起来的字符都做为普通字符出现</li>
+<li><strong>双引号：</strong> 除”$”、”\”、” <code>&quot;和&quot; &quot; &quot;这几个字符仍是特殊符并保留其特殊功能外，其余字符仍然做为普通字符对待</code> </li>
+<li><strong>反引号：</strong> 括起来的字符串被<code>Shell</code>解释为命令，在执行时，<code>Shell</code> 首先执行改命令，并以它的标准输出结果取代整个反引号（包括两个反引号）部分</li>
+</ul>
+<p><strong>反引号</strong>的用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#输出当前目录</span><br><span class="line">echo &quot;current directory is `pwd`&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p><code>Shell</code>跟其他语言一样，作用域分为<strong>全局变量</strong>和局部变量。</p>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>通常认为，全局变量是使用范围较大的变量，不局限某个局部使用。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#定义函数</span><br><span class="line">func()</span><br><span class="line">&#123;</span><br><span class="line">  #输出变量的值</span><br><span class="line">  echo &quot;$v1&quot;</span><br><span class="line">  #修改变量的值</span><br><span class="line">  v1=200</span><br><span class="line">&#125;</span><br><span class="line">#在脚本中定义变量</span><br><span class="line">v1=100</span><br><span class="line">#调用函数</span><br><span class="line">func</span><br><span class="line">#输出变量的值</span><br><span class="line">echo &quot;$v1&quot;</span><br></pre></td></tr></table></figure>
+<p>该执行的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">100</span><br><span class="line">200</span><br></pre></td></tr></table></figure>
+<p>在函数内部定义变量，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#定义函数</span><br><span class="line">func() </span><br><span class="line">&#123;</span><br><span class="line">  #在函数内部定义变量</span><br><span class="line">  v2=200</span><br><span class="line">&#125;</span><br><span class="line">#调用函数</span><br><span class="line">func</span><br><span class="line">#输出变量的值</span><br><span class="line">echo &quot;$v2&quot;</span><br></pre></td></tr></table></figure>
+<p>该执行的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">200</span><br></pre></td></tr></table></figure>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>与全局变量想比，局部变量的使用范围较小，通常仅限定某个程序段访问，例如函数内部。需要使用<code>local</code>关键字进行定义，另外，函数的参数也是局部变量。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#定义函数</span><br><span class="line">func()</span><br><span class="line">&#123;</span><br><span class="line">  #使用local关键字定义局部变量</span><br><span class="line">  local v2=200</span><br><span class="line">&#125;</span><br><span class="line">#调用函数</span><br><span class="line">func</span><br><span class="line">#输出变量</span><br><span class="line">echo &quot;$v2&quot;</span><br></pre></td></tr></table></figure>
+<p>该执行的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#并没有输出任何结果，因为v2是局部变量</span><br></pre></td></tr></table></figure>
+<p>从以下代码来比例两种局部变量和全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#定义函数</span><br><span class="line">func()</span><br><span class="line">&#123;</span><br><span class="line">  #输出全局变量v1</span><br><span class="line">  echo &quot;global variable v1 is $v1&quot;</span><br><span class="line">  #定义局部变量v1</span><br><span class="line">  local v1=2</span><br><span class="line">  #输出局部变量v1</span><br><span class="line">  echo &quot;local variable v1 is $v1&quot;</span><br><span class="line">&#125;</span><br><span class="line">#定义全局变量v1</span><br><span class="line">v1=1</span><br><span class="line">#调用函数</span><br><span class="line">func</span><br><span class="line">#输出全局变量v1</span><br><span class="line">echo &quot;global variable v1 is $v1&quot;</span><br></pre></td></tr></table></figure>
+<p>该执行的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">global variable v1 is 1</span><br><span class="line">local variable v1 is 2</span><br><span class="line">global variable v1 is 1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意Shell变量中的符号”$”表示取变量的值。只有在取值的时候才使用，定义和赋值是无需使用符号”$”，另外，实际上Shell中变量的原型为${var}，$var为简写，在某些情况下，简写会导致程序执行错误。</p>
+</blockquote>
+<h2 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h2><p>Shell语言的系统变量主要在对参数判断和命令返回值判断时使用，包括脚本和函数参数，已经脚本和函数的返回值。Shell语言中的系统变量并不多，但是十分有用，特别是在做一些参数检测的时候。一些常用的系统变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$n</td>
+<td>n是第一个整数，从1开始，表示参数的位置，例如$1表示第1个参数，$2表示第2个参数</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>命令行参数的个数</td>
+</tr>
+<tr>
+<td>$0</td>
+<td>当前Shell脚本的名称</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>前一个命令或者函数的返回状态码</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>以”参数1””参数2”……的形式将所有参数通过一个字符串返回</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>以”参数1””参数2”……的形式返回每个参数</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>返回本程序的进程ID（PID）</td>
+</tr>
+</tbody>
+</table>
+<p>下面是常用的系统变量的使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#输出脚本的参数个数</span><br><span class="line">echo &quot;the number of parameters is $#&quot;</span><br><span class="line">#输出上一个命令的退出状态码</span><br><span class="line">echo &quot;the return code of last command is $?&quot;</span><br><span class="line">#输出当前脚本的名称</span><br><span class="line">echo &quot;the script name is $0&quot;</span><br><span class="line">#输出所有的参数</span><br><span class="line">echo &quot;the parameters are $*&quot;</span><br><span class="line">#输出其中的几个参数</span><br><span class="line">echo &quot;\$1=$1;\$2=$2;\$11=$&#123;11&#125;&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>Shell的环境变量是所有Shell程序都可以使用的变量。Shell程序在运行时，都会接收一组变量，这组变量就是环境变量。环境变量会影响到所有脚本的执行结果。如下是一些常用的环境变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PATH</td>
+<td>命令搜索路径，以冒号为分隔符。注意Windows下不同的是，当前目录不在系统路径里</td>
+</tr>
+<tr>
+<td>HOME</td>
+<td>用户主目录的路径名，是cd命令的默认参数</td>
+</tr>
+<tr>
+<td>COLUMNS</td>
+<td>定义了命令编辑模式下可使用命令行的长度</td>
+</tr>
+<tr>
+<td>HISTFILE</td>
+<td>命令历史文件</td>
+</tr>
+<tr>
+<td>HISFILESIZE</td>
+<td>命令历史文件中最多可包含的命令条数</td>
+</tr>
+<tr>
+<td>IFS</td>
+<td>定义Shell使用的分隔符</td>
+</tr>
+<tr>
+<td>LOGNAME</td>
+<td>当前的登录名</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>Shell的全路径名</td>
+</tr>
+<tr>
+<td>TERM</td>
+<td>终端类型</td>
+</tr>
+<tr>
+<td>TMOUT</td>
+<td>Shell自动退出的时刻，单位为秒，若设置为0则禁止Shell自动退出</td>
+</tr>
+<tr>
+<td>PWD</td>
+<td>当前工作目录</td>
+</tr>
+</tbody>
+</table>
+<p>可以使用<code>set</code>命令列出系统所有的环境变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set | more</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&apos;!&apos;=0</span><br><span class="line">&apos;#&apos;=0</span><br><span class="line">&apos;$&apos;=6491</span><br><span class="line">&apos;*&apos;=(  )</span><br><span class="line">-=569JNRXghikls</span><br><span class="line">0=-zsh</span><br><span class="line">&apos;?&apos;=0</span><br><span class="line">@=(  )</span><br><span class="line">ARGC=0</span><br><span class="line">Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.A6yPyflyoi/Render</span><br><span class="line">BG</span><br><span class="line">CDPATH=&apos;&apos;</span><br><span class="line">COLORFGBG=&apos;12;8&apos;</span><br><span class="line">COLUMNS=80</span><br><span class="line">CPUTYPE=x86_64</span><br><span class="line">CURRENT_BG=NONE</span><br><span class="line">EGID=20</span><br><span class="line">EUID=501</span><br><span class="line">FG</span><br><span class="line">FIGNORE=&apos;&apos;</span><br><span class="line">FPATH=/Users/wangchonglei/.oh-my-zsh/plugins/git:/Users/wangchonglei/.oh-my-zsh/functions:/Users/wangchonglei/.oh-my-zsh/completions:/usr/local/share/zsh/site-functions:/usr/share/zsh/site-functions:/usr/share/zsh/5.2/functions</span><br><span class="line">FX</span><br></pre></td></tr></table></figure>
+<p>使用范例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#输出命令搜索路径</span><br><span class="line">echo &quot;commands path is $PATH&quot;</span><br><span class="line">#输出当前的登录名</span><br><span class="line">echo &quot;current login name is $LOGName&quot;</span><br><span class="line">#输出当前用户的主目录</span><br><span class="line">echo &quot;current user&apos;s home is $HOME&quot;</span><br><span class="line">#输出当前的Shell</span><br><span class="line">echo &quot;current shell is $SHELL&quot;</span><br><span class="line">#输出当前的工作目录</span><br><span class="line">echo &quot;current path is $PWD&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最近在学习<code>Shell</code>，把学习中的一些知识点记录下来，供以后自己复习使用。谢谢大家的阅读，有什么问题欢迎指出~~</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[iOS开发进阶 - 使用Carthage管理iOS第三方库]]></title>
       <url>http://imwcl.com/2016/09/20/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8Carthage%E7%AE%A1%E7%90%86iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</url>
       <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20160920225432049" alt=""></p>
