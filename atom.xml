@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imwcl.com/"/>
-  <updated>2016-10-23T15:34:01.000Z</updated>
+  <updated>2016-11-21T05:37:33.000Z</updated>
   <id>http://imwcl.com/</id>
   
   <author>
@@ -14,6 +14,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发进阶 - 项目的本地化处理(多语言开发)</title>
+    <link href="http://imwcl.com/2016/11/21/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86-%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91/"/>
+    <id>http://imwcl.com/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/</id>
+    <published>2016-11-21T05:35:04.000Z</published>
+    <updated>2016-11-21T05:37:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>最近项目本地化，需要支持11国语言，下面将本地化的步骤记录下来，方便查找使用，步骤很简单，有些地方也有坑，希望大家看后少走弯路~~</p>
+</blockquote>
+<h2 id="什么是本地化"><a href="#什么是本地化" class="headerlink" title="什么是本地化"></a>什么是本地化</h2><p>本地化说直白点就是多语言开发，通过系统语言来判断应用使用的哪种语言，实现应用的本地化开发</p>
+<a id="more"></a>
+<h2 id="本地化处理需要处理的文件"><a href="#本地化处理需要处理的文件" class="headerlink" title="本地化处理需要处理的文件"></a>本地化处理需要处理的文件</h2><ul>
+<li>本地化应用程序的<code>info.plist</code></li>
+<li>本地化字符串处理（项目中所涉及的字符串）</li>
+<li>本地化图片</li>
+<li>XIB和storyboard的本地化处理</li>
+<li>其他文件，比如<code>csv</code>等等</li>
+</ul>
+<h2 id="让我们的项目支持本地化"><a href="#让我们的项目支持本地化" class="headerlink" title="让我们的项目支持本地化"></a>让我们的项目支持本地化</h2><p>首先我们只有设置成支持多语言了，我们才能在展示项目名称和项目中的字符串等将语言进行切换，具体操作如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20161121115944742" alt="这里写图片描述"></p>
+<p>在如上图所示的地方添加你需要支持的语言就行了，我这里是添加了简体汉语和英语</p>
+<h2 id="如何判断当前系统使用的语言"><a href="#如何判断当前系统使用的语言" class="headerlink" title="如何判断当前系统使用的语言"></a>如何判断当前系统使用的语言</h2><p>我们使用<code>Locale</code>这个类来判断当前的系统语言，方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前的locale</span></span><br><span class="line"><span class="keyword">let</span> locale = <span class="type">Locale</span>.current</span><br><span class="line"><span class="comment">//返回本地语言环境的语言代码,或者如果没有零</span></span><br><span class="line"><span class="comment">//例如,对于地区“zh-Hant-HK”,返回“zh”</span></span><br><span class="line"><span class="keyword">let</span> languageCode = locale.languageCode</span><br><span class="line"><span class="comment">//返回该地区代码的语言环境,或者如果没有零</span></span><br><span class="line"><span class="comment">//例如,对于地区“zh-Hant-HK”,返回“HK”</span></span><br><span class="line"><span class="keyword">let</span> regionCode = locale.regionCode</span><br></pre></td></tr></table></figure>
+<p>同过以上的代码基本上能清楚的知道当前系统的使用的语言</p>
+<h2 id="获取系统支持的所有语言"><a href="#获取系统支持的所有语言" class="headerlink" title="获取系统支持的所有语言"></a>获取系统支持的所有语言</h2><p> 同样我们也是通过<code>Locale</code>来获取系统支持的所有语言</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回可用“语言环境”标识符的列表</span></span><br><span class="line"><span class="keyword">let</span> availableList = <span class="type">Locale</span>.availableIdentifiers</span><br><span class="line"><span class="comment">//返回一个可用“语言环境”语言代码的列表</span></span><br><span class="line"><span class="keyword">let</span> languageCodeList = <span class="type">Locale</span>.isoLanguageCodes</span><br><span class="line"><span class="comment">//返回一个可用“语言环境”地区代码的列表</span></span><br><span class="line"><span class="keyword">let</span> languageCodeList = <span class="type">Locale</span>.isoRegionCodes</span><br></pre></td></tr></table></figure>
+<h2 id="如何本地化info-plist"><a href="#如何本地化info-plist" class="headerlink" title="如何本地化info.plist"></a>如何本地化info.plist</h2><p>1.首先我们建一个名称叫<code>InfoPlist.strings</code>的本地化文件，记住名称必须叫<code>InfoPlist.strings</code></p>
+<p><img src="http://img.blog.csdn.net/20161121120522219" alt="这里写图片描述"></p>
+<p>2.选择让<code>InfoPlist.strings</code>支持的语言，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20161121120318894" alt="这里写图片描述"></p>
+<p>3.在<code>InfoPlist.strings</code>分别写入你想本地化的值，如下图所示 （格式如下所示，以分号结尾）：</p>
+<p><img src="http://img.blog.csdn.net/20161121120905709" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20161121120915115" alt="这里写图片描述"></p>
+<h3 id="如何获得info-plist中对应的Key"><a href="#如何获得info-plist中对应的Key" class="headerlink" title="如何获得info.plist中对应的Key"></a>如何获得info.plist中对应的Key</h3><p>我们可以通过打开<code>info.plist</code>的源码来获取到对于的Key值，如下图所示 ：</p>
+<p><img src="http://img.blog.csdn.net/20161121121603665" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20161121121535774" alt="这里写图片描述"></p>
+<h2 id="本地化字符串处理"><a href="#本地化字符串处理" class="headerlink" title="本地化字符串处理"></a>本地化字符串处理</h2><p>本地化字符串处理原理上跟infoPlist的处理差不多，只是我们需用配合一个方法来使用它：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="type">NSLocalizedString</span>(<span class="string">"需要本地化的字符串"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/814163-938f659e31926e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>默认使用<code>NSLocalizedString</code>这个方法时我们是获取<code>mainBundle</code>中一个名字叫<code>Localizable.strings</code>的本地化文件，所以我们一般只需要建一个名字叫<code>Localizable.strings</code>的文件即可，方法步骤跟建立<code>infoPlist.strings</code>类似（<a href="#如何本地化info.plist">传送门</a>）</p>
+<h3 id="使用自定义的本地化文件"><a href="#使用自定义的本地化文件" class="headerlink" title="使用自定义的本地化文件"></a>使用自定义的本地化文件</h3><p>使用自定义的本地化文件也很容易，也是之前的方法，我们只需要多填一些参数就可以了：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回一个本地化的字符串，默认使用main bundle，如果没有指定一个</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">NSLocalizedString</span><span class="params">(<span class="number">_</span> key: String, tableName: String? = <span class="keyword">default</span>, bundle: Bundle = <span class="keyword">default</span>, value: String = <span class="keyword">default</span>, comment: String)</span></span> -&gt; <span class="type">String</span></span><br></pre></td></tr></table></figure>
+<p>以上就是<code>NSLocalizedString</code>这个方法的所有参数，其中的tableName就是本地化文件的名称，默认就是<code>Localizable.strings</code>，自定义的话只需要建立一个新的，然后名称填你自己建立的本地化文件即可.</p>
+<h2 id="XIB和storyboard的本地化处理"><a href="#XIB和storyboard的本地化处理" class="headerlink" title="XIB和storyboard的本地化处理"></a>XIB和storyboard的本地化处理</h2><p><code>XIB</code>和<code>storyboard</code>的方法也很简单，跟本地放字符串类似，不过是本地化的<code>XIB</code>文件，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20161121132009631" alt="这里写图片描述"></p>
+<p><code>XIB</code>和<code>storyboard</code>的本地化又两种方式，如上图所示，一种是以本地化文件的方式实现，就是以<code>.strings</code>的本地化文件；另外一种是以<code>XIB</code>或<code>storyboard</code>的方式展示，具体如下图所示 ：</p>
+<p><img src="http://img.blog.csdn.net/20161121132509732" alt="这里写图片描述"></p>
+<h2 id="本地化图片和其他文件"><a href="#本地化图片和其他文件" class="headerlink" title="本地化图片和其他文件"></a>本地化图片和其他文件</h2><p>对于本地化图片和其他文件就比较费劲一点了，因为Xcode中图片并没有支持本地化，我们只有通过代码判断来决定使用相对于的本地化图片和文件了，<a href="#如何判断当前系统使用的语言">判断方法的传送门</a></p>
+<h2 id="本地化中所遇到的问题"><a href="#本地化中所遇到的问题" class="headerlink" title="本地化中所遇到的问题"></a>本地化中所遇到的问题</h2><p>在本地化中必须谨记一个问题，就是必须按本地化文件的格式来写入文件，因为本地化文件并不能检查出你分号后面是否多多余的字符串，造成的后果就是本地化文件失效！！</p>
+<blockquote>
+<p>借鉴了许多大神的博客，总结了一篇比较全的，希望大家能学到东西，又什么疑问可以留言，谢谢大家的阅读~</p>
+</blockquote>
+<hr>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 11月 21日</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近项目本地化，需要支持11国语言，下面将本地化的步骤记录下来，方便查找使用，步骤很简单，有些地方也有坑，希望大家看后少走弯路~~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;什么是本地化&quot;&gt;&lt;a href=&quot;#什么是本地化&quot; class=&quot;headerlink&quot; title=&quot;什么是本地化&quot;&gt;&lt;/a&gt;什么是本地化&lt;/h2&gt;&lt;p&gt;本地化说直白点就是多语言开发，通过系统语言来判断应用使用的哪种语言，实现应用的本地化开发&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+    
+    
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Shell学习小结 - 深入认识变量</title>
