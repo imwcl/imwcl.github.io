@@ -94,33 +94,31 @@
 
 
 
-<meta name="description" content="最近项目本地化，需要支持11国语言，下面将本地化的步骤记录下来，方便查找使用，步骤很简单，有些地方也有坑，希望大家看后少走弯路~~
+<meta name="description" content="在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有ClosedRange、CountableClosedRange和CountableRange，这下就彻底头疼了，下面简单的描述一下它们的区别
 
-什么是本地化本地化说直白点就是多语言开发，通过系统语言来判断应用使用的哪种语言，实现应用的本地化开发">
+从命名来代码来理解和区分
+CountableClosedRange：可数的闭区间
+CountableRange：可数的开区间
+ClosedRange：不可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发进阶 - 项目的本地化处理(多语言开发)">
-<meta property="og:url" content="http://imwcl.com/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/index.html">
+<meta property="og:title" content="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习">
+<meta property="og:url" content="http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="最近项目本地化，需要支持11国语言，下面将本地化的步骤记录下来，方便查找使用，步骤很简单，有些地方也有坑，希望大家看后少走弯路~~
+<meta property="og:description" content="在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有ClosedRange、CountableClosedRange和CountableRange，这下就彻底头疼了，下面简单的描述一下它们的区别
 
-什么是本地化本地化说直白点就是多语言开发，通过系统语言来判断应用使用的哪种语言，实现应用的本地化开发">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121115944742">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121120522219">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121120318894">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121120905709">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121120915115">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121121603665">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121121535774">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/814163-938f659e31926e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121132009631">
-<meta property="og:image" content="http://img.blog.csdn.net/20161121132509732">
-<meta property="og:updated_time" content="2016-11-21T05:37:33.000Z">
+从命名来代码来理解和区分
+CountableClosedRange：可数的闭区间
+CountableRange：可数的开区间
+ClosedRange：不可">
+<meta property="og:updated_time" content="2017-01-05T14:25:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发进阶 - 项目的本地化处理(多语言开发)">
-<meta name="twitter:description" content="最近项目本地化，需要支持11国语言，下面将本地化的步骤记录下来，方便查找使用，步骤很简单，有些地方也有坑，希望大家看后少走弯路~~
+<meta name="twitter:title" content="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习">
+<meta name="twitter:description" content="在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有ClosedRange、CountableClosedRange和CountableRange，这下就彻底头疼了，下面简单的描述一下它们的区别
 
-什么是本地化本地化说直白点就是多语言开发，通过系统语言来判断应用使用的哪种语言，实现应用的本地化开发">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20161121115944742">
+从命名来代码来理解和区分
+CountableClosedRange：可数的闭区间
+CountableRange：可数的开区间
+ClosedRange：不可">
 
 
 
@@ -138,7 +136,7 @@
   };
 </script>
 
-  <title> iOS开发进阶 - 项目的本地化处理(多语言开发) | W_C__L </title>
+  <title> swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +309,7 @@
             
             
               
-                iOS开发进阶 - 项目的本地化处理(多语言开发)
+                swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习
               
             
           </h1>
@@ -323,8 +321,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T13:35:04+08:00" content="2016-11-21">
-              2016-11-21
+            <time itemprop="dateCreated" datetime="2017-01-05T22:22:31+08:00" content="2017-01-05">
+              2017-01-05
             </time>
           </span>
 
@@ -337,8 +335,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发进阶/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发进阶</span>
+                  <a href="/categories/swift学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">swift学习笔记</span>
                   </a>
                 </span>
 
@@ -353,8 +351,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/" itemprop="commentsCount"></span>
+                <a href="/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -364,7 +362,7 @@
 
           
           
-            <span id="/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/" class="leancloud_visitors" data-flag-title="iOS开发进阶 - 项目的本地化处理(多语言开发)">
+            <span id="/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/" class="leancloud_visitors" data-flag-title="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习">
                 &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -388,52 +386,43 @@
 
       
         <blockquote>
-<p>最近项目本地化，需要支持11国语言，下面将本地化的步骤记录下来，方便查找使用，步骤很简单，有些地方也有坑，希望大家看后少走弯路~~</p>
+<p>在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有<code>ClosedRange、CountableClosedRange和CountableRange</code>，这下就彻底头疼了，下面简单的描述一下它们的区别</p>
 </blockquote>
-<h2 id="什么是本地化"><a href="#什么是本地化" class="headerlink" title="什么是本地化"></a>什么是本地化</h2><p>本地化说直白点就是多语言开发，通过系统语言来判断应用使用的哪种语言，实现应用的本地化开发</p>
-<a id="more"></a>
-<h2 id="本地化处理需要处理的文件"><a href="#本地化处理需要处理的文件" class="headerlink" title="本地化处理需要处理的文件"></a>本地化处理需要处理的文件</h2><ul>
-<li>本地化应用程序的<code>info.plist</code></li>
-<li>本地化字符串处理（项目中所涉及的字符串）</li>
-<li>本地化图片</li>
-<li>XIB和storyboard的本地化处理</li>
-<li>其他文件，比如<code>csv</code>等等</li>
+<h2 id="从命名来代码来理解和区分"><a href="#从命名来代码来理解和区分" class="headerlink" title="从命名来代码来理解和区分"></a>从命名来代码来理解和区分</h2><ul>
+<li><code>CountableClosedRange</code>：可数的闭区间</li>
+<li><code>CountableRange</code>：可数的开区间</li>
+<li><code>ClosedRange</code>：不可数的闭区间</li>
+<li><code>Range</code>：不可数的开居间</li>
 </ul>
-<h2 id="让我们的项目支持本地化"><a href="#让我们的项目支持本地化" class="headerlink" title="让我们的项目支持本地化"></a>让我们的项目支持本地化</h2><p>首先我们只有设置成支持多语言了，我们才能在展示项目名称和项目中的字符串等将语言进行切换，具体操作如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20161121115944742" alt="这里写图片描述"></p>
-<p>在如上图所示的地方添加你需要支持的语言就行了，我这里是添加了简体汉语和英语</p>
-<h2 id="如何判断当前系统使用的语言"><a href="#如何判断当前系统使用的语言" class="headerlink" title="如何判断当前系统使用的语言"></a>如何判断当前系统使用的语言</h2><p>我们使用<code>Locale</code>这个类来判断当前的系统语言，方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前的locale</span></span><br><span class="line"><span class="keyword">let</span> locale = <span class="type">Locale</span>.current</span><br><span class="line"><span class="comment">//返回本地语言环境的语言代码,或者如果没有零</span></span><br><span class="line"><span class="comment">//例如,对于地区“zh-Hant-HK”,返回“zh”</span></span><br><span class="line"><span class="keyword">let</span> languageCode = locale.languageCode</span><br><span class="line"><span class="comment">//返回该地区代码的语言环境,或者如果没有零</span></span><br><span class="line"><span class="comment">//例如,对于地区“zh-Hant-HK”,返回“HK”</span></span><br><span class="line"><span class="keyword">let</span> regionCode = locale.regionCode</span><br></pre></td></tr></table></figure>
-<p>同过以上的代码基本上能清楚的知道当前系统的使用的语言</p>
-<h2 id="获取系统支持的所有语言"><a href="#获取系统支持的所有语言" class="headerlink" title="获取系统支持的所有语言"></a>获取系统支持的所有语言</h2><p> 同样我们也是通过<code>Locale</code>来获取系统支持的所有语言</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回可用“语言环境”标识符的列表</span></span><br><span class="line"><span class="keyword">let</span> availableList = <span class="type">Locale</span>.availableIdentifiers</span><br><span class="line"><span class="comment">//返回一个可用“语言环境”语言代码的列表</span></span><br><span class="line"><span class="keyword">let</span> languageCodeList = <span class="type">Locale</span>.isoLanguageCodes</span><br><span class="line"><span class="comment">//返回一个可用“语言环境”地区代码的列表</span></span><br><span class="line"><span class="keyword">let</span> languageCodeList = <span class="type">Locale</span>.isoRegionCodes</span><br></pre></td></tr></table></figure>
-<h2 id="如何本地化info-plist"><a href="#如何本地化info-plist" class="headerlink" title="如何本地化info.plist"></a>如何本地化info.plist</h2><p>1.首先我们建一个名称叫<code>InfoPlist.strings</code>的本地化文件，记住名称必须叫<code>InfoPlist.strings</code></p>
-<p><img src="http://img.blog.csdn.net/20161121120522219" alt="这里写图片描述"></p>
-<p>2.选择让<code>InfoPlist.strings</code>支持的语言，如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20161121120318894" alt="这里写图片描述"></p>
-<p>3.在<code>InfoPlist.strings</code>分别写入你想本地化的值，如下图所示 （格式如下所示，以分号结尾）：</p>
-<p><img src="http://img.blog.csdn.net/20161121120905709" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20161121120915115" alt="这里写图片描述"></p>
-<h3 id="如何获得info-plist中对应的Key"><a href="#如何获得info-plist中对应的Key" class="headerlink" title="如何获得info.plist中对应的Key"></a>如何获得info.plist中对应的Key</h3><p>我们可以通过打开<code>info.plist</code>的源码来获取到对于的Key值，如下图所示 ：</p>
-<p><img src="http://img.blog.csdn.net/20161121121603665" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20161121121535774" alt="这里写图片描述"></p>
-<h2 id="本地化字符串处理"><a href="#本地化字符串处理" class="headerlink" title="本地化字符串处理"></a>本地化字符串处理</h2><p>本地化字符串处理原理上跟infoPlist的处理差不多，只是我们需用配合一个方法来使用它：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="type">NSLocalizedString</span>(<span class="string">"需要本地化的字符串"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/814163-938f659e31926e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>默认使用<code>NSLocalizedString</code>这个方法时我们是获取<code>mainBundle</code>中一个名字叫<code>Localizable.strings</code>的本地化文件，所以我们一般只需要建一个名字叫<code>Localizable.strings</code>的文件即可，方法步骤跟建立<code>infoPlist.strings</code>类似（<a href="#如何本地化info.plist">传送门</a>）</p>
-<h3 id="使用自定义的本地化文件"><a href="#使用自定义的本地化文件" class="headerlink" title="使用自定义的本地化文件"></a>使用自定义的本地化文件</h3><p>使用自定义的本地化文件也很容易，也是之前的方法，我们只需要多填一些参数就可以了：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回一个本地化的字符串，默认使用main bundle，如果没有指定一个</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">NSLocalizedString</span><span class="params">(<span class="number">_</span> key: String, tableName: String? = <span class="keyword">default</span>, bundle: Bundle = <span class="keyword">default</span>, value: String = <span class="keyword">default</span>, comment: String)</span></span> -&gt; <span class="type">String</span></span><br></pre></td></tr></table></figure>
-<p>以上就是<code>NSLocalizedString</code>这个方法的所有参数，其中的tableName就是本地化文件的名称，默认就是<code>Localizable.strings</code>，自定义的话只需要建立一个新的，然后名称填你自己建立的本地化文件即可.</p>
-<h2 id="XIB和storyboard的本地化处理"><a href="#XIB和storyboard的本地化处理" class="headerlink" title="XIB和storyboard的本地化处理"></a>XIB和storyboard的本地化处理</h2><p><code>XIB</code>和<code>storyboard</code>的方法也很简单，跟本地放字符串类似，不过是本地化的<code>XIB</code>文件，如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20161121132009631" alt="这里写图片描述"></p>
-<p><code>XIB</code>和<code>storyboard</code>的本地化又两种方式，如上图所示，一种是以本地化文件的方式实现，就是以<code>.strings</code>的本地化文件；另外一种是以<code>XIB</code>或<code>storyboard</code>的方式展示，具体如下图所示 ：</p>
-<p><img src="http://img.blog.csdn.net/20161121132509732" alt="这里写图片描述"></p>
-<h2 id="本地化图片和其他文件"><a href="#本地化图片和其他文件" class="headerlink" title="本地化图片和其他文件"></a>本地化图片和其他文件</h2><p>对于本地化图片和其他文件就比较费劲一点了，因为Xcode中图片并没有支持本地化，我们只有通过代码判断来决定使用相对于的本地化图片和文件了，<a href="#如何判断当前系统使用的语言">判断方法的传送门</a></p>
-<h2 id="本地化中所遇到的问题"><a href="#本地化中所遇到的问题" class="headerlink" title="本地化中所遇到的问题"></a>本地化中所遇到的问题</h2><p>在本地化中必须谨记一个问题，就是必须按本地化文件的格式来写入文件，因为本地化文件并不能检查出你分号后面是否多多余的字符串，造成的后果就是本地化文件失效！！</p>
+<a id="more"></a>
+<p>下面通过代码来理解一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化测试：</span></span><br><span class="line"><span class="comment">// CountableClosedRange: [0,2]</span></span><br><span class="line"><span class="keyword">let</span> rangea = <span class="number">0</span>...<span class="number">2</span></span><br><span class="line"><span class="comment">// CountableRange: [0,2)</span></span><br><span class="line"><span class="keyword">let</span> rangeb = <span class="number">0</span>..&lt;<span class="number">2</span></span><br><span class="line"><span class="comment">// ClosedRange: [0.1,2.1]</span></span><br><span class="line"><span class="keyword">let</span> rangec = <span class="number">0.1</span>...<span class="number">2.1</span></span><br><span class="line"><span class="comment">// Range: [0.1,2.1)</span></span><br><span class="line"><span class="keyword">let</span> ranged = <span class="number">0.1</span>..&lt;<span class="number">2.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环测试：可数的，可以for循环</span></span><br><span class="line"><span class="comment">// CountableClosedRange：可数的可以for循环，输出0、1、2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangea &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// CountableRange：可数的可以for循环，输出0、1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangeb &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环测试：不可数的，不能for循环</span></span><br><span class="line"><span class="comment">// ClosedRange：不可数，不能for循环，以下写法会报错</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangec &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Range：不可数，不能for循环，以下写法会报错</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ranged &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以用可数和不可数、闭区间和开区间来理解记忆<code>Range、ClosedRange、CountableClosedRange和CountableRange</code></p>
+<p>可数：可以用于for循环</p>
+<ul>
+<li><code>CountableClosedRange</code></li>
+<li><code>CountableRange</code></li>
+</ul>
+<p>不可数：不能用于for循环</p>
+<ul>
+<li><code>ClosedRange</code></li>
+<li><code>Range</code></li>
+</ul>
+<p>闭区间：</p>
+<ul>
+<li><code>CountableClosedRange</code></li>
+<li><code>ClosedRange</code></li>
+</ul>
+<p>开区间：</p>
+<ul>
+<li><code>Range</code></li>
+<li><code>CountableRange</code></li>
+</ul>
 <blockquote>
-<p>借鉴了许多大神的博客，总结了一篇比较全的，希望大家能学到东西，又什么疑问可以留言，谢谢大家的阅读~</p>
+<p>以上是我总结的<code>Range、ClosedRange、CountableClosedRange和CountableRange</code>的区别，希望对大家有帮助，如果写的有错误希望大家能指出，谢谢大家的阅读</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 11月 21日</p>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 01月 05日</p>
 
       
     </div>
@@ -484,17 +473,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/23/Shell学习小结-深入认识变量/" rel="next" title="Shell学习小结 - 深入认识变量">
-                <i class="fa fa-chevron-left"></i> Shell学习小结 - 深入认识变量
+              <a href="/2016/12/21/iOS开发进阶-自定义UICollectionViewLayout实现瀑布流布局/" rel="next" title="iOS开发进阶 - 自定义UICollectionViewLayout实现瀑布流布局">
+                <i class="fa fa-chevron-left"></i> iOS开发进阶 - 自定义UICollectionViewLayout实现瀑布流布局
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/28/iOS开发进阶-富文本正则替换表情/" rel="prev" title="iOS开发进阶 - 富文本正则替换表情">
-                iOS开发进阶 - 富文本正则替换表情 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,10 +494,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/"
-     data-title="iOS开发进阶 - 项目的本地化处理(多语言开发)"
+        <div class="ds-share flat" data-thread-key="2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/"
+     data-title="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习"
      data-content=""
-     data-url="http://imwcl.com/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/">
+     data-url="http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -539,8 +524,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/"
-           data-title="iOS开发进阶 - 项目的本地化处理(多语言开发)" data-url="http://imwcl.com/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/">
+      <div class="ds-thread" data-thread-key="2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/"
+           data-title="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习" data-url="http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/">
       </div>
     
   </div>
@@ -672,7 +657,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是本地化"><span class="nav-number">1.</span> <span class="nav-text">什么是本地化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化处理需要处理的文件"><span class="nav-number">2.</span> <span class="nav-text">本地化处理需要处理的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让我们的项目支持本地化"><span class="nav-number">3.</span> <span class="nav-text">让我们的项目支持本地化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断当前系统使用的语言"><span class="nav-number">4.</span> <span class="nav-text">如何判断当前系统使用的语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取系统支持的所有语言"><span class="nav-number">5.</span> <span class="nav-text">获取系统支持的所有语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何本地化info-plist"><span class="nav-number">6.</span> <span class="nav-text">如何本地化info.plist</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何获得info-plist中对应的Key"><span class="nav-number">6.1.</span> <span class="nav-text">如何获得info.plist中对应的Key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化字符串处理"><span class="nav-number">7.</span> <span class="nav-text">本地化字符串处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用自定义的本地化文件"><span class="nav-number">7.1.</span> <span class="nav-text">使用自定义的本地化文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XIB和storyboard的本地化处理"><span class="nav-number">8.</span> <span class="nav-text">XIB和storyboard的本地化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化图片和其他文件"><span class="nav-number">9.</span> <span class="nav-text">本地化图片和其他文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化中所遇到的问题"><span class="nav-number">10.</span> <span class="nav-text">本地化中所遇到的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从命名来代码来理解和区分"><span class="nav-number">1.</span> <span class="nav-text">从命名来代码来理解和区分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

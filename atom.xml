@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imwcl.com/"/>
-  <updated>2016-12-21T14:54:39.000Z</updated>
+  <updated>2017-01-05T14:25:55.000Z</updated>
   <id>http://imwcl.com/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习</title>
+    <link href="http://imwcl.com/2017/01/05/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Range%E3%80%81ClosedRange%E3%80%81CountableClosedRange%E4%B8%8ECountableRange%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/</id>
+    <published>2017-01-05T14:22:31.000Z</published>
+    <updated>2017-01-05T14:25:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有<code>ClosedRange、CountableClosedRange和CountableRange</code>，这下就彻底头疼了，下面简单的描述一下它们的区别</p>
+</blockquote>
+<h2 id="从命名来代码来理解和区分"><a href="#从命名来代码来理解和区分" class="headerlink" title="从命名来代码来理解和区分"></a>从命名来代码来理解和区分</h2><ul>
+<li><code>CountableClosedRange</code>：可数的闭区间</li>
+<li><code>CountableRange</code>：可数的开区间</li>
+<li><code>ClosedRange</code>：不可数的闭区间</li>
+<li><code>Range</code>：不可数的开居间</li>
+</ul>
+<a id="more"></a>
+<p>下面通过代码来理解一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化测试：</span></span><br><span class="line"><span class="comment">// CountableClosedRange: [0,2]</span></span><br><span class="line"><span class="keyword">let</span> rangea = <span class="number">0</span>...<span class="number">2</span></span><br><span class="line"><span class="comment">// CountableRange: [0,2)</span></span><br><span class="line"><span class="keyword">let</span> rangeb = <span class="number">0</span>..&lt;<span class="number">2</span></span><br><span class="line"><span class="comment">// ClosedRange: [0.1,2.1]</span></span><br><span class="line"><span class="keyword">let</span> rangec = <span class="number">0.1</span>...<span class="number">2.1</span></span><br><span class="line"><span class="comment">// Range: [0.1,2.1)</span></span><br><span class="line"><span class="keyword">let</span> ranged = <span class="number">0.1</span>..&lt;<span class="number">2.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环测试：可数的，可以for循环</span></span><br><span class="line"><span class="comment">// CountableClosedRange：可数的可以for循环，输出0、1、2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangea &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// CountableRange：可数的可以for循环，输出0、1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangeb &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环测试：不可数的，不能for循环</span></span><br><span class="line"><span class="comment">// ClosedRange：不可数，不能for循环，以下写法会报错</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangec &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Range：不可数，不能for循环，以下写法会报错</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ranged &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以用可数和不可数、闭区间和开区间来理解记忆<code>Range、ClosedRange、CountableClosedRange和CountableRange</code></p>
+<p>可数：可以用于for循环</p>
+<ul>
+<li><code>CountableClosedRange</code></li>
+<li><code>CountableRange</code></li>
+</ul>
+<p>不可数：不能用于for循环</p>
+<ul>
+<li><code>ClosedRange</code></li>
+<li><code>Range</code></li>
+</ul>
+<p>闭区间：</p>
+<ul>
+<li><code>CountableClosedRange</code></li>
+<li><code>ClosedRange</code></li>
+</ul>
+<p>开区间：</p>
+<ul>
+<li><code>Range</code></li>
+<li><code>CountableRange</code></li>
+</ul>
+<blockquote>
+<p>以上是我总结的<code>Range、ClosedRange、CountableClosedRange和CountableRange</code>的区别，希望对大家有帮助，如果写的有错误希望大家能指出，谢谢大家的阅读</p>
+</blockquote>
+<hr>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 01月 05日</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有&lt;code&gt;ClosedRange、CountableClosedRange和CountableRange&lt;/code&gt;，这下就彻底头疼了，下面简单的描述一下它们的区别&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;从命名来代码来理解和区分&quot;&gt;&lt;a href=&quot;#从命名来代码来理解和区分&quot; class=&quot;headerlink&quot; title=&quot;从命名来代码来理解和区分&quot;&gt;&lt;/a&gt;从命名来代码来理解和区分&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CountableClosedRange&lt;/code&gt;：可数的闭区间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CountableRange&lt;/code&gt;：可数的开区间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ClosedRange&lt;/code&gt;：不可数的闭区间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Range&lt;/code&gt;：不可数的开居间&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="swift学习笔记" scheme="http://imwcl.com/categories/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS开发进阶 - 自定义UICollectionViewLayout实现瀑布流布局</title>

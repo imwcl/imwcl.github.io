@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://imwcl.com/2017/01/05/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Range%E3%80%81ClosedRange%E3%80%81CountableClosedRange%E4%B8%8ECountableRange%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2017-01-05T14:25:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://imwcl.com/2016/12/21/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E8%87%AA%E5%AE%9A%E4%B9%89UICollectionViewLayout%E5%AE%9E%E7%8E%B0%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/</loc>
     
     <lastmod>2016-12-21T14:54:39.000Z</lastmod>
