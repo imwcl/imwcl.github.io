@@ -4,6 +4,139 @@
   
     
     <entry>
+      <title><![CDATA[iOS开发进阶 - Photos详解基于Photos的图片选择器]]></title>
+      <url>http://imwcl.com/2017/01/11/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-Photos%E8%AF%A6%E8%A7%A3%E5%9F%BA%E4%BA%8EPhotos%E7%9A%84%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>很早之前就用OC把代码写完了并用在项目中了，一直没时间整理，现在用swift重写一份，并且更加详细的来了解这个Photos框架，下面是我集合苹果官方文档和其他大神的博客写出的一篇关于Photos框架的介绍</p>
+</blockquote>
+<p>老规矩先上效果图和<a href="https://github.com/631106979/WCLImagePickerController" target="_blank" rel="external">Demo地址</a>：</p>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WclImagePickerController/wcl.gif" alt="wcl"></p>
+<a id="more"></a>
+<h1 id="了解Photos框架"><a href="#了解Photos框架" class="headerlink" title="了解Photos框架"></a>了解Photos框架</h1><p>Photos是ios8出的一个新的图片选择框架，取代之前的AssetsLibrary框架，相比较AssetsLibrary框架Photos的用法更加灵活，发现在iOS9中AssetsLibrary已经被弃用了，并且也不支持livePhoto，iOS9上再使用AssetsLibrary框架时还有个严重的问题就是图片分辨率会变的很低，这篇文章主要讲解一下Photos的简单用法，用它做一个简单的图片选择器。</p>
+<p>Photos中各个类的简单解释：</p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHAdjustmentData</td>
+<td>当用户编辑资源，照片与修改后的图像或视频数据保存在一个PHAdjustmentData对象中</td>
+</tr>
+<tr>
+<td>PHAsset</td>
+<td>代表照片库中的一个资源实体，可以理解为一张照片，在打印的时候，可以清楚的看见里面包含了照片的时间、标题等信息</td>
+</tr>
+<tr>
+<td>PHAssetChangeRequest</td>
+<td>使用PHAssetChangeRequest对象来创建、删除和修改相片库里面的PHAsset对象</td>
+</tr>
+<tr>
+<td>PHAssetCollectionChangeRequest</td>
+<td>使用PHAssetCollectionChangeRequest对象来创建、删除和修改相片库里面的PHAssetCollection对象</td>
+</tr>
+<tr>
+<td>PHAssetCreationRequest</td>
+<td>使用PHAssetCreationRequest对象构造一个新的照片或视频，并将其添加到照片库</td>
+</tr>
+<tr>
+<td>PHAssetResource</td>
+<td>一个PHAssetResource对象表示在照片库中的照片或视频资源（也就是一个PHAsset对象）相关联的基础数据资源之一，使用PHAssetResourceManager类获取它</td>
+</tr>
+<tr>
+<td>PHAssetResourceManager</td>
+<td>PHAssetResourceManager对象提供了访问与照片资源相关的资源基础数据存储方法</td>
+</tr>
+<tr>
+<td>PHChange</td>
+<td>PHChange对象来通知的照片库中的资源的一些变法，比如增加和删除</td>
+</tr>
+<tr>
+<td>PHCollection</td>
+<td>PHAssetCollection对象表示一组照片或视频资源。包括时刻和相册中可见照片应用,以及特殊的集合,如共享照片流。</td>
+</tr>
+<tr>
+<td>PHCollectionListChangeRequest</td>
+<td>使用PHCollectionListChangeRequest对象在一个照片库中创建、删除或修改PHCollectionList对象。</td>
+</tr>
+<tr>
+<td>PHContentEditingInput</td>
+<td>PHContentEditingInput对象描述资产用于编辑元数据</td>
+</tr>
+<tr>
+<td>PHContentEditingOutput</td>
+<td>PHContentEditingOutput对象表示编辑照片资产的照片或视频内容的结果</td>
+</tr>
+<tr>
+<td>PHFetchOptions</td>
+<td>获取资源时的检索参数，可以传 nil，即使用系统默认值</td>
+</tr>
+<tr>
+<td>PHFetchResult</td>
+<td>通过PHFetchResult来获取照片实体的有序列表</td>
+</tr>
+<tr>
+<td>PHImageManager</td>
+<td>PHImageManager对象提供用于加载与PHAsset对象相关联的图像或视频数据的方法。使用这些方法来获取全尺寸照片资产或缩略图，或者检索AV Foundation对象播放，导出和操纵的视频资产。</td>
+</tr>
+<tr>
+<td>PHLivePhoto</td>
+<td>用来获取LivePhoto实体</td>
+</tr>
+<tr>
+<td>PHObject</td>
+<td>照片等实体的抽象类</td>
+</tr>
+<tr>
+<td>PHPhotoLibrary</td>
+<td>PHPhotoLibrary对象表示用户的照片库整套资源和收藏的照片，包括存储在本地设备上在iCloud的照片对象。</td>
+</tr>
+<tr>
+<td>PhotosTypes</td>
+<td>与Photos框架相关的类型的枚举</td>
+</tr>
+</tbody>
+</table>
+<h1 id="获取相册列表"><a href="#获取相册列表" class="headerlink" title="获取相册列表"></a>获取相册列表</h1><p>获取相册列表可以需要用到一下类：</p>
+<ul>
+<li>PHFetchOptions：对象检索的对象，可以对相册列表进行筛选</li>
+<li>PHAssetCollection：图片集合的对象，筛选后获得的集合</li>
+</ul>
+<p>下面是获取相册列表的代码片段：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//MARK: 属性列表</span></span><br><span class="line">   <span class="comment">//全部相册的数组</span></span><br><span class="line">   <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">var</span> photoAlbums    = [[<span class="type">String</span>: <span class="type">PHFetchResult</span>&lt;<span class="type">PHAsset</span>&gt;]]()</span><br><span class="line">   <span class="keyword">private</span>(<span class="keyword">set</span>) <span class="keyword">var</span> selectPhotoArr = [<span class="type">PHAsset</span>]()</span><br><span class="line"></span><br><span class="line">   <span class="comment">//是否同步请求图片</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">var</span> isSynchronous: <span class="type">Bool</span> = <span class="literal">false</span> &#123;</span><br><span class="line">       <span class="keyword">didSet</span>&#123;</span><br><span class="line">           <span class="keyword">self</span>.photoOption.isSynchronous = isSynchronous</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MARK: 初始化方法</span></span><br><span class="line">   <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">       <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line">       <span class="comment">//图片请求设置成快速获取</span></span><br><span class="line">       <span class="keyword">self</span>.photoOption.resizeMode   = .fast</span><br><span class="line">       <span class="keyword">self</span>.photoOption.deliveryMode = .opportunistic</span><br><span class="line">       getPhotoAlbum()</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">/**</span><br><span class="line">    开始获取获取相册列表</span><br><span class="line">    */</span></span><br><span class="line">   <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">getPhotoAlbum</span><span class="params">()</span></span> &#123;</span><br><span class="line">       <span class="comment">//创建一个PHFetchOptions对象检索照片</span></span><br><span class="line">       <span class="keyword">let</span> options = <span class="type">PHFetchOptions</span>()</span><br><span class="line">       <span class="comment">//通过创建时间来检索</span></span><br><span class="line">       options.sortDescriptors = [<span class="type">NSSortDescriptor</span>.<span class="keyword">init</span>(key: photoCreationDate, ascending: <span class="literal">false</span>)]</span><br><span class="line">       <span class="comment">//通过数据类型来检索，这里为只检索照片</span></span><br><span class="line">       options.predicate = <span class="type">NSPredicate</span>.<span class="keyword">init</span>(format: <span class="string">"mediaType in %@"</span>, [<span class="type">PHAssetMediaType</span>.image.rawValue])</span><br><span class="line">       <span class="comment">//通过检索条件检索出符合检索条件的所有数据，也就是所有的照片</span></span><br><span class="line">       <span class="keyword">let</span> allResult = <span class="type">PHAsset</span>.fetchAssets(with: options)</span><br><span class="line">       <span class="comment">//获取用户创建的相册</span></span><br><span class="line">       <span class="keyword">let</span> userResult = <span class="type">PHAssetCollection</span>.fetchTopLevelUserCollections(with: <span class="literal">nil</span>)</span><br><span class="line">       <span class="comment">//获取智能相册</span></span><br><span class="line">       <span class="keyword">let</span> smartResult = <span class="type">PHAssetCollection</span>.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: <span class="literal">nil</span>)</span><br><span class="line">       <span class="comment">//将获取的相册加入到相册的数组中</span></span><br><span class="line">       photoAlbums.append([<span class="type">WCLImagePickerBundle</span>.localizedString(key: <span class="string">"全部照片"</span>): allResult])</span><br><span class="line">       </span><br><span class="line">       userResult.enumerateObjects(options: .concurrent) &#123; (collection, index, stop) <span class="keyword">in</span></span><br><span class="line">           <span class="keyword">let</span> assetcollection = collection <span class="keyword">as</span>! <span class="type">PHAssetCollection</span></span><br><span class="line">           <span class="comment">//通过检索条件从assetcollection中检索出结果</span></span><br><span class="line">           <span class="keyword">let</span> assetResult = <span class="type">PHAsset</span>.fetchAssets(<span class="keyword">in</span>: assetcollection, options: options)</span><br><span class="line">           <span class="keyword">if</span> assetResult.<span class="built_in">count</span> != <span class="number">0</span> &#123;</span><br><span class="line">               <span class="keyword">self</span>.photoAlbums.append([assetcollection.localizedTitle!:assetResult])</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       smartResult.enumerateObjects(options: .concurrent) &#123; (collection, index, stop) <span class="keyword">in</span></span><br><span class="line">           <span class="comment">//通过检索条件从assetcollection中检索出结果</span></span><br><span class="line">           <span class="keyword">let</span> assetResult = <span class="type">PHAsset</span>.fetchAssets(<span class="keyword">in</span>: collection, options: options)</span><br><span class="line">           <span class="keyword">if</span> assetResult.<span class="built_in">count</span> != <span class="number">0</span> &#123;</span><br><span class="line">               <span class="keyword">self</span>.photoAlbums.append([collection.localizedTitle!:assetResult])</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="获取某个相册的所有图片列表"><a href="#获取某个相册的所有图片列表" class="headerlink" title="获取某个相册的所有图片列表"></a>获取某个相册的所有图片列表</h1><p>需要用到的类：</p>
+<ul>
+<li>PHFetchResult：对象检索的对象，可以对图片进行筛选</li>
+<li>PHAsset：图片资源的对象，代表一个图片或者视频资源</li>
+</ul>
+<p>下面贴代码片段：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 通过下标返回相册的PHFetchResult</span><br><span class="line"> </span><br><span class="line"> - parameter index: 选择相册的index</span><br><span class="line"> </span><br><span class="line"> - returns: 相册的PHFetchResult</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">getAblumResult</span><span class="params">(<span class="number">_</span> ablumIndex: Int)</span></span> -&gt; <span class="type">PHFetchResult</span>&lt;<span class="type">PHAsset</span>&gt;? &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> ablum = <span class="keyword">self</span>.photoAlbums[wcl_safe: ablumIndex] &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> result = ablum.values.first &#123;</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中返回的<code>result</code>就代表选中的相册的图片列表</p>
+<h1 id="获取到单张图片的数据"><a href="#获取到单张图片的数据" class="headerlink" title="获取到单张图片的数据"></a>获取到单张图片的数据</h1><p>通过上面获取到的相册的图片列表通过下标就能获得到图片对应的<code>PHAsset</code>，需要用到的类：</p>
+<ul>
+<li>PHCachingImageManager：获取图片数据的Manager，也可缓存数据</li>
+<li>PHImageRequestOptions：获取图片的一些选项配置，比如获取方式等等</li>
+<li>PHAsset：图片资源的对象，代表一个图片或者视频资源</li>
+</ul>
+<p>下面是代码片段：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 根据PHAsset获取photo</span><br><span class="line"> </span><br><span class="line"> - parameter ablumIndex:    相册的index</span><br><span class="line"> - parameter alasset:       相册里图片的PHAsset</span><br><span class="line"> - parameter photoSize:     图片的size</span><br><span class="line"> - parameter resultHandler: 返回照片的回调</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">getPhoto</span><span class="params">(<span class="number">_</span> photoSize: CGSize, alasset: PHAsset?, resultHandler: <span class="params">(<span class="params">(UIImage?, [AnyHashable: Any]?)</span></span></span></span> -&gt; <span class="type">Void</span>)?) &#123;</span><br><span class="line">    <span class="keyword">if</span> alasset != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> scale = <span class="type">UIScreen</span>.main.scale</span><br><span class="line">        <span class="keyword">let</span> photoScaleSize = <span class="type">CGSize</span>(width: photoSize.width*scale, height: photoSize.height*scale)</span><br><span class="line">        <span class="keyword">self</span>.photoManage.requestImage(<span class="keyword">for</span>: alasset!, targetSize: photoScaleSize, contentMode: .aspectFill, options: <span class="keyword">self</span>.photoOption, resultHandler: &#123; (image, infoDic) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> image != <span class="literal">nil</span> &#123;</span><br><span class="line">                resultHandler?(image, infoDic)</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//没获取到返回默认图片</span></span><br><span class="line">                <span class="keyword">let</span> image_buffer = <span class="type">WCLImagePickerBundle</span>.imageFromBundle(<span class="string">"image-buffer"</span>)</span><br><span class="line">                resultHandler?(image_buffer, infoDic)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="将图片存入相册"><a href="#将图片存入相册" class="headerlink" title="将图片存入相册"></a>将图片存入相册</h1><p>有时候我们需要将应用里的图片存到相册里面，一下是会用到的类：</p>
+<ul>
+<li>PHPhotoLibrary：代表我们手机中的图片库，用它来操作图片库中的图片</li>
+<li>PHAssetChangeRequest：资源操作的请求类，用来对资源进行操作</li>
+</ul>
+<p>代码片段：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行变化</span></span><br><span class="line"><span class="type">PHPhotoLibrary</span>.shared().performChanges(&#123;</span><br><span class="line">		<span class="comment">//创建一个图片资源</span></span><br><span class="line">        <span class="type">PHAssetChangeRequest</span>.creationRequestForAsset(from: image)</span><br><span class="line">    &#125;, completionHandler: &#123; (flag, error) <span class="keyword">in</span></span><br><span class="line">        <span class="comment">//执行结果回调</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上简单的讲解了一下Photos相关知识点和使用方法，更多的可以去官方文档上去查看。用Photos自己写了一个<a href="https://github.com/631106979/WCLImagePickerController" target="_blank" rel="external">图片选择器</a>，大家有兴趣的可以去看一下，有用的话可以star一下，写不不是很好，有什么错误可以指出来~最后谢谢大家的阅读。</p>
+<hr>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 01月 11日</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习]]></title>
       <url>http://imwcl.com/2017/01/05/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Range%E3%80%81ClosedRange%E3%80%81CountableClosedRange%E4%B8%8ECountableRange%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<blockquote>
