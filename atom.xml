@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imwcl.com/"/>
-  <updated>2017-02-15T16:28:54.000Z</updated>
+  <updated>2017-02-18T14:10:12.000Z</updated>
   <id>http://imwcl.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>swift设计模式学习 - 策略模式</title>
+    <link href="http://imwcl.com/2017/02/18/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://imwcl.com/2017/02/18/swift设计模式学习-策略模式/</id>
+    <published>2017-02-18T14:08:53.000Z</published>
+    <updated>2017-02-18T14:10:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1><p>策略模式定义了算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
+<h2 id="策略模式的组成"><a href="#策略模式的组成" class="headerlink" title="策略模式的组成"></a>策略模式的组成</h2><ul>
+<li>抽象策略角色（Strategy）： 策略类，通常由一个接口或者抽象类实现。</li>
+<li>具体策略角色（ConcreteStrategy）：包装了相关的算法和行为。</li>
+<li>环境角色（Context）：持有一个策略类的引用，最终给客户端调用。</li>
+</ul>
+<a id="more"></a>
+<h2 id="策略模式的基本实现"><a href="#策略模式的基本实现" class="headerlink" title="策略模式的基本实现"></a>策略模式的基本实现</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/Strategy.png" alt=""></p>
+<p>上图是最基本的装饰模式的结构图，下面将用<a href="http://lib.csdn.net/base/swift" target="_blank" rel="external"><strong>Swift</strong></a>代码来实现一个基本策略模式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 策略类，定义所有支持 的算法的公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">AlgorithmInterface</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体策略类，封装了具体的算法或行为，继承于Strategy</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteStrategyA</span>: <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">AlgorithmInterface</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"ConcreteStrategyA"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteStrategyB</span>: <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">AlgorithmInterface</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"ConcreteStrategyB"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteStrategyC</span>: <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">AlgorithmInterface</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"ConcreteStrategyC"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Context上下文，用一个 ConcreteStrategy来配置，维护一个对Strategy对象的引用</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> strategy: <span class="type">Strategy</span>?</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">ContextInterface</span><span class="params">()</span></span> &#123;</span><br><span class="line">        strategy?.<span class="type">AlgorithmInterface</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码是最简单的策略模式的实现过程，定义了一个<code>Strategy</code>的算法族，通过它的子类可以实现算法（<code>AlgorithmInterface</code>）的替换，而不会影响到客户端。</p>
+<h2 id="用策略模式解决实际问题（商场打折）"><a href="#用策略模式解决实际问题（商场打折）" class="headerlink" title="用策略模式解决实际问题（商场打折）"></a>用策略模式解决实际问题（商场打折）</h2><p>我们知道在商场中一般有很多打折优惠方案，类似这种问题就可以用策略模式来解决，打折不同的方案就相当于不同的策略（<code>ConcreteStrategy</code>），然后用一个<code>Context</code>类来实现不同算法的切换，下面是商场打折策略模式的实现于<code>UML</code>图：</p>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/CashSuper.png" alt=""></p>
+<p>以上是一个简单的商场收银系统，<code>CashNormal</code>为普通收费子类，<code>CashRebate</code>为打折收费子类，<code>CashReturn</code>为返利收费子类，下面是代码的实现过程：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个收费的策略接口</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">acceptCash</span><span class="params">(money: Double)</span></span> -&gt; <span class="type">Double</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通收费子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashNormal</span>: <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 正常原价返回</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">acceptCash</span><span class="params">(money: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> money</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打折收费子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashRebate</span>: <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 折扣率</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> moneyRebate: <span class="type">Double</span> = <span class="number">1.0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(moneyRebate: <span class="type">Double</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.moneyRebate = moneyRebate</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">acceptCash</span><span class="params">(money: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> money*moneyRebate</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返利收费子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashReturn</span>: <span class="title">CashSuper</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 返利要求</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> moneyCondition: <span class="type">Double</span> = <span class="number">0</span></span><br><span class="line">    <span class="comment">// 返多少</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> moneyReturn: <span class="type">Double</span>    = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(moneyCondition: <span class="type">Double</span>, moneyReturn: <span class="type">Double</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.moneyCondition = moneyCondition</span><br><span class="line">        <span class="keyword">self</span>.moneyReturn    = moneyReturn</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">acceptCash</span><span class="params">(money: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> result = money</span><br><span class="line">        <span class="keyword">if</span> money &gt;= moneyCondition &#123;</span><br><span class="line">            result = money - floor(money / moneyCondition) * moneyReturn</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// context类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CashContext</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> cs: <span class="type">CashSuper</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过枚举判断使用哪种方式</span></span><br><span class="line">    <span class="keyword">init</span>(style: <span class="type">CashStyle</span>) &#123;</span><br><span class="line">        <span class="keyword">switch</span> style &#123;</span><br><span class="line">        <span class="keyword">case</span> .normal:</span><br><span class="line">            cs = <span class="type">CashNormal</span>()</span><br><span class="line">        <span class="keyword">case</span> .rebate(moneyRebate: <span class="keyword">let</span> money):</span><br><span class="line">            cs = <span class="type">CashRebate</span>(moneyRebate: money)</span><br><span class="line">        <span class="keyword">case</span> .<span class="keyword">return</span>(moneyCondition: <span class="keyword">let</span> moneyCondition, moneyReturn: <span class="keyword">let</span> moneyReturn):</span><br><span class="line">            cs = <span class="type">CashReturn</span>(moneyCondition: moneyCondition, moneyReturn: moneyReturn)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getResult</span><span class="params">(money: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> cs?.acceptCash(money: money) ?? <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 优惠的枚举类型</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CashStyle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> normal</span><br><span class="line">    <span class="keyword">case</span> rebate(moneyRebate: <span class="type">Double</span>)</span><br><span class="line">    <span class="keyword">case</span> `<span class="keyword">return</span>`(moneyCondition: <span class="type">Double</span>, moneyReturn: <span class="type">Double</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们测试一下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> money: <span class="type">Double</span> = <span class="number">300</span></span><br><span class="line"><span class="comment">// 普通</span></span><br><span class="line"><span class="keyword">let</span> normal = <span class="type">CashContext</span>(style: .normal)</span><br><span class="line"><span class="comment">// 打7折</span></span><br><span class="line"><span class="keyword">let</span> rebate = <span class="type">CashContext</span>(style: .rebate(moneyRebate: <span class="number">0.7</span>))</span><br><span class="line"><span class="comment">// 满一百返20</span></span><br><span class="line"><span class="keyword">let</span> `<span class="keyword">return</span>` = <span class="type">CashContext</span>(style: .<span class="keyword">return</span>(moneyCondition: <span class="number">100</span>, moneyReturn: <span class="number">20</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"普通: <span class="subst">\(normal.getResult(money: money)</span>)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"打8折: <span class="subst">\(rebate.getResult(money: money)</span>)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"满一百返20: <span class="subst">\(`<span class="keyword">return</span>`.getResult(money: money)</span>)"</span>)</span><br></pre></td></tr></table></figure>
+<p>下面是执行的结果：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">普通: <span class="number">300.0</span></span><br><span class="line">打<span class="number">8</span>折: <span class="number">210.0</span></span><br><span class="line">满一百返<span class="number">20</span>: <span class="number">240.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="策略模式总结"><a href="#策略模式总结" class="headerlink" title="策略模式总结"></a>策略模式总结</h2><p>我们可以理解为策略就是用来封装算法，但在实践过程中不用那么死板，可以用来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同的业务规则，就可以考虑使用策略模式处理这种变化的可能性。</p>
+<blockquote>
+<p>以上是我对于策略模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
+</blockquote>
+<hr>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 18日</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;策略模式&quot;&gt;&lt;a href=&quot;#策略模式&quot; class=&quot;headerlink&quot; title=&quot;策略模式&quot;&gt;&lt;/a&gt;策略模式&lt;/h1&gt;&lt;p&gt;策略模式定义了算法家族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。&lt;/p&gt;
+&lt;h2 id=&quot;策略模式的组成&quot;&gt;&lt;a href=&quot;#策略模式的组成&quot; class=&quot;headerlink&quot; title=&quot;策略模式的组成&quot;&gt;&lt;/a&gt;策略模式的组成&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;抽象策略角色（Strategy）： 策略类，通常由一个接口或者抽象类实现。&lt;/li&gt;
+&lt;li&gt;具体策略角色（ConcreteStrategy）：包装了相关的算法和行为。&lt;/li&gt;
+&lt;li&gt;环境角色（Context）：持有一个策略类的引用，最终给客户端调用。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS动画进阶 - 手摸手教你写ShineButton动画</title>
@@ -1565,49 +1617,6 @@
       &lt;blockquote&gt;
 &lt;p&gt;一般服务器上传数据一般都是用POST请求，这样通过AFNetworking的POST请求稳稳的，但是有一天遇到一个问题，服务器上传数据用的是PUT请求，发现用AFNetworking并不是那么好用，今天就来讲一下如何通过PUT请求上传数据。&lt;/p&gt;
 &lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS开发小结" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E7%BB%93/"/>
-    
-    
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发小结 - 使用自定义字体</title>
-    <link href="http://imwcl.com/2016/05/16/iOS%E5%BC%80%E5%8F%91-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/"/>
-    <id>http://imwcl.com/2016/05/16/iOS开发-使用自定义字体/</id>
-    <published>2016-05-16T04:05:57.000Z</published>
-    <updated>2016-09-17T12:00:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>APP开发过程中，根据美工的需求可能会用到一些特殊的字体，然而在苹果自带字体中并没有，那就必须我们开发来来实现这些功能呢，下面以<strong>冬青黑体简体中文(Hiragino Sans GB)</strong>为例子给大家演示一下自定义字体的步骤：<br><a id="more"></a></p>
-<ul>
-<li>首先将下好的字体放到工程里面</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20160516115837202" alt="这里写图片描述"></p>
-<ul>
-<li>然后在info.pilist里面加以下字段</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20160516115901908" alt="这里写图片描述"></p>
-<ul>
-<li>然后就可以使用了，在xib中使用：</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20160516115926439" alt="这里写图片描述"></p>
-<ul>
-<li>用代码使用：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//大家注意，要把中间的空格都去掉</span><br><span class="line">[UIFont fontWithName:@&quot;HiraginoSansGB-W3&quot; size:12]</span><br></pre></td></tr></table></figure>
-<hr>
-<p>这样就可以使用自定义字体，不过不建议大家使用，因为汉字字体的包大小很大，会增加应用包的大小，像一套<strong>冬青黑体简体中文(Hiragino Sans GB)</strong>大小总共有26MB左右，这样增加应用包大小就得不偿失了。</p>
-<hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 05月 16日</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;APP开发过程中，根据美工的需求可能会用到一些特殊的字体，然而在苹果自带字体中并没有，那就必须我们开发来来实现这些功能呢，下面以&lt;strong&gt;冬青黑体简体中文(Hiragino Sans GB)&lt;/strong&gt;为例子给大家演示一下自定义字体的步骤：&lt;br&gt;
     
     </summary>
     
