@@ -94,31 +94,27 @@
 
 
 
-<meta name="description" content="在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有ClosedRange、CountableClosedRange和CountableRange，这下就彻底头疼了，下面简单的描述一下它们的区别
+<meta name="description" content="设计模式学习的demo地址，欢迎大家学习交流
 
-从命名来代码来理解和区分
-CountableClosedRange：可数的闭区间
-CountableRange：可数的开区间
-ClosedRange：不可">
+原型模式用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
+定义用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。Prototype原型模式是一种创建型设计模式，Prototype模式允许一个对象再创建另外一个可定制的对象，根本无需知道任何如何创建的细节,工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习">
-<meta property="og:url" content="http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/index.html">
+<meta property="og:title" content="swift设计模式学习 - 原型模式">
+<meta property="og:url" content="http://imwcl.com/2017/02/20/swift设计模式学习-原型模式/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有ClosedRange、CountableClosedRange和CountableRange，这下就彻底头疼了，下面简单的描述一下它们的区别
+<meta property="og:description" content="设计模式学习的demo地址，欢迎大家学习交流
 
-从命名来代码来理解和区分
-CountableClosedRange：可数的闭区间
-CountableRange：可数的开区间
-ClosedRange：不可">
-<meta property="og:updated_time" content="2017-01-05T14:25:55.000Z">
+原型模式用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
+定义用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。Prototype原型模式是一种创建型设计模式，Prototype模式允许一个对象再创建另外一个可定制的对象，根本无需知道任何如何创建的细节,工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动">
+<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/prototype.png">
+<meta property="og:updated_time" content="2017-02-20T11:53:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习">
-<meta name="twitter:description" content="在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有ClosedRange、CountableClosedRange和CountableRange，这下就彻底头疼了，下面简单的描述一下它们的区别
+<meta name="twitter:title" content="swift设计模式学习 - 原型模式">
+<meta name="twitter:description" content="设计模式学习的demo地址，欢迎大家学习交流
 
-从命名来代码来理解和区分
-CountableClosedRange：可数的闭区间
-CountableRange：可数的开区间
-ClosedRange：不可">
+原型模式用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
+定义用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。Prototype原型模式是一种创建型设计模式，Prototype模式允许一个对象再创建另外一个可定制的对象，根本无需知道任何如何创建的细节,工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动">
+<meta name="twitter:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/prototype.png">
 
 
 
@@ -136,7 +132,7 @@ ClosedRange：不可">
   };
 </script>
 
-  <title> swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习 | W_C__L </title>
+  <title> swift设计模式学习 - 原型模式 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -309,7 +305,7 @@ ClosedRange：不可">
             
             
               
-                swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习
+                swift设计模式学习 - 原型模式
               
             
           </h1>
@@ -321,8 +317,8 @@ ClosedRange：不可">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-05T22:22:31+08:00" content="2017-01-05">
-              2017-01-05
+            <time itemprop="dateCreated" datetime="2017-02-20T19:50:21+08:00" content="2017-02-20">
+              2017-02-20
             </time>
           </span>
 
@@ -335,8 +331,8 @@ ClosedRange：不可">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/swift学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">swift学习笔记</span>
+                  <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
+                    <span itemprop="name">swift设计模式学习</span>
                   </a>
                 </span>
 
@@ -351,8 +347,8 @@ ClosedRange：不可">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/" itemprop="commentsCount"></span>
+                <a href="/2017/02/20/swift设计模式学习-原型模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/swift设计模式学习-原型模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -362,7 +358,7 @@ ClosedRange：不可">
 
           
           
-            <span id="/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/" class="leancloud_visitors" data-flag-title="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习">
+            <span id="/2017/02/20/swift设计模式学习-原型模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 原型模式">
                 &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -386,43 +382,25 @@ ClosedRange：不可">
 
       
         <blockquote>
-<p>在使用swift的过程中字符串操作的时候会用到Range，刚开始使用起来各种别扭，然后发现居然还有<code>ClosedRange、CountableClosedRange和CountableRange</code>，这下就彻底头疼了，下面简单的描述一下它们的区别</p>
+<p><a href="https://github.com/631106979/SwiftDesignPattern" target="_blank" rel="external">设计模式学习的demo地址</a>，欢迎大家学习交流</p>
 </blockquote>
-<h2 id="从命名来代码来理解和区分"><a href="#从命名来代码来理解和区分" class="headerlink" title="从命名来代码来理解和区分"></a>从命名来代码来理解和区分</h2><ul>
-<li><code>CountableClosedRange</code>：可数的闭区间</li>
-<li><code>CountableRange</code>：可数的开区间</li>
-<li><code>ClosedRange</code>：不可数的闭区间</li>
-<li><code>Range</code>：不可数的开居间</li>
-</ul>
+<h1 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h1><p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。<code>Prototype</code>原型模式是一种创建型设计模式，<code>Prototype</code>模式允许一个对象再创建另外一个可定制的对象，根本无需知道任何如何创建的细节,工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动创建的对象通过请求原型对象拷贝它们自己来实施创建。它主要面对的问题是：“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是他们却拥有比较稳定一致的接口。</p>
 <a id="more"></a>
-<p>下面通过代码来理解一下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化测试：</span></span><br><span class="line"><span class="comment">// CountableClosedRange: [0,2]</span></span><br><span class="line"><span class="keyword">let</span> rangea = <span class="number">0</span>...<span class="number">2</span></span><br><span class="line"><span class="comment">// CountableRange: [0,2)</span></span><br><span class="line"><span class="keyword">let</span> rangeb = <span class="number">0</span>..&lt;<span class="number">2</span></span><br><span class="line"><span class="comment">// ClosedRange: [0.1,2.1]</span></span><br><span class="line"><span class="keyword">let</span> rangec = <span class="number">0.1</span>...<span class="number">2.1</span></span><br><span class="line"><span class="comment">// Range: [0.1,2.1)</span></span><br><span class="line"><span class="keyword">let</span> ranged = <span class="number">0.1</span>..&lt;<span class="number">2.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环测试：可数的，可以for循环</span></span><br><span class="line"><span class="comment">// CountableClosedRange：可数的可以for循环，输出0、1、2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangea &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// CountableRange：可数的可以for循环，输出0、1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangeb &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环测试：不可数的，不能for循环</span></span><br><span class="line"><span class="comment">// ClosedRange：不可数，不能for循环，以下写法会报错</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rangec &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Range：不可数，不能for循环，以下写法会报错</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ranged &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以用可数和不可数、闭区间和开区间来理解记忆<code>Range、ClosedRange、CountableClosedRange和CountableRange</code></p>
-<p>可数：可以用于for循环</p>
-<ul>
-<li><code>CountableClosedRange</code></li>
-<li><code>CountableRange</code></li>
-</ul>
-<p>不可数：不能用于for循环</p>
-<ul>
-<li><code>ClosedRange</code></li>
-<li><code>Range</code></li>
-</ul>
-<p>闭区间：</p>
-<ul>
-<li><code>CountableClosedRange</code></li>
-<li><code>ClosedRange</code></li>
-</ul>
-<p>开区间：</p>
-<ul>
-<li><code>Range</code></li>
-<li><code>CountableRange</code></li>
-</ul>
+<h2 id="原型模式的基本实现"><a href="#原型模式的基本实现" class="headerlink" title="原型模式的基本实现"></a>原型模式的基本实现</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/prototype.png" alt=""></p>
+<p>上图是最基本的原型模式的结构图，下面将用<strong>Swift</strong>代码来实现一个基本原型模式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个原型协议</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">clone</span><span class="params">()</span></span> -&gt; <span class="type">Prototype</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型的具体对象</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcretePrototypeA</span>: <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">String</span> = <span class="string">""</span></span><br><span class="line">    <span class="comment">// 实现克隆的具体操作</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">clone</span><span class="params">()</span></span> -&gt; <span class="type">Prototype</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> p = <span class="type">ConcretePrototypeA</span>()</span><br><span class="line">        p.id = id</span><br><span class="line">        <span class="keyword">return</span> p</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不知道大家有没哟发现，这个设计模式我们在代码中经常会用到，那就是<code>NSCopying</code>协议，通过这个协议来实现对象的深拷贝，下面我们就用<code>NSCopying</code>来实现一下。</p>
+<h2 id="原型模式解决实际问题（NSCopying）"><a href="#原型模式解决实际问题（NSCopying）" class="headerlink" title="原型模式解决实际问题（NSCopying）"></a>原型模式解决实际问题（NSCopying）</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Resume</span>: <span class="title">NSCopying</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> sex: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> company: <span class="type">String</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, sex: <span class="type">String</span>, age: <span class="type">String</span>, company: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">        <span class="keyword">self</span>.sex = sex</span><br><span class="line">        <span class="keyword">self</span>.age = age</span><br><span class="line">        <span class="keyword">self</span>.company = company</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">disPlay</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"name: <span class="subst">\(name)</span>, sex: <span class="subst">\(sex)</span>, age: <span class="subst">\(age)</span>, company: <span class="subst">\(company)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">copy</span><span class="params">(with zone: NSZone? = <span class="literal">nil</span>)</span></span> -&gt; <span class="type">Any</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Resume</span>(name: name, sex: sex, age: age, company: company)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面是通过<code>NSCopying</code>来实现原型模式的例子，一下是使用过程：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> wcl = <span class="type">Resume</span>(name: <span class="string">"wcl"</span>, sex: <span class="string">"male"</span>, age: <span class="string">"23"</span>, company: <span class="string">"beijing"</span>)</span><br><span class="line"><span class="keyword">let</span> scy = wcl.copy() <span class="keyword">as</span>! <span class="type">Resume</span></span><br><span class="line">scy.name = <span class="string">"scy"</span></span><br><span class="line">scy.sex = <span class="string">"female"</span></span><br><span class="line">wcl.disPlay()</span><br><span class="line">scy.disPlay()</span><br></pre></td></tr></table></figure>
+<p>以下是打印的结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name: wcl, sex: male, age: 23, company: beijing</span><br><span class="line">name: scy, sex: female, age: 23, company: beijing</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>以上是我总结的<code>Range、ClosedRange、CountableClosedRange和CountableRange</code>的区别，希望对大家有帮助，如果写的有错误希望大家能指出，谢谢大家的阅读</p>
+<p>以上是我对于原型模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 01月 05日</p>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 20日</p>
 
       
     </div>
@@ -473,17 +451,13 @@ ClosedRange：不可">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/21/iOS开发进阶-自定义UICollectionViewLayout实现瀑布流布局/" rel="next" title="iOS开发进阶 - 自定义UICollectionViewLayout实现瀑布流布局">
-                <i class="fa fa-chevron-left"></i> iOS开发进阶 - 自定义UICollectionViewLayout实现瀑布流布局
+              <a href="/2017/02/18/swift设计模式学习-策略模式/" rel="next" title="swift设计模式学习 - 策略模式">
+                <i class="fa fa-chevron-left"></i> swift设计模式学习 - 策略模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/11/iOS开发进阶-Photos详解基于Photos的图片选择器/" rel="prev" title="iOS开发进阶 - Photos详解基于Photos的图片选择器">
-                iOS开发进阶 - Photos详解基于Photos的图片选择器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,10 +472,10 @@ ClosedRange：不可">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/"
-     data-title="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习"
+        <div class="ds-share flat" data-thread-key="2017/02/20/swift设计模式学习-原型模式/"
+     data-title="swift设计模式学习 - 原型模式"
      data-content=""
-     data-url="http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/">
+     data-url="http://imwcl.com/2017/02/20/swift设计模式学习-原型模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -528,8 +502,8 @@ ClosedRange：不可">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/"
-           data-title="swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习" data-url="http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/">
+      <div class="ds-thread" data-thread-key="2017/02/20/swift设计模式学习-原型模式/"
+           data-title="swift设计模式学习 - 原型模式" data-url="http://imwcl.com/2017/02/20/swift设计模式学习-原型模式/">
       </div>
     
   </div>
@@ -661,7 +635,7 @@ ClosedRange：不可">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从命名来代码来理解和区分"><span class="nav-number">1.</span> <span class="nav-text">从命名来代码来理解和区分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原型模式"><span class="nav-number">1.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式的基本实现"><span class="nav-number">1.2.</span> <span class="nav-text">原型模式的基本实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式解决实际问题（NSCopying）"><span class="nav-number">1.3.</span> <span class="nav-text">原型模式解决实际问题（NSCopying）</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
