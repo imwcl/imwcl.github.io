@@ -94,32 +94,33 @@
 
 
 
-<meta name="description" content="在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~
+<meta name="description" content="设计模式学习的demo地址，欢迎大家学习交流
 
-demo地址
-第一种让UINavigationBar透明渐变消失
-思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UI">
+代理模式代理模式为其他对象提供一种代理以控制对这个对象的访问，在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+代理模式的组成
+抽象角色：通过接口或抽象类声明真实角色实现的业务方法。
+代理角色：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发进阶 - 隐藏UINavigationBar的小技巧">
-<meta property="og:url" content="http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/index.html">
+<meta property="og:title" content="swift设计模式学习 - 代理模式">
+<meta property="og:url" content="http://imwcl.com/2017/02/21/swift设计模式学习-代理模式/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~
+<meta property="og:description" content="设计模式学习的demo地址，欢迎大家学习交流
 
-demo地址
-第一种让UINavigationBar透明渐变消失
-思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UI">
-<meta property="og:image" content="http://img.blog.csdn.net/20160728230823825">
-<meta property="og:image" content="http://img.blog.csdn.net/20160728231529840">
-<meta property="og:image" content="http://img.blog.csdn.net/20160728232320140">
-<meta property="og:updated_time" content="2016-09-17T11:57:25.000Z">
+代理模式代理模式为其他对象提供一种代理以控制对这个对象的访问，在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+代理模式的组成
+抽象角色：通过接口或抽象类声明真实角色实现的业务方法。
+代理角色：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。">
+<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/Proxy.png">
+<meta property="og:updated_time" content="2017-02-21T15:35:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发进阶 - 隐藏UINavigationBar的小技巧">
-<meta name="twitter:description" content="在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~
+<meta name="twitter:title" content="swift设计模式学习 - 代理模式">
+<meta name="twitter:description" content="设计模式学习的demo地址，欢迎大家学习交流
 
-demo地址
-第一种让UINavigationBar透明渐变消失
-思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UI">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160728230823825">
+代理模式代理模式为其他对象提供一种代理以控制对这个对象的访问，在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+代理模式的组成
+抽象角色：通过接口或抽象类声明真实角色实现的业务方法。
+代理角色：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。">
+<meta name="twitter:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/Proxy.png">
 
 
 
@@ -137,7 +138,7 @@ demo地址
   };
 </script>
 
-  <title> iOS开发进阶 - 隐藏UINavigationBar的小技巧 | W_C__L </title>
+  <title> swift设计模式学习 - 代理模式 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +311,7 @@ demo地址
             
             
               
-                iOS开发进阶 - 隐藏UINavigationBar的小技巧
+                swift设计模式学习 - 代理模式
               
             
           </h1>
@@ -322,8 +323,8 @@ demo地址
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-28T23:45:24+08:00" content="2016-07-28">
-              2016-07-28
+            <time itemprop="dateCreated" datetime="2017-02-21T23:32:55+08:00" content="2017-02-21">
+              2017-02-21
             </time>
           </span>
 
@@ -336,8 +337,8 @@ demo地址
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发进阶/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发进阶</span>
+                  <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
+                    <span itemprop="name">swift设计模式学习</span>
                   </a>
                 </span>
 
@@ -352,8 +353,8 @@ demo地址
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/" itemprop="commentsCount"></span>
+                <a href="/2017/02/21/swift设计模式学习-代理模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/21/swift设计模式学习-代理模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -363,7 +364,7 @@ demo地址
 
           
           
-            <span id="/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/" class="leancloud_visitors" data-flag-title="iOS开发进阶 - 隐藏UINavigationBar的小技巧">
+            <span id="/2017/02/21/swift设计模式学习-代理模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 代理模式">
                 &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -387,24 +388,35 @@ demo地址
 
       
         <blockquote>
-<p>在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~</p>
+<p><a href="https://github.com/631106979/SwiftDesignPattern" target="_blank" rel="external">设计模式学习的demo地址</a>，欢迎大家学习交流</p>
 </blockquote>
-<p><a href="https://github.com/631106979/WCLHideNavBar" target="_blank" rel="external">demo地址</a></p>
-<h3 id="第一种让UINavigationBar透明渐变消失"><a href="#第一种让UINavigationBar透明渐变消失" class="headerlink" title="第一种让UINavigationBar透明渐变消失"></a>第一种让UINavigationBar透明渐变消失</h3><p><img src="http://img.blog.csdn.net/20160728230823825" alt="第一种渐变"></p>
-<p>思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UINavigationBar上通过runtime插入一个UIView，然后监听滚动事件，调整这个UIView的透明度来达到这个效果，下面贴代码：<br><a id="more"></a><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span><br><span class="line"> 给UINavigationBar添加背景色，用runtime插入一个backView</span><br><span class="line"> </span><br><span class="line"> - parameter color: backView的背景颜色</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclBackGroundColor</span><span class="params">(color:UIColor)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> wclBackGroundColorView = objc_getAssociatedObject(<span class="keyword">self</span>, &amp;wclBackView) <span class="keyword">as</span>? <span class="type">UIView</span></span><br><span class="line">    <span class="keyword">if</span> wclBackGroundColorView == <span class="literal">nil</span> &#123;</span><br><span class="line">        setBackgroundImage(<span class="type">UIImage</span>.<span class="keyword">init</span>(), forBarMetrics: .<span class="type">Default</span>)</span><br><span class="line">        shadowImage = <span class="type">UIImage</span>.<span class="keyword">init</span>()</span><br><span class="line">        <span class="keyword">let</span> backView = <span class="type">UIView</span>.<span class="keyword">init</span>(frame: <span class="type">CGRectMake</span>(<span class="number">0</span>, -<span class="number">20</span>, bounds.width, bounds.height+<span class="number">20</span>))</span><br><span class="line">        backView.backgroundColor = color</span><br><span class="line">        backView.userInteractionEnabled = <span class="literal">false</span></span><br><span class="line">        backView.autoresizingMask = [.<span class="type">FlexibleHeight</span>, .<span class="type">FlexibleWidth</span>]</span><br><span class="line">        insertSubview(backView, atIndex: <span class="number">0</span>)</span><br><span class="line">        objc_setAssociatedObject(<span class="keyword">self</span>, &amp;wclBackView, backView, .<span class="type">OBJC_ASSOCIATION_RETAIN_NONATOMIC</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        wclBackGroundColorView!.backgroundColor = color</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> 设置backView的透明度</span><br><span class="line"> </span><br><span class="line"> - parameter alpha: backView的透明度</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclBackViewAlpha</span><span class="params">(alpha:CGFloat)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> wclBackGroundColorView = objc_getAssociatedObject(<span class="keyword">self</span>, &amp;wclBackView) <span class="keyword">as</span>? <span class="type">UIView</span></span><br><span class="line">    wclBackGroundColorView?.alpha = alpha</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变"><a href="#第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变" class="headerlink" title="第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变"></a>第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变</h3><p><img src="http://img.blog.csdn.net/20160728231529840" alt="第二种效果"></p>
-<p>主要思路也是通过扩展实现，通过改变UINavigationBar的transform来达到位移的效果，然后通过KVC来获取到UINavigationBar上的subViews来达到它的子view的透明渐变效果，下面上代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 向上隐藏NavigationBar</span><br><span class="line"> </span><br><span class="line"> - parameter progress: 隐藏的进度，默认是0，范围0~1</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclNavBarHide</span><span class="params">(progress:CGFloat)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(progress)</span><br><span class="line">    <span class="keyword">if</span> progress &gt; <span class="number">0</span> &#123;</span><br><span class="line">        transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, -bounds.height*progress)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> leftViews = valueForKey(<span class="string">"_leftViews"</span>) <span class="keyword">as</span>? [<span class="type">UIView</span>] &#123;</span><br><span class="line">        <span class="keyword">for</span> leftView <span class="keyword">in</span> leftViews &#123;</span><br><span class="line">            leftView.alpha = <span class="number">1</span> - progress</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> rightViews = valueForKey(<span class="string">"_rightViews"</span>) <span class="keyword">as</span>? [<span class="type">UIView</span>] &#123;</span><br><span class="line">        <span class="keyword">for</span> rightView <span class="keyword">in</span> rightViews &#123;</span><br><span class="line">            rightView.alpha = <span class="number">1</span> - progress</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> titleView = valueForKey(<span class="string">"_titleView"</span>) <span class="keyword">as</span>? <span class="type">UIView</span> &#123;</span><br><span class="line">        titleView.alpha = <span class="number">1</span> - progress</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第三种UINavigationBar和window的状态栏一起向上位移"><a href="#第三种UINavigationBar和window的状态栏一起向上位移" class="headerlink" title="第三种UINavigationBar和window的状态栏一起向上位移"></a>第三种UINavigationBar和window的状态栏一起向上位移</h3><p><img src="http://img.blog.csdn.net/20160728232320140" alt="第三种"></p>
-<p>主要思路也是通过扩展实现，通过改变UINavigationBar的transform来达到位移的效果，然后通过KVC来获取window的状态栏一起进行偏移，下面上代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 向上隐藏NavigationBar和StateView</span><br><span class="line"> </span><br><span class="line"> - parameter progress: 隐藏的进度，默认是0，范围0~1</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclNavBarAndStateHide</span><span class="params">(progress:CGFloat)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> stateView = <span class="type">UIApplication</span>.sharedApplication().valueForKey(<span class="string">"statusBarWindow"</span>) <span class="keyword">as</span>? <span class="type">UIView</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> progress &gt; <span class="number">0</span> &#123;</span><br><span class="line">            transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, -(bounds.height+<span class="number">20</span>)*progress)</span><br><span class="line">            stateView.transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, -(bounds.height+<span class="number">20</span>)*progress)</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">            stateView.transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/631106979/WCLHideNavBar" target="_blank" rel="external">demo地址</a></p>
-<p><a href="https://github.com/ltebean/LTNavigationBar" target="_blank" rel="external">参考文档</a></p>
+<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><p>代理模式为其他对象提供一种代理以控制对这个对象的访问，在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
+<h2 id="代理模式的组成"><a href="#代理模式的组成" class="headerlink" title="代理模式的组成"></a>代理模式的组成</h2><ul>
+<li><strong>抽象角色</strong>：通过接口或抽象类声明真实角色实现的业务方法。</li>
+<li><strong>代理角色</strong>：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。</li>
+<li><strong>真实角色</strong>：实现抽象角色，定义真实角色所要实现的业务逻辑，供代理角色调用。</li>
+</ul>
+<a id="more"></a>
+<h2 id="代理模式的基本实现"><a href="#代理模式的基本实现" class="headerlink" title="代理模式的基本实现"></a>代理模式的基本实现</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/Proxy.png" alt=""></p>
+<p>上图是最基本的代理模式的结构图，下面将用<strong>Swift</strong>代码来实现一个基本代理模式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接口</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealSubject</span>: <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"真实的请求"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Proxy</span>: <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 真实的对象</span></span><br><span class="line">    <span class="keyword">var</span> realSubject: <span class="type">RealSubject</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request</span><span class="params">()</span></span> &#123;</span><br><span class="line">        realSubject?.request()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上是一个最基本的代理模式的构成，这样可以用<code>Proxy</code>来代替<code>RealSubject</code>，从而对客户端隐藏真实的对象。</p>
+<h2 id="代理模式解决实际问题（快递于淘宝卖家的关系）"><a href="#代理模式解决实际问题（快递于淘宝卖家的关系）" class="headerlink" title="代理模式解决实际问题（快递于淘宝卖家的关系）"></a>代理模式解决实际问题（快递于淘宝卖家的关系）</h2><p>在生活中很多地方存在着代理模式，比如淘宝卖家与快递的问题，我们买东西需要淘宝卖家进行配送，但是其实他们并没有配送的功能，实际上是由快递公司进行的配送，淘宝就相当于快递公司的代理，买家也不用关心淘宝卖家是怎么送货过来的，下面是大概的实现方式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个配送的接口</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Deliver</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> goodsName: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">deliverGoods</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快递公司继承配送的接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Express</span>: <span class="title">Deliver</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> goodsName: <span class="type">String</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(goodsName: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.goodsName = goodsName</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">deliverGoods</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"由顺丰快递配送<span class="subst">\(goodsName)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 淘宝卖家也继承配送的接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Taobao</span>: <span class="title">Deliver</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 实际上是由快递公司配送</span></span><br><span class="line">    <span class="keyword">var</span> express: <span class="type">Express</span></span><br><span class="line">    <span class="keyword">var</span> goodsName: <span class="type">String</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(goodsName: <span class="type">String</span>) &#123;</span><br><span class="line">        express = <span class="type">Express</span>(goodsName: goodsName)</span><br><span class="line">        <span class="keyword">self</span>.goodsName = goodsName</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"买了一个<span class="subst">\(goodsName)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">deliverGoods</span><span class="params">()</span></span> &#123;</span><br><span class="line">        express.deliverGoods()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们使用一下以上代码看看：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tb = <span class="type">Taobao</span>(goodsName: <span class="string">"电脑"</span>)</span><br><span class="line">tb.deliverGoods()</span><br></pre></td></tr></table></figure>
+<p>下面是打印结果：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">买了一个电脑</span><br><span class="line">由顺丰快递配送电脑</span><br></pre></td></tr></table></figure>
+<h2 id="代理模式的优点"><a href="#代理模式的优点" class="headerlink" title="代理模式的优点"></a>代理模式的优点</h2><ol>
+<li>职责清晰，真实的角色就是实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。</li>
+<li>代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。</li>
+<li>高扩展性</li>
+</ol>
 <blockquote>
-<p>以上就是我总结的关于三种隐藏UINavigationBar的三种发送，欢迎大家一起交流，如果有更好的可以一起学习</p>
+<p>以上是我对于代理模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 07月 28日</p>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 21日</p>
 
       
     </div>
@@ -455,17 +467,13 @@ demo地址
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/27/GCD深入学习之GCD的初识/" rel="next" title="GCD深入学习之GCD的初识">
-                <i class="fa fa-chevron-left"></i> GCD深入学习之GCD的初识
+              <a href="/2017/02/20/swift设计模式学习-原型模式/" rel="next" title="swift设计模式学习 - 原型模式">
+                <i class="fa fa-chevron-left"></i> swift设计模式学习 - 原型模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/16/iOS开发进阶-实现类似美颜相机的相机启动动画/" rel="prev" title="iOS开发进阶 - 实现类似美颜相机的相机启动动画">
-                iOS开发进阶 - 实现类似美颜相机的相机启动动画 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,10 +488,10 @@ demo地址
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/"
-     data-title="iOS开发进阶 - 隐藏UINavigationBar的小技巧"
+        <div class="ds-share flat" data-thread-key="2017/02/21/swift设计模式学习-代理模式/"
+     data-title="swift设计模式学习 - 代理模式"
      data-content=""
-     data-url="http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/">
+     data-url="http://imwcl.com/2017/02/21/swift设计模式学习-代理模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -510,8 +518,8 @@ demo地址
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/"
-           data-title="iOS开发进阶 - 隐藏UINavigationBar的小技巧" data-url="http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/">
+      <div class="ds-thread" data-thread-key="2017/02/21/swift设计模式学习-代理模式/"
+           data-title="swift设计模式学习 - 代理模式" data-url="http://imwcl.com/2017/02/21/swift设计模式学习-代理模式/">
       </div>
     
   </div>
@@ -643,7 +651,7 @@ demo地址
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种让UINavigationBar透明渐变消失"><span class="nav-number">1.</span> <span class="nav-text">第一种让UINavigationBar透明渐变消失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变"><span class="nav-number">2.</span> <span class="nav-text">第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种UINavigationBar和window的状态栏一起向上位移"><span class="nav-number">3.</span> <span class="nav-text">第三种UINavigationBar和window的状态栏一起向上位移</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代理模式"><span class="nav-number">1.</span> <span class="nav-text">代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理模式的组成"><span class="nav-number">1.1.</span> <span class="nav-text">代理模式的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理模式的基本实现"><span class="nav-number">1.2.</span> <span class="nav-text">代理模式的基本实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理模式解决实际问题（快递于淘宝卖家的关系）"><span class="nav-number">1.3.</span> <span class="nav-text">代理模式解决实际问题（快递于淘宝卖家的关系）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理模式的优点"><span class="nav-number">1.4.</span> <span class="nav-text">代理模式的优点</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
