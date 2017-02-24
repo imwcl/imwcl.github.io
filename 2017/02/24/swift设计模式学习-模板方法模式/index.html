@@ -94,32 +94,22 @@
 
 
 
-<meta name="description" content="在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~
-
-demo地址
-第一种让UINavigationBar透明渐变消失
-思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UI">
+<meta name="description" content="模板方法模式模板方法模式，定义一个操作中算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+模板方法模式的基本实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发进阶 - 隐藏UINavigationBar的小技巧">
-<meta property="og:url" content="http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/index.html">
+<meta property="og:title" content="swift设计模式学习 - 模板方法模式">
+<meta property="og:url" content="http://imwcl.com/2017/02/24/swift设计模式学习-模板方法模式/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~
-
-demo地址
-第一种让UINavigationBar透明渐变消失
-思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UI">
-<meta property="og:image" content="http://img.blog.csdn.net/20160728230823825">
-<meta property="og:image" content="http://img.blog.csdn.net/20160728231529840">
-<meta property="og:image" content="http://img.blog.csdn.net/20160728232320140">
-<meta property="og:updated_time" content="2016-09-17T11:57:25.000Z">
+<meta property="og:description" content="模板方法模式模板方法模式，定义一个操作中算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+模板方法模式的基本实现">
+<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/TemplateMethod.png">
+<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/TemplateTable.png">
+<meta property="og:updated_time" content="2017-02-24T05:53:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发进阶 - 隐藏UINavigationBar的小技巧">
-<meta name="twitter:description" content="在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~
-
-demo地址
-第一种让UINavigationBar透明渐变消失
-思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UI">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160728230823825">
+<meta name="twitter:title" content="swift设计模式学习 - 模板方法模式">
+<meta name="twitter:description" content="模板方法模式模板方法模式，定义一个操作中算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+模板方法模式的基本实现">
+<meta name="twitter:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/TemplateMethod.png">
 
 
 
@@ -137,7 +127,7 @@ demo地址
   };
 </script>
 
-  <title> iOS开发进阶 - 隐藏UINavigationBar的小技巧 | W_C__L </title>
+  <title> swift设计模式学习 - 模板方法模式 | W_C__L </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +300,7 @@ demo地址
             
             
               
-                iOS开发进阶 - 隐藏UINavigationBar的小技巧
+                swift设计模式学习 - 模板方法模式
               
             
           </h1>
@@ -322,8 +312,8 @@ demo地址
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-28T23:45:24+08:00" content="2016-07-28">
-              2016-07-28
+            <time itemprop="dateCreated" datetime="2017-02-24T13:48:43+08:00" content="2017-02-24">
+              2017-02-24
             </time>
           </span>
 
@@ -336,8 +326,8 @@ demo地址
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发进阶/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发进阶</span>
+                  <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
+                    <span itemprop="name">swift设计模式学习</span>
                   </a>
                 </span>
 
@@ -352,8 +342,8 @@ demo地址
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/" itemprop="commentsCount"></span>
+                <a href="/2017/02/24/swift设计模式学习-模板方法模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/swift设计模式学习-模板方法模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -363,7 +353,7 @@ demo地址
 
           
           
-            <span id="/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/" class="leancloud_visitors" data-flag-title="iOS开发进阶 - 隐藏UINavigationBar的小技巧">
+            <span id="/2017/02/24/swift设计模式学习-模板方法模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 模板方法模式">
                 &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -386,25 +376,24 @@ demo地址
       
 
       
-        <blockquote>
-<p>在开发过程中，为让屏幕显示更多的内容，有时候设计师会让我们隐藏UINavigationBar，通过浏览大神们写的文章和工作上用到的，总结了一下隐藏UINavigationBar的三种效果，用swift写了一份，供学习使用~~~</p>
-</blockquote>
-<p><a href="https://github.com/631106979/WCLHideNavBar" target="_blank" rel="external">demo地址</a></p>
-<h3 id="第一种让UINavigationBar透明渐变消失"><a href="#第一种让UINavigationBar透明渐变消失" class="headerlink" title="第一种让UINavigationBar透明渐变消失"></a>第一种让UINavigationBar透明渐变消失</h3><p><img src="http://img.blog.csdn.net/20160728230823825" alt="第一种渐变"></p>
-<p>思路是写一个扩展，先给UINavigationBar的backGroudImage设置为空，然后在UINavigationBar上通过runtime插入一个UIView，然后监听滚动事件，调整这个UIView的透明度来达到这个效果，下面贴代码：<br><a id="more"></a><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span><br><span class="line"> 给UINavigationBar添加背景色，用runtime插入一个backView</span><br><span class="line"> </span><br><span class="line"> - parameter color: backView的背景颜色</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclBackGroundColor</span><span class="params">(color:UIColor)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> wclBackGroundColorView = objc_getAssociatedObject(<span class="keyword">self</span>, &amp;wclBackView) <span class="keyword">as</span>? <span class="type">UIView</span></span><br><span class="line">    <span class="keyword">if</span> wclBackGroundColorView == <span class="literal">nil</span> &#123;</span><br><span class="line">        setBackgroundImage(<span class="type">UIImage</span>.<span class="keyword">init</span>(), forBarMetrics: .<span class="type">Default</span>)</span><br><span class="line">        shadowImage = <span class="type">UIImage</span>.<span class="keyword">init</span>()</span><br><span class="line">        <span class="keyword">let</span> backView = <span class="type">UIView</span>.<span class="keyword">init</span>(frame: <span class="type">CGRectMake</span>(<span class="number">0</span>, -<span class="number">20</span>, bounds.width, bounds.height+<span class="number">20</span>))</span><br><span class="line">        backView.backgroundColor = color</span><br><span class="line">        backView.userInteractionEnabled = <span class="literal">false</span></span><br><span class="line">        backView.autoresizingMask = [.<span class="type">FlexibleHeight</span>, .<span class="type">FlexibleWidth</span>]</span><br><span class="line">        insertSubview(backView, atIndex: <span class="number">0</span>)</span><br><span class="line">        objc_setAssociatedObject(<span class="keyword">self</span>, &amp;wclBackView, backView, .<span class="type">OBJC_ASSOCIATION_RETAIN_NONATOMIC</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        wclBackGroundColorView!.backgroundColor = color</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> 设置backView的透明度</span><br><span class="line"> </span><br><span class="line"> - parameter alpha: backView的透明度</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclBackViewAlpha</span><span class="params">(alpha:CGFloat)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> wclBackGroundColorView = objc_getAssociatedObject(<span class="keyword">self</span>, &amp;wclBackView) <span class="keyword">as</span>? <span class="type">UIView</span></span><br><span class="line">    wclBackGroundColorView?.alpha = alpha</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变"><a href="#第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变" class="headerlink" title="第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变"></a>第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变</h3><p><img src="http://img.blog.csdn.net/20160728231529840" alt="第二种效果"></p>
-<p>主要思路也是通过扩展实现，通过改变UINavigationBar的transform来达到位移的效果，然后通过KVC来获取到UINavigationBar上的subViews来达到它的子view的透明渐变效果，下面上代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 向上隐藏NavigationBar</span><br><span class="line"> </span><br><span class="line"> - parameter progress: 隐藏的进度，默认是0，范围0~1</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclNavBarHide</span><span class="params">(progress:CGFloat)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(progress)</span><br><span class="line">    <span class="keyword">if</span> progress &gt; <span class="number">0</span> &#123;</span><br><span class="line">        transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, -bounds.height*progress)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> leftViews = valueForKey(<span class="string">"_leftViews"</span>) <span class="keyword">as</span>? [<span class="type">UIView</span>] &#123;</span><br><span class="line">        <span class="keyword">for</span> leftView <span class="keyword">in</span> leftViews &#123;</span><br><span class="line">            leftView.alpha = <span class="number">1</span> - progress</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> rightViews = valueForKey(<span class="string">"_rightViews"</span>) <span class="keyword">as</span>? [<span class="type">UIView</span>] &#123;</span><br><span class="line">        <span class="keyword">for</span> rightView <span class="keyword">in</span> rightViews &#123;</span><br><span class="line">            rightView.alpha = <span class="number">1</span> - progress</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> titleView = valueForKey(<span class="string">"_titleView"</span>) <span class="keyword">as</span>? <span class="type">UIView</span> &#123;</span><br><span class="line">        titleView.alpha = <span class="number">1</span> - progress</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第三种UINavigationBar和window的状态栏一起向上位移"><a href="#第三种UINavigationBar和window的状态栏一起向上位移" class="headerlink" title="第三种UINavigationBar和window的状态栏一起向上位移"></a>第三种UINavigationBar和window的状态栏一起向上位移</h3><p><img src="http://img.blog.csdn.net/20160728232320140" alt="第三种"></p>
-<p>主要思路也是通过扩展实现，通过改变UINavigationBar的transform来达到位移的效果，然后通过KVC来获取window的状态栏一起进行偏移，下面上代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 向上隐藏NavigationBar和StateView</span><br><span class="line"> </span><br><span class="line"> - parameter progress: 隐藏的进度，默认是0，范围0~1</span><br><span class="line"> </span><br><span class="line"> - returns: 返回UINavigationBar本身</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setWclNavBarAndStateHide</span><span class="params">(progress:CGFloat)</span></span> -&gt; <span class="type">UINavigationBar</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> stateView = <span class="type">UIApplication</span>.sharedApplication().valueForKey(<span class="string">"statusBarWindow"</span>) <span class="keyword">as</span>? <span class="type">UIView</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> progress &gt; <span class="number">0</span> &#123;</span><br><span class="line">            transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, -(bounds.height+<span class="number">20</span>)*progress)</span><br><span class="line">            stateView.transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, -(bounds.height+<span class="number">20</span>)*progress)</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">            stateView.transform = <span class="type">CGAffineTransformTranslate</span>(<span class="type">CGAffineTransformIdentity</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/631106979/WCLHideNavBar" target="_blank" rel="external">demo地址</a></p>
-<p><a href="https://github.com/ltebean/LTNavigationBar" target="_blank" rel="external">参考文档</a></p>
+        <h1 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h1><p>模板方法模式，定义一个操作中算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
+<h2 id="模板方法模式的基本实现"><a href="#模板方法模式的基本实现" class="headerlink" title="模板方法模式的基本实现"></a>模板方法模式的基本实现</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/TemplateMethod.png" alt=""></p>
+<a id="more"></a>
+<p>上图是基本模板模式的UML图，这种设计模式在很多地方都有用到，下面是基本实现的代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AbstractClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">primitiveOperation1</span><span class="params">()</span></span> &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">primitiveOperation2</span><span class="params">()</span></span> &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">templateMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        primitiveOperation1()</span><br><span class="line">        primitiveOperation2()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteClassA</span>: <span class="title">AbstractClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">primitiveOperation1</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"具体类A方法1实现"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">primitiveOperation2</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"具体类A方法2实现"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteClassB</span>: <span class="title">AbstractClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">primitiveOperation1</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"具体类B方法1实现"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">primitiveOperation2</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"具体类B方法2实现"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模板方法模式解决实际问题（填表格）"><a href="#模板方法模式解决实际问题（填表格）" class="headerlink" title="模板方法模式解决实际问题（填表格）"></a><strong>模板方法模式解决实际问题（填表格）</strong></h2><p>在生活中很多地方用到的模板方法模式，比如我们填一份表格，我们要按照表格的模板开始填，只需要填关键部分，而不用将表格的所有文字炒一遍，下面是UML和代码：</p>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/TemplateTable.png" alt=""></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表格的模板</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TemplateTable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">showTable</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fillName()</span><br><span class="line">        fillSex()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">fillName</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"你的名字：<span class="subst">\(yourName()</span>)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">fillSex</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"你的性别：<span class="subst">\(yourSex()</span>)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">yourName</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">yourSex</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// wcl填写的表格</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WCLTable</span>: <span class="title">TemplateTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">yourName</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"wcl"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">yourSex</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"male"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// scy填写的表格</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SCYTable</span>: <span class="title">TemplateTable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">yourName</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"scy"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">yourSex</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"female"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们调用一下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> wcl = <span class="type">WCLTable</span>()</span><br><span class="line">wcl.showTable()</span><br><span class="line"><span class="keyword">let</span> scy = <span class="type">SCYTable</span>()</span><br><span class="line">scy.showTable()</span><br></pre></td></tr></table></figure>
+<p> 下面是调用的结果：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">你的名字：wcl</span><br><span class="line">你的性别：male</span><br><span class="line">你的名字：scy</span><br><span class="line">你的性别：female</span><br></pre></td></tr></table></figure>
+<h2 id="模板方法模式的特点"><a href="#模板方法模式的特点" class="headerlink" title="模板方法模式的特点"></a>模板方法模式的特点</h2><p>模板方法模式是通过把不变行为搬移到超类，去除子类中重复代码来体现它的优势，它提供了一个很好的代码复用平台。</p>
 <blockquote>
-<p>以上就是我总结的关于三种隐藏UINavigationBar的三种发送，欢迎大家一起交流，如果有更好的可以一起学习</p>
+<p>以上是我对模板方法模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 07月 28日</p>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 24日</p>
 
       
     </div>
@@ -455,17 +444,13 @@ demo地址
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/27/GCD深入学习之GCD的初识/" rel="next" title="GCD深入学习之GCD的初识">
-                <i class="fa fa-chevron-left"></i> GCD深入学习之GCD的初识
+              <a href="/2017/02/21/swift设计模式学习-代理模式/" rel="next" title="swift设计模式学习 - 代理模式">
+                <i class="fa fa-chevron-left"></i> swift设计模式学习 - 代理模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/16/iOS开发进阶-实现类似美颜相机的相机启动动画/" rel="prev" title="iOS开发进阶 - 实现类似美颜相机的相机启动动画">
-                iOS开发进阶 - 实现类似美颜相机的相机启动动画 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,10 +465,10 @@ demo地址
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/"
-     data-title="iOS开发进阶 - 隐藏UINavigationBar的小技巧"
+        <div class="ds-share flat" data-thread-key="2017/02/24/swift设计模式学习-模板方法模式/"
+     data-title="swift设计模式学习 - 模板方法模式"
      data-content=""
-     data-url="http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/">
+     data-url="http://imwcl.com/2017/02/24/swift设计模式学习-模板方法模式/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -510,8 +495,8 @@ demo地址
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/"
-           data-title="iOS开发进阶 - 隐藏UINavigationBar的小技巧" data-url="http://imwcl.com/2016/07/28/iOS开发进阶-隐藏UINavigationBar的小技巧/">
+      <div class="ds-thread" data-thread-key="2017/02/24/swift设计模式学习-模板方法模式/"
+           data-title="swift设计模式学习 - 模板方法模式" data-url="http://imwcl.com/2017/02/24/swift设计模式学习-模板方法模式/">
       </div>
     
   </div>
@@ -643,7 +628,7 @@ demo地址
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种让UINavigationBar透明渐变消失"><span class="nav-number">1.</span> <span class="nav-text">第一种让UINavigationBar透明渐变消失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变"><span class="nav-number">2.</span> <span class="nav-text">第二种让UINavigationBar向上位移，并且UINavigationBar上的view透明渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三种UINavigationBar和window的状态栏一起向上位移"><span class="nav-number">3.</span> <span class="nav-text">第三种UINavigationBar和window的状态栏一起向上位移</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模板方法模式"><span class="nav-number">1.</span> <span class="nav-text">模板方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模板方法模式的基本实现"><span class="nav-number">1.1.</span> <span class="nav-text">模板方法模式的基本实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板方法模式解决实际问题（填表格）"><span class="nav-number">1.2.</span> <span class="nav-text">模板方法模式解决实际问题（填表格）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板方法模式的特点"><span class="nav-number">1.3.</span> <span class="nav-text">模板方法模式的特点</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
