@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imwcl.com/"/>
-  <updated>2017-03-09T04:00:23.000Z</updated>
+  <updated>2017-03-16T16:18:33.000Z</updated>
   <id>http://imwcl.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手把手教你发布自己的开源框架到CocoaPods</title>
+    <link href="http://imwcl.com/2017/03/17/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E5%88%B0CocoaPods/"/>
+    <id>http://imwcl.com/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/</id>
+    <published>2017-03-16T16:17:19.000Z</published>
+    <updated>2017-03-16T16:18:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>偶尔会发布自己的开源框架到CocoaPods上，但是每次都忘记命令行，写这篇博客的目的是为了记录下来步骤，方便以后翻阅使用</p>
+</blockquote>
+<h1 id="一、先将代码传到github上"><a href="#一、先将代码传到github上" class="headerlink" title="一、先将代码传到github上"></a>一、先将代码传到github上</h1><p>这步比较简单，大致说一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 创建本地仓库</span><br><span class="line">git init</span><br><span class="line">// 添加名称为origin的远程连接</span><br><span class="line">git remote add origin &apos;你的github项目地址&apos;</span><br><span class="line">// 将本地代码加入本地仓库里</span><br><span class="line">git add .</span><br><span class="line">// 提交修改到本地仓库</span><br><span class="line">git commit -m &apos;你的修改记录&apos;</span><br><span class="line">// 推送master分支的代码到名称为origin的远程仓库</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="二、给你git打上tag"><a href="#二、给你git打上tag" class="headerlink" title="二、给你git打上tag"></a>二、给你git打上tag</h1><p>打tag的目的就相当于给你的开源框架制定版本号，每个版本一个tag，下面是打tag的流程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 查看本地tag</span><br><span class="line">git tag</span><br><span class="line">// 添加本地tag 1.0.0</span><br><span class="line">git tag -a 1.0.0 -m &apos;release 1.0.0&apos;</span><br><span class="line">// 将tag传到远程</span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
+<h2 id="tag的其他操作"><a href="#tag的其他操作" class="headerlink" title="tag的其他操作"></a>tag的其他操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 删除本地tag</span><br><span class="line">git tag -d 1.0.0</span><br><span class="line">// 删除远程tag</span><br><span class="line">git push origin -d tag 1.0.0</span><br></pre></td></tr></table></figure>
+<h1 id="三、注册Trunk"><a href="#三、注册Trunk" class="headerlink" title="三、注册Trunk"></a>三、注册<strong>Trunk</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register 你的邮箱 &apos;你的用户名&apos; --description=&apos;你的描述&apos;</span><br></pre></td></tr></table></figure>
+<p>成功的话就会受到一份邮件，点击邮件中的链接后验证一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk me</span><br></pre></td></tr></table></figure>
+<p>成功的话会返回以下类似字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- Name:     WCL</span><br><span class="line">- Email:    wangchonglei93@icloud.com</span><br><span class="line">- Since:    January 10th, 21:32</span><br><span class="line">- Pods:</span><br><span class="line">  - WCLImagePickerController</span><br><span class="line">  - WCLShineButton</span><br><span class="line">  - CRRefresh</span><br><span class="line">- Sessions:</span><br><span class="line">  - January 10th, 21:32 - July 22nd, 07:38. IP: 58.132.205.59</span><br></pre></td></tr></table></figure>
+<p>如果你的pod是由多人维护的，你也可以添加其他维护者：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk add-owner ARAnalytics kyle@cocoapods.org</span><br></pre></td></tr></table></figure>
+<h1 id="四、创建自己项目的Podspec描述文件"><a href="#四、创建自己项目的Podspec描述文件" class="headerlink" title="四、创建自己项目的Podspec描述文件"></a>四、<strong>创建自己项目的Podspec描述文件</strong></h1><p>上传到cocoapods时主要就依赖着.podspec的描述文件来进行配置的，所以我们要先建立一个.podspec的描述文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 初始化.podspec文件</span><br><span class="line">pod spec create 你的项目名</span><br></pre></td></tr></table></figure>
+<p>初步了解.podspec文件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Pod::Spec.new do |s|</span><br><span class="line">  s.name         = "你的项目名"</span><br><span class="line">  s.version      = "项目的版本"</span><br><span class="line">  s.summary      = "项目的描述"</span><br><span class="line">  s.homepage     = "项目的主页，一般为github地址就行"</span><br><span class="line">  s.license      = "许可证：一般为 MIT"</span><br><span class="line">  s.author             = &#123; "作者名" =&gt; "你的邮箱" &#125;</span><br><span class="line">  // 支持的最低版本，比如ios 8.0</span><br><span class="line">  s.platform     = :ios, "8.0"</span><br><span class="line">  // 源代码地址，也就是你github上的地址</span><br><span class="line">  s.source       = &#123; :git =&gt; "你的github地址", :tag =&gt; "项目的tag" &#125;</span><br><span class="line">  // 源代码的文件路径</span><br><span class="line">  s.source_files  = "WCL", "WCL/**/*.&#123;h,m&#125;" , "WCL/*.&#123;swift&#125;"</span><br><span class="line">  // 资源文件路径</span><br><span class="line">  s.resources     = "WCL.png", "WCL/**/*.&#123;bundle&#125;" , "WCL/*.&#123;bundle&#125;"</span><br><span class="line">  // 用到的框架</span><br><span class="line">  s.framework  = "UIKit"</span><br><span class="line">  // 依赖的第三方库</span><br><span class="line">  s.dependency "JSONKit", "~&gt; 1.4"</span><br></pre></td></tr></table></figure>
+<p>编辑完podspec文件后，需要验证一下这个文件是否可用，如果有任何WARNING或者ERROR都是不可以的，它就不能被添加到Spec Repo中，不过xcode的WARNING是可以存在的，验证需要执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec lint 你的podspec文件名.podspec</span><br></pre></td></tr></table></figure>
+<p>通过的话就验证成功，失败会告诉你错误的位置，一般很详细</p>
+<h1 id="五、传到CocoaPods上"><a href="#五、传到CocoaPods上" class="headerlink" title="五、传到CocoaPods上"></a>五、传到CocoaPods上</h1><p>pod trunk push 命令会首先验证你本地的podspec文件(是否有错误)，之后会上传spec文件到trunk，最后会将你上传的podspec文件转换为需要的json文件。在工程根目录(包含有.podspec)下执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push</span><br></pre></td></tr></table></figure>
+<p>没有错误的话，会提示你成功，并返回一下类似代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"> 🎉  Congrats</span><br><span class="line"></span><br><span class="line"> 🚀  CRRefresh (1.0.0) successfully published</span><br><span class="line"> 📅  March 16th, 07:14</span><br><span class="line"> 🌎  https://cocoapods.org/pods/CRRefresh</span><br><span class="line"> 👍  Tell your friends!</span><br><span class="line">--------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上是基本流程，如果有什么问题欢迎交流，最后谢谢大家的阅读</p>
+</blockquote>
+<hr>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 03月 09日</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;偶尔会发布自己的开源框架到CocoaPods上，但是每次都忘记命令行，写这篇博客的目的是为了记录下来步骤，方便以后翻阅使用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、先将代码传到github上&quot;&gt;&lt;a href=&quot;#一、先将代码传到github上&quot; class=&quot;headerlink&quot; title=&quot;一、先将代码传到github上&quot;&gt;&lt;/a&gt;一、先将代码传到github上&lt;/h1&gt;&lt;p&gt;这步比较简单，大致说一下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// 创建本地仓库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 添加名称为origin的远程连接&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git remote add origin &amp;apos;你的github项目地址&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 将本地代码加入本地仓库里&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 提交修改到本地仓库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -m &amp;apos;你的修改记录&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 推送master分支的代码到名称为origin的远程仓库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="CocoaPods" scheme="http://imwcl.com/categories/CocoaPods/"/>
+    
+    
+      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>swift设计模式学习 - 外观模式</title>
@@ -1407,195 +1465,6 @@
     
     
       <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GCD深入学习之GCD的初识</title>
-    <link href="http://imwcl.com/2016/06/27/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0%E4%B9%8BGCD%E7%9A%84%E5%88%9D%E8%AF%86/"/>
-    <id>http://imwcl.com/2016/06/27/GCD深入学习之GCD的初识/</id>
-    <published>2016-06-27T15:01:41.000Z</published>
-    <updated>2016-09-17T11:57:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>现在网上关于GCD的介绍已经很多了，在项目中也经常用到，但是没怎么深入研究过，打算写一系列关于GCD使用，参考其他大神写的博客和Apple的技术文档总结一下，一是自己深入学习一下，二是以后忘了可以回过头来温习一下~</p>
-</blockquote>
-<h2 id="什么是GCD"><a href="#什么是GCD" class="headerlink" title="什么是GCD?"></a>什么是GCD?</h2><p>GCD全名是Grand Central Dispatch（大中央调度器），是系统级的，存在于libdispatch.dylib这个库里，是Apple开发的一个多核编程的解决方法，它提供了一下几种好处：</p>
-<ul>
-<li>GCD用纯C编写，可以提高应用程序的响应能力，更加高效；</li>
-<li>GCD使用简单，会自动利用更多的CPU内核（比如双核、四核），自动管理线程的生命周期（创建线程、调度任务、销毁线程），程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码，提供更容易并发模型，有助于避免并发错误。</li>
-</ul>
-<a id="more"></a>
-<h2 id="GCD的相关术语"><a href="#GCD的相关术语" class="headerlink" title="GCD的相关术语"></a>GCD的相关术语</h2><p>要了解GCD，你必须熟悉相关的线程和并发的几个概念。这些既可以是模糊的，微妙的，所以花点时间在GCD的背景下简要回顾一下他们。</p>
-<h3 id="串行和并发"><a href="#串行和并发" class="headerlink" title="串行和并发"></a>串行和并发</h3><p>在执行任务时，串行是任务顺序执行，执行完一个下一个。并发就是任务可能同时执行多个任务。在GCD中一个任务就是一个闭包，这比NSOperation中的任务更加容易理解。</p>
-<h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><p>在计算机领域，同步就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去；异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。</p>
-<h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><p>通过对多线程的串行化来访问公共资源或一段代码，速度快，适合控制数据访问。在任意时刻只允许一个线程对共享资源进行访问，如果有多个线程试图访问公共资 源，那么在有一个线程进入后，其他试图访问公共资源的线程将被挂起，并一直等到进入临界区的线程离开，临界区在被释放后，其他线程才可以抢占。</p>
-<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程，简单来说就是A线程在等待B线程完成后执行，B线程也在等待A线程完成后执行，这样就出现了死锁的现象。</p>
-<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><p>线程安全的代码可以从多个线程或并发任务安全地调用，而不会造成任何问题（数据损坏，系统崩溃等）。例如当你多线程编程时，你用let定义一个数组，因为它是只读的，你能在同一时间不同线程去使用它，而不会造成线程安全的问题，然而当你用var定义一个数组时就不一样了，它不是线程安全的，当多个线程在同一时间访问和修改数组时会产生不可预知的结果。</p>
-<h3 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h3><p>上下文切换是存储和恢复执行的状态，是你在一个进程中执行不同的线程之间切换的过程。这个过程是编写多任务处理应用程序时很常见，但也带来了一些额外的开销成本。就像并发就是通过切换上下文来实现的。</p>
-<h3 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h3><p>在多核设备上执行任务时，每个CPU可以单独工作，每个CPU同时执行不同的任务，这就是并行，然而为了使单核的设备实现这种效果达到类似的效果，应为它们只有一个线程，它们只能通过快速的上下文切换来达到并行的假象，这就是并发，如下图所示：</p>
-<p><img src="http://www.raywenderlich.com/wp-content/uploads/2014/01/Concurrency_vs_Parallelism.png" alt="并发"></p>
-<h2 id="GCD队列"><a href="#GCD队列" class="headerlink" title="GCD队列"></a>GCD队列</h2><p>GCD用<strong>dispatch queues</strong>来处理提交的任务，队列用来FIFO（先进先出）的原理来管理这些任务，所有的<strong>dispatch queues</strong>本身是线程安全的，你可以从多个线程去访问它们，在GCD 中提供了两种队列，分别是串行队列和并发队列。</p>
-<h3 id="串行队列"><a href="#串行队列" class="headerlink" title="串行队列"></a>串行队列</h3><p>串行队列保证同一时间队列里只有一个任务在执行，只有等待第一个任务执行完成后才会执行下一个任务，你也不知道两个任务之间的间隔时间是多少，如下图所示：</p>
-<p><img src="http://www.raywenderlich.com/wp-content/uploads/2014/09/Serial-Queue-Swift.png" alt="串号队列"></p>
-<p>使用串行队列有一下的优点：</p>
-<ol>
-<li>能确保对一个共享资源进行串行化的访问，避免了数据竞争；</li>
-<li>任务的执行顺序是可预知的，你向一个串行队列提交任务时，它们被执行的顺  序与它们被提交的顺序相同；</li>
-</ol>
-<h3 id="并发队列"><a href="#并发队列" class="headerlink" title="并发队列"></a>并发队列</h3><p>并发队列可以让你并行的执行多个任务。任务按照它们被加入到队列中的顺序依次开始，但是它们都是并发的被执行，并不需要彼此等待才开始。并发队列能保证任务按同一顺序开始，但你不能知道执行的顺序、执行的时间以及在某一时刻正在被执行任务的数量，具体如下图所示：</p>
-<p><img src="http://www.raywenderlich.com/wp-content/uploads/2014/09/Concurrent-Queue-Swift.png" alt="并发队列"></p>
-<h2 id="GCD-的队列类型"><a href="#GCD-的队列类型" class="headerlink" title="GCD 的队列类型"></a>GCD 的队列类型</h2><p>在使用过程中系统会自动给每个应用提供一个串行队列和四个并发队列，其中串行队列为全局可用的串行队列，在应用的主线程中执行任务且只有一个，这个队列被用来更新 App 的 UI，执行所有与更新 UIViews 相关的任务。该队列中同一时刻只执行一个任务，这就是为什么当你在主队列中运行一个繁重的任务时UI会被阻塞的原因。GCD提供了一下三种队列：</p>
-<ul>
-<li><strong>主队列：</strong>任务以串行的方式执行在您的应用程序的主线程；</li>
-<li><strong>并发队列：</strong>任务在先进先出的顺序列中移除,但并发运行,可以按照任何顺序完成；</li>
-<li><strong>串行队列：</strong>以先进先出顺序执行一次任务。</li>
-</ul>
-<p>除主队列之外，系统还提供了4个并发队列。我们管它们叫 Global Dispatch queues（全局派发队列）。这些队列对整个应用来说是全局可用的，彼此只有优先级高低的区别。要使用其中一个全局并发队列的话，你得使用 dispatch_get_global_queue 函数获得一个你想要的队列的引用，该函数的第一个参数取如下值：</p>
-<ul>
-<li><strong>DISPATCH_QUEUE_PRIORITY_HIGH：</strong>高优先级的队列，高于其他任务优先级的队列。</li>
-</ul>
-<ul>
-<li><strong>DISPATCH_QUEUE_PRIORITY_DEFAULT：</strong>默认优先级队列，高于下面两个优先级，</li>
-<li><strong>DISPATCH_QUEUE_PRIORITY_LOW：</strong>低优先级队列，低于上面两个优先级。</li>
-<li><strong>DISPATCH_QUEUE_PRIORITY_BACKGROUND：</strong>最低的优先级，使用它可以尽可能的减少对系统的影响。</li>
-</ul>
-<p>你可以创建任何数量的串行或并发队列。使用并发队列的情况下，即使你可以自己创建，但是还是强烈建议你使用上面那四个全局队列，避免带来没必要的麻烦。</p>
-<h2 id="创建和管理GCD队列"><a href="#创建和管理GCD队列" class="headerlink" title="创建和管理GCD队列"></a>创建和管理GCD队列</h2><h3 id="dispatch-get-main-queue-gt-dispatch-queue-t"><a href="#dispatch-get-main-queue-gt-dispatch-queue-t" class="headerlink" title="dispatch_get_main_queue() -&gt; dispatch_queue_t!"></a>dispatch_get_main_queue() -&gt; dispatch_queue_t!</h3><h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>通过这个函数来获取主线程队列：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回主线程队列</span></span><br><span class="line">dispatch_get_main_queue()</span><br></pre></td></tr></table></figure>
-<h3 id="dispatch-get-globalqueue-identifier-Int-flags-UInt-gt-dispatch-queue-t"><a href="#dispatch-get-globalqueue-identifier-Int-flags-UInt-gt-dispatch-queue-t" class="headerlink" title="dispatch_get_globalqueue(identifier: Int,  flags: UInt) -&gt; dispatch_queue_t!"></a>dispatch_get_global<em>queue(identifier: Int, </em> flags: UInt) -&gt; dispatch_queue_t!</h3><h4 id="返回值-1"><a href="#返回值-1" class="headerlink" title="返回值"></a>返回值</h4><p>通过这个函数来获取系统提供的4个并发队列</p>
-<h4 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h4><table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>参数描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>identifier</td>
-<td>代表的队列的优先级，为<code>DISPATCH_QUEUE_PRIORITY_HIGH、DISPATCH_QUEUE_PRIORITY_DEFAULT、DISPATCH_QUEUE_PRIORITY_LOW、DISPATCH_QUEUE_PRIORITY_BACKGROUND</code>中的一个</td>
-</tr>
-<tr>
-<td>flags</td>
-<td>苹果官方解释是保留已提供将来使用，目前让这个参数为0</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回DISPATCH_QUEUE_PRIORITY_HIGH优先级的队列</span></span><br><span class="line">dispatch_get_global_queue(<span class="type">DISPATCH_QUEUE_PRIORITY_HIGH</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">//返回DISPATCH_QUEUE_PRIORITY_DEFAULT优先级的队列</span></span><br><span class="line">dispatch_get_global_queue(<span class="type">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">//返回DISPATCH_QUEUE_PRIORITY_LOW优先级的队列</span></span><br><span class="line">dispatch_get_global_queue(<span class="type">DISPATCH_QUEUE_PRIORITY_LOW</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">//返回DISPATCH_QUEUE_PRIORITY_BACKGROUND优先级的队列</span></span><br><span class="line">dispatch_get_global_queue(<span class="type">DISPATCH_QUEUE_PRIORITY_BACKGROUND</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="dispatch-queuecreate-label-UnsafePointer-attr-dispatch-queue-attr-t-gt-dispatch-queue-t"><a href="#dispatch-queuecreate-label-UnsafePointer-attr-dispatch-queue-attr-t-gt-dispatch-queue-t" class="headerlink" title="dispatch_queuecreate(label: UnsafePointer,  attr: dispatch_queue_attr_t!) -&gt; dispatch_queue_t!"></a>dispatch_queue<em>create(label: UnsafePointer<int8>, </int8></em> attr: dispatch_queue_attr_t!) -&gt; dispatch_queue_t!</h3><h4 id="返回值-2"><a href="#返回值-2" class="headerlink" title="返回值"></a>返回值</h4><p>通过这函数来创建一个新的队列。</p>
-<h4 id="参数列表-1"><a href="#参数列表-1" class="headerlink" title="参数列表"></a>参数列表</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>label</td>
-<td>为你创建的队列的标签，建议用反向DNS的命名风格（com.example.myqueue），这个参数是可选的，可以为NULL。</td>
-</tr>
-<tr>
-<td>attr</td>
-<td>GCD队列的属性，这个参数来选择创建的是串行队列（<strong>DISPATCH_QUEUE_SERIAL</strong>）还是并发队列（<strong>DISPATCH_QUEUE_CONCURRENT</strong>）和队列的优先级别。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个标识为com.wcl.www的并发队列</span></span><br><span class="line">dispatch_queue_create(<span class="string">"com.wcl.www"</span>, <span class="type">DISPATCH_QUEUE_CONCURRENT</span>)</span><br><span class="line"><span class="comment">//创建一个标识为com.imwcl.www的串行队列</span></span><br><span class="line">dispatch_queue_create(<span class="string">"com.imwcl.www"</span>, <span class="type">DISPATCH_QUEUE_SERIAL</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="dispatch-get-current-queue（）"><a href="#dispatch-get-current-queue（）" class="headerlink" title="dispatch_get_current_queue（）"></a>dispatch_get_current_queue（）</h3><h4 id="返回值-3"><a href="#返回值-3" class="headerlink" title="返回值"></a>返回值</h4><p>返回当前任务中的队列。</p>
-<h3 id="dispatch-queue-attr-make-with-qos-class-attr-dispatch-queue-attrt-qos-class-dispatch-qos-classt-relative-priority-Int32-gt-dispatch-queue-attr-t"><a href="#dispatch-queue-attr-make-with-qos-class-attr-dispatch-queue-attrt-qos-class-dispatch-qos-classt-relative-priority-Int32-gt-dispatch-queue-attr-t" class="headerlink" title="dispatch_queue_attr_make_with_qos_class(attr: dispatch_queue_attrt!,  qos_class: dispatch_qos_classt,  relative_priority: Int32) -&gt; dispatch_queue_attr_t!"></a>dispatch_queue_attr_make_with_qos_class(attr: dispatch_queue_attr<em>t!, </em> qos_class: dispatch_qos_class<em>t, </em> relative_priority: Int32) -&gt; dispatch_queue_attr_t!</h3><h4 id="返回值-4"><a href="#返回值-4" class="headerlink" title="返回值"></a>返回值</h4><p>返回一个适用于创建一个想要的服务质量信息的GCD队列的属性。主要用于dispatch_queue_create函数。</p>
-<h4 id="参数列表-2"><a href="#参数列表-2" class="headerlink" title="参数列表"></a>参数列表</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>attr</td>
-<td>GCD队列的属性，这个参数来选择创建的是串行队列（<strong>DISPATCH_QUEUE_SERIAL</strong>）还是并发队列（<strong>DISPATCH_QUEUE_CONCURRENT</strong>）和队列的优先级别。</td>
-</tr>
-<tr>
-<td>qos_class</td>
-<td>这个参数为队列优先级，同样为<code>DISPATCH_QUEUE_PRIORITY_HIGH、DISPATCH_QUEUE_PRIORITY_DEFAULT、DISPATCH_QUEUE_PRIORITY_LOW、DISPATCH_QUEUE_PRIORITY_BACKGROUND</code>中的一个。</td>
-</tr>
-<tr>
-<td>relative_priority</td>
-<td>这个参数为QOS类中相对优先级，这个值必须小于0，大于<code>QOS_MIN_RELATIVE_PRIORITY</code>，根据log数据发现<code>QOS_MIN_RELATIVE_PRIORITY</code>的值为-15，那说明第二个参数的值在0~-15之间。</td>
-</tr>
-</tbody>
-</table>
-<p>第三个参数为QOS类中相对优先级，也就是第二个参数的类，这个值必须小于0，大于<code>QOS_MIN_RELATIVE_PRIORITY</code>。</p>
-<p><code>global queue</code>优先级映射到以下<code>quality-of-service</code>类:</p>
-<ul>
-<li><code>DISPATCH_QUEUE_PRIORITY_HIG</code>映射到<code>QOS_CLASS_USER_INITIATED</code>。</li>
-<li><code>DISPATCH_QUEUE_PRIORITY_DEFAULT</code>映射到<code>QOS_CLASS_DEFAULT</code></li>
-<li><code>DISPATCH_QUEUE_PRIORITY_LOW</code>映射到<code>QOS_CLASS_UTILITY</code></li>
-<li><code>DISPATCH_QUEUE_PRIORITY_BACKGROUND</code>映射到<code>QOS_CLASS_BACKGROUND</code></li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> att = dispatch_queue_attr_make_with_qos_class(<span class="type">DISPATCH_QUEUE_SERIAL</span>, <span class="type">QOS_CLASS_DEFAULT</span>, <span class="type">QOS_MIN_RELATIVE_PRIORITY</span>)</span><br><span class="line"><span class="comment">//根据att来创建一个队列</span></span><br><span class="line">dispatch_queue_create(<span class="string">"com.wcl.www"</span>, att)</span><br></pre></td></tr></table></figure>
-<h3 id="dispatch-queue-get-label-dispatch-queue-t-queue"><a href="#dispatch-queue-get-label-dispatch-queue-t-queue" class="headerlink" title="dispatch_queue_get_label(dispatch_queue_t queue)"></a>dispatch_queue_get_label(dispatch_queue_t queue)</h3><h4 id="返回值-5"><a href="#返回值-5" class="headerlink" title="返回值"></a>返回值</h4><p>返回已经创建队列的指定标签。如果队列在创建过程中没有提供标签，则可能返回NULL。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回队列的标签</span></span><br><span class="line">dispatch_queue_get_label(dispatch_get_main_queue())</span><br></pre></td></tr></table></figure>
-<h3 id="dispatch-main-void"><a href="#dispatch-main-void" class="headerlink" title="dispatch_main( void)"></a>dispatch_main( void)</h3><p>执行主队列上被提交的所有block。这个函数是为主线程而存在的并且等待执行提交到主队列中的block。在主线程中调用了UIApplicationMain(iOS) ，NSApplicationMain(OS X)，或者CFrunLoopRun的应用程序一定不要调用dispatch_main。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, const charchar * argv[])  </span><br><span class="line">&#123;  </span><br><span class="line">  </span><br><span class="line">    @autoreleasepool &#123;  </span><br><span class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;  </span><br><span class="line">            NSLog(@&quot;等待1。。。。&quot;);  </span><br><span class="line">        &#125;);  </span><br><span class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;  </span><br><span class="line">            NSLog(@&quot;等待1。。。。&quot;);  </span><br><span class="line">        &#125;);  </span><br><span class="line">        dispatch_main();  </span><br><span class="line">    &#125;  </span><br><span class="line">    return 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如上：如果不调用dispatch_main()函数，则不会打印出结果。</p>
-<h3 id="dispatch-set-target-queue-object-dispatch-objectt-queue-dispatch-queue-t"><a href="#dispatch-set-target-queue-object-dispatch-objectt-queue-dispatch-queue-t" class="headerlink" title="dispatch_set_target_queue(object: dispatch_objectt!,  queue: dispatch_queue_t!)"></a>dispatch_set_target_queue(object: dispatch_object<em>t!, </em> queue: dispatch_queue_t!)</h3><h4 id="参数列表-3"><a href="#参数列表-3" class="headerlink" title="参数列表"></a>参数列表</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>object</td>
-<td>要修改的对象，该参数不能为空。</td>
-</tr>
-<tr>
-<td>queue</td>
-<td>处理这个对象的目标队列，这个参数不能为NULL</td>
-</tr>
-</tbody>
-</table>
-<p>给GCD对象设置目标队列，这个目标队列负责处理这个对象。处理的对象分别有一下几种：</p>
-<ul>
-<li><p><strong>GCD队列：</strong><code>dispatch_queue_t</code>，一个GCD队列的优先级是继承自它的目标队列的。使用dispatch_get_global_queue函数去获得一个合适的目标队列，这个目标队列就是你所需的优先级。</p>
-<p>如果你提交一个block到一个串行队列中，并且这个串行队列的目标队列是一个不同的串行队列，那么这个block将不会与其他被提交到这个目标队列的block或者任何其他有相同目标队列的队列同时调用。</p>
-</li>
-</ul>
-<ul>
-<li><strong>GCD数据源：</strong><code>dispatch_source_t</code>，为一个GCD数据源的目标队列指定了它的事件处理者的block和取消事件处理的block。</li>
-<li><strong>GCD I/O通道：</strong><code>dispatch_io_t</code>，一个GCD I/O通道的目标队列指定了被执行的I/O操作。这可能会影响I/O操作结果的优先级。例如，如果这个通道的目标队列的优先级被设置为DISPATCH_QUEUE_PRIORITY_BACKGROUND，那么当有I/O操作争夺的时候，任何在这个队列上通过dispatch_io_read或dispatch_io_write执行的I/O操作都会被压制。</li>
-</ul>
-<p>关于<code>dispatch_source_t</code>和<code>dispatch_io_t</code>的用法会在以后的章节去介绍。</p>
-<blockquote>
-<p>总结：这篇文章主要详细的介绍了一下关于多线程的知识和GCD队列的的创建，关于GCD的用法和其他方面的知识会在后续文章里面去描述，给自己立一个flag，争取完全弄懂以后写出好的博客来。</p>
-</blockquote>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p><a href="https://developer.apple.com/library/mac/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html#//apple_ref/c/func/dispatch_async" target="_blank" rel="external">苹果官方GCD参考文档</a></p>
-<p><a href="https://www.raywenderlich.com/79149/grand-central-dispatch-tutorial-swift-part-1" target="_blank" rel="external">国外一篇好的关于GCD的文档</a></p>
-<hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 06月 27日</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;现在网上关于GCD的介绍已经很多了，在项目中也经常用到，但是没怎么深入研究过，打算写一系列关于GCD使用，参考其他大神写的博客和Apple的技术文档总结一下，一是自己深入学习一下，二是以后忘了可以回过头来温习一下~&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;什么是GCD&quot;&gt;&lt;a href=&quot;#什么是GCD&quot; class=&quot;headerlink&quot; title=&quot;什么是GCD?&quot;&gt;&lt;/a&gt;什么是GCD?&lt;/h2&gt;&lt;p&gt;GCD全名是Grand Central Dispatch（大中央调度器），是系统级的，存在于libdispatch.dylib这个库里，是Apple开发的一个多核编程的解决方法，它提供了一下几种好处：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GCD用纯C编写，可以提高应用程序的响应能力，更加高效；&lt;/li&gt;
-&lt;li&gt;GCD使用简单，会自动利用更多的CPU内核（比如双核、四核），自动管理线程的生命周期（创建线程、调度任务、销毁线程），程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码，提供更容易并发模型，有助于避免并发错误。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="GCD深入学习" scheme="http://imwcl.com/categories/GCD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="多线程" scheme="http://imwcl.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
