@@ -5,11 +5,14 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
 
 
 
@@ -27,7 +30,12 @@
 
 
 
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -42,6 +50,12 @@
     
   
 
+  
+    
+      
+    
+
+    
   
 
   
@@ -55,25 +69,21 @@
   
 
   
-    
-      
-    
-
-    
-  
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -87,7 +97,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
@@ -106,21 +116,37 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: 'W_C__L'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
-  <title> W_C__L </title>
+
+
+  <link rel="canonical" href="http://imwcl.com/"/>
+
+
+
+
+
+  <title>W_C__L</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -129,15 +155,19 @@
 
 
 
+
+
   <script type="text/javascript">
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?1d84a907789e15e71465ddb90d712f9d";
+      hm.src = "https://hm.baidu.com/hm.js?1d84a907789e15e71465ddb90d712f9d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
 
 
 
@@ -151,31 +181,35 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">W_C__L</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">W_C__L</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我们都老得太快   却聪明的太迟~</p>
+      
   </div>
-  <p class="site-subtitle">我们都老得太快   却聪明的太迟~</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -188,7 +222,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -198,7 +232,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -208,7 +242,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -218,7 +252,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -228,7 +262,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -236,34 +270,13 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="#" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
     </ul>
   
 
   
-    <div class="site-search">
-      
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
-
-
-    </div>
-  
 </nav>
+
+
 
  </div>
     </header>
@@ -278,13 +291,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -292,38 +315,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/" itemprop="url">
-                  iOS动画进阶 - 实现炫酷的上拉刷新动效（二）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/" itemprop="url">iOS动画进阶 - 实现炫酷的上拉刷新动效（二）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-27T21:08:53+08:00" content="2017-04-27">
-              2017-04-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T21:08:53+08:00">
+                2017-04-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS动画进阶/" itemprop="url" rel="index">
                     <span itemprop="name">iOS动画进阶</span>
                   </a>
@@ -331,7 +358,6 @@
 
                 
                 
-
               
             </span>
           
@@ -339,26 +365,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 实现炫酷的上拉刷新动效（二）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 实现炫酷的上拉刷新动效（二）">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -366,7 +399,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -380,15 +412,21 @@
 </blockquote>
 <p>先上效果图和<a href="https://github.com/CRAnimation/CRRefresh">github地址</a>，完整代码个demo和进入查看，有其他好的动效大家也可以学习交流~</p>
 <p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/CRRefresh/CRRefresh9.gif" alt=""></p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -398,6 +436,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -414,13 +454,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -428,38 +478,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/" itemprop="url">
-                  iOS动画进阶 - 实现炫酷的上拉刷新动效
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/" itemprop="url">iOS动画进阶 - 实现炫酷的上拉刷新动效</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-17T14:57:10+08:00" content="2017-03-17">
-              2017-03-17
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T14:57:10+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS动画进阶/" itemprop="url" rel="index">
                     <span itemprop="name">iOS动画进阶</span>
                   </a>
@@ -467,7 +521,6 @@
 
                 
                 
-
               
             </span>
           
@@ -475,26 +528,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 实现炫酷的上拉刷新动效">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 实现炫酷的上拉刷新动效">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -502,7 +562,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -517,15 +576,21 @@
 <p>先上效果图和<a href="https://github.com/CRAnimation/CRRefresh">github地址</a>，有其他好的动效大家也可以交流~</p>
 <p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/CRRefresh/CRRefresh3.gif" alt=""></p>
 <p>动效的<a href="https://uimovement.com/ui/2408/pull-to-refresh/">原地址</a>，在uimovement网站上看到这个动效时感觉特别6，就想自己实现一下，费了很长时间，换了几种方案终于实现出来了，下面是实现的步骤：</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -535,6 +600,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -551,13 +618,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -565,38 +642,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/" itemprop="url">
-                  手把手教你发布自己的开源框架到CocoaPods
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/" itemprop="url">手把手教你发布自己的开源框架到CocoaPods</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-17T00:17:19+08:00" content="2017-03-17">
-              2017-03-17
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T00:17:19+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/CocoaPods/" itemprop="url" rel="index">
                     <span itemprop="name">CocoaPods</span>
                   </a>
@@ -604,7 +685,6 @@
 
                 
                 
-
               
             </span>
           
@@ -612,26 +692,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/手把手教你发布自己的开源框架到CocoaPods/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/手把手教你发布自己的开源框架到CocoaPods/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/" class="leancloud_visitors" data-flag-title="手把手教你发布自己的开源框架到CocoaPods">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/" class="leancloud_visitors" data-flag-title="手把手教你发布自己的开源框架到CocoaPods">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -639,7 +726,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -653,15 +739,21 @@
 </blockquote>
 <h1 id="一、先将代码传到github上"><a href="#一、先将代码传到github上" class="headerlink" title="一、先将代码传到github上"></a>一、先将代码传到github上</h1><p>这步比较简单，大致说一下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 创建本地仓库</span><br><span class="line">git init</span><br><span class="line">// 添加名称为origin的远程连接</span><br><span class="line">git remote add origin &apos;你的github项目地址&apos;</span><br><span class="line">// 将本地代码加入本地仓库里</span><br><span class="line">git add .</span><br><span class="line">// 提交修改到本地仓库</span><br><span class="line">git commit -m &apos;你的修改记录&apos;</span><br><span class="line">// 推送master分支的代码到名称为origin的远程仓库</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -671,6 +763,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -687,13 +781,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/03/09/swift设计模式学习-外观模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -701,38 +805,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/09/swift设计模式学习-外观模式/" itemprop="url">
-                  swift设计模式学习 - 外观模式
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/09/swift设计模式学习-外观模式/" itemprop="url">swift设计模式学习 - 外观模式</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-09T11:56:53+08:00" content="2017-03-09">
-              2017-03-09
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T11:56:53+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
                     <span itemprop="name">swift设计模式学习</span>
                   </a>
@@ -740,7 +848,6 @@
 
                 
                 
-
               
             </span>
           
@@ -748,26 +855,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/03/09/swift设计模式学习-外观模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/swift设计模式学习-外观模式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/swift设计模式学习-外观模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/03/09/swift设计模式学习-外观模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 外观模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/03/09/swift设计模式学习-外观模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 外观模式">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -775,7 +889,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -786,15 +899,21 @@
         
           <h1 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h1><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。</p>
 <h2 id="外观模式的基本实现"><a href="#外观模式的基本实现" class="headerlink" title="外观模式的基本实现"></a>外观模式的基本实现</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/Facade.png" alt=""></p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/03/09/swift设计模式学习-外观模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -804,6 +923,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -820,13 +941,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/24/swift设计模式学习-模板方法模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -834,38 +965,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/24/swift设计模式学习-模板方法模式/" itemprop="url">
-                  swift设计模式学习 - 模板方法模式
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/24/swift设计模式学习-模板方法模式/" itemprop="url">swift设计模式学习 - 模板方法模式</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-24T13:48:43+08:00" content="2017-02-24">
-              2017-02-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-24T13:48:43+08:00">
+                2017-02-24
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
                     <span itemprop="name">swift设计模式学习</span>
                   </a>
@@ -873,7 +1008,6 @@
 
                 
                 
-
               
             </span>
           
@@ -881,26 +1015,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/02/24/swift设计模式学习-模板方法模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/swift设计模式学习-模板方法模式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/swift设计模式学习-模板方法模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/02/24/swift设计模式学习-模板方法模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 模板方法模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/02/24/swift设计模式学习-模板方法模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 模板方法模式">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -908,7 +1049,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -919,15 +1059,21 @@
         
           <h1 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h1><p>模板方法模式，定义一个操作中算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
 <h2 id="模板方法模式的基本实现"><a href="#模板方法模式的基本实现" class="headerlink" title="模板方法模式的基本实现"></a>模板方法模式的基本实现</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/TemplateMethod.png" alt=""></p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/02/24/swift设计模式学习-模板方法模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -937,6 +1083,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -953,13 +1101,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/21/swift设计模式学习-代理模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -967,38 +1125,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/21/swift设计模式学习-代理模式/" itemprop="url">
-                  swift设计模式学习 - 代理模式
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/21/swift设计模式学习-代理模式/" itemprop="url">swift设计模式学习 - 代理模式</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-21T23:32:55+08:00" content="2017-02-21">
-              2017-02-21
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T23:32:55+08:00">
+                2017-02-21
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
                     <span itemprop="name">swift设计模式学习</span>
                   </a>
@@ -1006,7 +1168,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1014,26 +1175,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/02/21/swift设计模式学习-代理模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/21/swift设计模式学习-代理模式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/21/swift设计模式学习-代理模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/02/21/swift设计模式学习-代理模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 代理模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/02/21/swift设计模式学习-代理模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 代理模式">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -1041,7 +1209,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1059,15 +1226,21 @@
 <li><strong>代理角色</strong>：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。</li>
 <li><strong>真实角色</strong>：实现抽象角色，定义真实角色所要实现的业务逻辑，供代理角色调用。</li>
 </ul>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/02/21/swift设计模式学习-代理模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -1077,6 +1250,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1093,13 +1268,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/20/swift设计模式学习-原型模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -1107,38 +1292,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/20/swift设计模式学习-原型模式/" itemprop="url">
-                  swift设计模式学习 - 原型模式
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/20/swift设计模式学习-原型模式/" itemprop="url">swift设计模式学习 - 原型模式</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-20T19:50:21+08:00" content="2017-02-20">
-              2017-02-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-20T19:50:21+08:00">
+                2017-02-20
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
                     <span itemprop="name">swift设计模式学习</span>
                   </a>
@@ -1146,7 +1335,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1154,26 +1342,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/02/20/swift设计模式学习-原型模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/swift设计模式学习-原型模式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/swift设计模式学习-原型模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/02/20/swift设计模式学习-原型模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 原型模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/02/20/swift设计模式学习-原型模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 原型模式">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -1181,7 +1376,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1195,15 +1389,21 @@
 </blockquote>
 <h1 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h1><p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。<code>Prototype</code>原型模式是一种创建型设计模式，<code>Prototype</code>模式允许一个对象再创建另外一个可定制的对象，根本无需知道任何如何创建的细节,工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动创建的对象通过请求原型对象拷贝它们自己来实施创建。它主要面对的问题是：“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是他们却拥有比较稳定一致的接口。</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/02/20/swift设计模式学习-原型模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -1213,6 +1413,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1229,13 +1431,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/18/swift设计模式学习-策略模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -1243,38 +1455,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/18/swift设计模式学习-策略模式/" itemprop="url">
-                  swift设计模式学习 - 策略模式
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/18/swift设计模式学习-策略模式/" itemprop="url">swift设计模式学习 - 策略模式</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T22:08:53+08:00" content="2017-02-18">
-              2017-02-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-18T22:08:53+08:00">
+                2017-02-18
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
                     <span itemprop="name">swift设计模式学习</span>
                   </a>
@@ -1282,7 +1498,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1290,26 +1505,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/02/18/swift设计模式学习-策略模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/swift设计模式学习-策略模式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/swift设计模式学习-策略模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/02/18/swift设计模式学习-策略模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 策略模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/02/18/swift设计模式学习-策略模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 策略模式">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -1317,7 +1539,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1332,15 +1553,21 @@
 <li>具体策略角色（ConcreteStrategy）：包装了相关的算法和行为。</li>
 <li>环境角色（Context）：持有一个策略类的引用，最终给客户端调用。</li>
 </ul>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/02/18/swift设计模式学习-策略模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -1350,6 +1577,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1366,13 +1595,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -1380,38 +1619,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" itemprop="url">
-                  iOS动画进阶 - 手摸手教你写ShineButton动画
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" itemprop="url">iOS动画进阶 - 手摸手教你写ShineButton动画</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T00:25:10+08:00" content="2017-02-16">
-              2017-02-16
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T00:25:10+08:00">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS动画进阶/" itemprop="url" rel="index">
                     <span itemprop="name">iOS动画进阶</span>
                   </a>
@@ -1419,7 +1662,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1427,26 +1669,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 手摸手教你写ShineButton动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 手摸手教你写ShineButton动画">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -1454,7 +1703,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1468,15 +1716,21 @@
 </blockquote>
 <p>先上图和<a href="https://github.com/631106979/WCLShineButton">demo的地址</a></p>
 <p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/demo_shine_others.gif" alt=""></p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -1486,6 +1740,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1502,13 +1758,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/09/swift设计模式学习-装饰模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="W_C__L">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W_C__L">
+    </span>
 
     
       <header class="post-header">
@@ -1516,38 +1782,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/09/swift设计模式学习-装饰模式/" itemprop="url">
-                  swift设计模式学习 - 装饰模式
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/09/swift设计模式学习-装饰模式/" itemprop="url">swift设计模式学习 - 装饰模式</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-09T17:29:39+08:00" content="2017-02-09">
-              2017-02-09
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-09T17:29:39+08:00">
+                2017-02-09
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/swift设计模式学习/" itemprop="url" rel="index">
                     <span itemprop="name">swift设计模式学习</span>
                   </a>
@@ -1555,7 +1825,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1563,26 +1832,33 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/02/09/swift设计模式学习-装饰模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/09/swift设计模式学习-装饰模式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/09/swift设计模式学习-装饰模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
+          
+             <span id="/2017/02/09/swift设计模式学习-装饰模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 装饰模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
-          
-            <span id="/2017/02/09/swift设计模式学习-装饰模式/" class="leancloud_visitors" data-flag-title="swift设计模式学习 - 装饰模式">
-                &nbsp; | &nbsp;
-            <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数 </span>
-            <span class="leancloud-visitors-count"></span>
-            </span>
+
           
 
           
@@ -1590,7 +1866,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1605,15 +1880,21 @@
 <li>装饰对象包含一个真实对象的引用（reference）</li>
 <li>装饰对象接受所有来自客户端的请求。它把这些请求转发给真实的对象。</li>
 <li>装饰对象可以在转发这些请求以前或以后增加一些附加功能。这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。在面向对象的设计中，通常是通过继承来实现对给定类的功能扩展。
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/02/09/swift设计模式学习-装饰模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
-    
+
+    <div>
+      
+    </div>
+
     <div>
       
     </div>
@@ -1623,6 +1904,8 @@
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1670,25 +1953,32 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/8589061?v=3&u=e390a930ff6de51a43324c89da2691ebbb943625&s=140"
                alt="W_C__L" />
           <p class="site-author-name" itemprop="name">W_C__L</p>
-          <p class="site-description motion-element" itemprop="description">W_C__L的个人博客</p>
+           
+              <p class="site-description motion-element" itemprop="description">W_C__L的个人博客</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">30</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1696,8 +1986,10 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1721,7 +2013,7 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/imwcl" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
                 </a>
@@ -1730,7 +2022,7 @@
               <span class="links-of-author-item">
                 <a href="http://blog.csdn.net/wang631106979" target="_blank" title="CSDN">
                   
-                    <i class="fa fa-globe"></i>
+                    <i class="fa fa-fw fa-globe"></i>
                   
                   CSDN
                 </a>
@@ -1744,9 +2036,9 @@
 
         
         
-          <div class="links-of-blogroll motion-element">
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
             <div class="links-of-blogroll-title">
-              <i class="fa fa-globe fa-fw"></i>
+              <i class="fa  fa-fw fa-globe"></i>
               友情链接
             </div>
             <ul class="links-of-blogroll-list">
@@ -1759,7 +2051,12 @@
           </div>
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -1783,8 +2080,9 @@
   <span class="author" itemprop="copyrightHolder">W_C__L</span>
 </div>
 
+
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -1793,15 +2091,21 @@
     NexT.Pisces
   </a>
 </div>
+
+
         
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -1823,6 +2127,17 @@
   
 
 
+  
+
+
+
+
+
+
+
+
+
+
 
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
@@ -1842,32 +2157,35 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
 
 
@@ -1892,148 +2210,31 @@
 
   
     
-      
-      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-      <script src="/js/src/hook-duoshuo.js"></script>
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
 
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-       search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
 
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
 
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';                
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = true;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            }
-                        });
-                    }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
-                            
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
-                    }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
-        }
-    });}
 
-    // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
 
-    });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
+
+
+
+
+
 
   
+
+
+
+
 
   
 
@@ -2068,6 +2269,14 @@
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
         })
         .fail(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -2098,6 +2307,12 @@
             });
           } else {
             var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
             newcounter.set("time", 1);
@@ -2129,6 +2344,12 @@
   </script>
 
 
+
+  
+
+  
+
+  
 
   
 
