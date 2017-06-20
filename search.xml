@@ -4,6 +4,270 @@
   
     
     <entry>
+      <title><![CDATA[丁香园iOS电话面试问题总结]]></title>
+      <url>http://imwcl.com/2017/06/21/%E4%B8%81%E9%A6%99%E5%9B%ADiOS%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>写与深夜中，今天下午去面试去面试一家初创公司，然后又接到到了丁香园的电话面试，这篇blog记录一下面试的一些问题，有的回答的还行，有点感觉不太好，主要是有些英文单词说的太low了估计被鄙视了吧，下面给大家总结一下面试的一些问题，有些回答是摘要一些大神blog的出处，都有给原链接，希望见谅~~</p>
+</blockquote>
+<h1 id="简单讲解一下http请求，以及GET-POST的区别"><a href="#简单讲解一下http请求，以及GET-POST的区别" class="headerlink" title="简单讲解一下http请求，以及GET POST的区别"></a>简单讲解一下http请求，以及GET POST的区别</h1><p>这个问得其实不是很难，主要看你了不了解了，我因为了解一些后台的东西，所以回答的还行，下面我给大家看两幅图片大家就基本了解了：</p>
+<ul>
+<li>请求Request的原数据</li>
+</ul>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/interview/http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB.png" alt=""></p>
+<a id="more"></a>
+<ul>
+<li>返回Resonse的原数据</li>
+</ul>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/interview/http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB2.png" alt=""></p>
+<p>总结一下，其实http请求就是发送和接受报文，报文的具体格式就如上图所示，具体由三部分构成，GET 和 POST也就请求方式和参数的位置不同：</p>
+<ul>
+<li>请求的方法URL协议/版本</li>
+<li>请求头（Request Header）</li>
+<li>请求正文（Content）</li>
+</ul>
+<p>其中请求头里面可以放很多参数，比如报文的大小啊，啥的一些参数，具体可以百度，这里就不展开了。</p>
+<h1 id="https的加密方式和几次握手"><a href="#https的加密方式和几次握手" class="headerlink" title="https的加密方式和几次握手"></a>https的加密方式和几次握手</h1><p>这个问题回答的就比较菜了，程序比较复制，当时特意记了一下，没想到面试的时候还是有点蒙，回答的非常菜，现在在普及一下，下面是一篇讲的很详细的<a href="http://www.jianshu.com/p/56fc18937d09" target="_blank" rel="external">blog地址</a>，大家可以去原地址去看，我下面也简单总结一下：</p>
+<h2 id="https的加密方式"><a href="#https的加密方式" class="headerlink" title="https的加密方式"></a>https的加密方式</h2><ul>
+<li>对称加密</li>
+</ul>
+<p>​        对称加密是指加密和解密使用相同密钥的加密算法。它要求发送方和接收方在安全通信之前，商定一个密钥。对称算法的安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信至关重要。</p>
+<p>对称加密算法的优、缺点：</p>
+<p>优点：算法公开、计算量小、加密速度快、加密效率高。</p>
+<p>缺点：1）交易双方都使用同样钥匙，安全性得不到保证；</p>
+<p>​            2）每对用户每次使用对称加密算法时，都需要使用其他人不知道的惟一钥匙，这会使得发收信双方所拥有的钥匙数量呈几何级数增长，密钥管理成为用户的负担。</p>
+<p>​             3）能提供机密性，但是不能提供验证和不可否认性。</p>
+<ul>
+<li>非对称加密</li>
+</ul>
+<p>​        这种加密或许理解起来比较困难，这种加密指的是可以生成公钥和私钥。凡是公钥加密的数据，公钥自身不能解密，而需要私钥才能解密；凡是私钥加密的数据，私钥不能解密，需要公钥才能解密。这种算法事实上有很多，常用的是RSA，其基于的数学原理是两个大素数的乘积很容易算，而拿到这个乘积去算出是哪两个素数相乘就很复杂了，具体原理有兴趣可以自行研究。</p>
+<p>非对称加密相比对称加密更加安全，但也存在两个明显缺点：</p>
+<p>​       1）CPU计算资源消耗非常大。一次完全TLS握手，密钥交换时的非对称解密计算量占整个握手过程的90%以上。而对称加密的计算量只相当于非对称加密的0.1%，如果应用层数据也使用非对称加解密，性能开销太大，无法承受。</p>
+<p>​       2）非对称加密算法对加密内容的长度有限制，不能超过公钥长度。比如现在常用的公钥长度是2048位，意味着待加密内容不能超过256个字节。</p>
+<p>   所以公钥加密目前只能用来作密钥交换或者内容签名，不适合用来做应用层传输内容的加解密。</p>
+<h2 id="加密的详细过程"><a href="#加密的详细过程" class="headerlink" title="加密的详细过程"></a>加密的详细过程</h2><p>​        首先服务器端用非对称加密（RSA）产生公钥和私钥。然后把公钥发给客 户端，路径或许有人会截取，但是没有用，因为用公钥加密的文件只有私钥可以解密，而私钥永远都不会离开服务器的。当公钥到达客户端之后，客户端会用对称加密产生一个秘钥并且用公钥来加密发送给服务器端，这个秘钥就是以后用来通信的钥匙。这样服务器端收到公钥加密的秘钥时就可以用私钥来解公钥从而获得秘钥。这样的话客户端和服务器端都获得了秘钥，信息交流相对是安全的。流程图如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/535139-206dfc1d526b4b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>​        听起来确实是挺安全的，但实际上，还有一种更恶劣的攻击是这种方法无   法防范的，这就是传说中的“中间人攻击”。在身份认证的过程中，出现了一个“中间人”拦截我们的信息，他有意想要知道你们的消息。我们将这个中间人称为M。当服务器第一次给客户端发送公钥的时候，途径M。M知道你要进行密钥交换了，它把公钥扣了下来，假装自己是客户端，伪造了一个伪秘钥（对称加密产生的），然后用服务器发来的公钥加密了伪秘钥发还给服务器，这样服务器以为和客户端完成了密钥交换，实际上服务器是和M完成了密钥交换（获得了伪秘钥）。同时M假扮成服务器自行用非对称加密产生伪公钥和伪私钥，与客户端进行秘钥交换，拿到客户端发送过来的秘钥。现在客户端拿着秘钥，M拿着秘钥和为伪秘钥，服务器拿着伪秘钥，整个交流的过程就是：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/535139-6e2551a1fb891a4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>还有很多大家直接去<a href="http://www.jianshu.com/p/56fc18937d09" target="_blank" rel="external">大神的blog</a>去看吧，写的很详细，我这就点到为止了~~</p>
+<h2 id="在不知道二进制文件格式的情况下如何区分文件"><a href="#在不知道二进制文件格式的情况下如何区分文件" class="headerlink" title="在不知道二进制文件格式的情况下如何区分文件"></a>在不知道二进制文件格式的情况下如何区分文件</h2><p>当听到这么问题的时候还是有点仓促的，隐约记得是通过二进制的头部的标识来区分的，当时也不太确定就含糊的回答了一下，说是通过二进制文件的头部标识来区分的，看面试官的样子不是很满意，回答百度学习一波，百度结果如下所示，附带<a href="http://blog.csdn.net/yagerfgcs/article/details/51427085" target="_blank" rel="external">原链接</a>：</p>
+<p><strong>可以通过二进制头识别文件类型，可以使用UE或者WinHex软件打开：</strong></p>
+<ol>
+<li>JPEG/JPG</li>
+</ol>
+<ul>
+<li>文件头标识 (2 bytes): $ff, $d8 (SOI) (JPEG文件标识) </li>
+<li>文件结束标识 (2 bytes): $ff, $d9 (EOI) </li>
+</ul>
+<ol>
+<li>TGA</li>
+</ol>
+<ul>
+<li>未压缩的前5字节   00 00 02 0000</li>
+<li>RLE压缩的前5字节   00 00 10 0000</li>
+</ul>
+<ol>
+<li>PNG</li>
+</ol>
+<ul>
+<li>文件头标识 (8 bytes)   89 50 4E 470D 0A 1A 0A</li>
+</ul>
+<ol>
+<li>GIF</li>
+</ol>
+<ul>
+<li>文件头标识 (6 bytes)   47 49 46 3839(37) 61<br>   ​    G  I  F  8 9 (7)  a</li>
+</ul>
+<ol>
+<li>BMP</li>
+</ol>
+<ul>
+<li>文件头标识 (2 bytes)   424D<br>   ​    B   M</li>
+</ul>
+<ol>
+<li>PCX</li>
+</ol>
+<ul>
+<li>文件头标识 (1 bytes)   0A</li>
+</ul>
+<ol>
+<li>TIFF</li>
+</ol>
+<ul>
+<li>文件头标识 (2 bytes)   4D 4D 或 4949</li>
+</ul>
+<ol>
+<li>ICO</li>
+</ol>
+<ul>
+<li>文件头标识 (8 bytes)   00 00 01 0001 00 20 20 </li>
+</ul>
+<ol>
+<li>CUR</li>
+</ol>
+<ul>
+<li>文件头标识 (8 bytes)   00 00 02 0001 00 20 20</li>
+</ul>
+<ol>
+<li>IFF</li>
+</ol>
+<ul>
+<li>文件头标识 (4 bytes)   46 4F 524D<br>   ​    F  O  R  M</li>
+</ul>
+<ol>
+<li>ANI</li>
+</ol>
+<ul>
+<li>文件头标识 (4 bytes)   52 49 4646<br>   ​    R  I  F F</li>
+</ul>
+<p>以上是一些文件的区别方式，回答的总方向还是对的，可能回答的不够好，下次就知道了。</p>
+<h1 id="常见的几种线程锁"><a href="#常见的几种线程锁" class="headerlink" title="常见的几种线程锁"></a>常见的几种线程锁</h1><p>这个问题比较尴尬，因为英文不太好，加上平时用的也不多，回答的比较吞吞吐吐，就说了<code>NSLock</code>、<code>@synchronized</code>和<code>dispatch的semaphore</code>，其中有些单词的读法还不太准，想想就很尴尬，下面大概总结一下，有一下几种：</p>
+<ul>
+<li><strong>NSLock</strong></li>
+<li><strong>@synchronized</strong></li>
+<li><strong>dispatch的semaphore</strong></li>
+<li><strong>条件锁NSCondition</strong></li>
+<li><strong>条件锁NSConditionLock</strong></li>
+<li><strong>NSDistributedLock</strong></li>
+<li><strong>互斥锁POSIX</strong></li>
+<li><strong>自旋锁OSSpinLock</strong></li>
+</ul>
+<p>下面总结一下，说实话太多有点记不过来了 - . -，附带详细的<a href="http://www.jianshu.com/p/35dd92bcfe8c" target="_blank" rel="external">原文地址</a>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">各种线程锁</th>
+<th style="text-align:center">使用场景和简单介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>@synchronized</code></td>
+<td style="text-align:center">适用线程不多，任务量不大的多线程加锁</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>NSLock</code></td>
+<td style="text-align:center">比较常用的一种锁，性能一般</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>dispatch_semaphore_t</code></td>
+<td style="text-align:center">使用信号来做加锁，性能很好</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>NSCondition</code></td>
+<td style="text-align:center">使用其做多线程之间的通信调用不是线程安全的</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>NSConditionLock</code></td>
+<td style="text-align:center">单纯加锁性能非常低，比NSLock低很多，但是可以用来做多线程处理不同任务的通信调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>NSRecursiveLock</code></td>
+<td style="text-align:center">递归锁的性能出奇的高，但是只能作为递归使用,所以限制了使用场景</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>NSDistributedLock</code></td>
+<td style="text-align:center">因为是MAC开发的，就不讨论了</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>POSIX(pthread_mutex)</code></td>
+<td style="text-align:center">底层的api，复杂的多线程处理建议使用，并且可以封装自己的多线程</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>OSSpinLock</code></td>
+<td style="text-align:center">性能也非常高，可惜出现了线程问题</td>
+</tr>
+</tbody>
+</table>
+<p>再总计一下，总的意思就是一般用<code>dispatch_semaphore_t</code>就行了，再简单点用<br><code>NSLock</code>，另外带一个<code>swift</code>出的一个线程锁的方式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">synchronized</span><span class="params">(lock: AnyObject, closure: <span class="params">()</span></span></span> -&gt; ()) &#123;</span><br><span class="line">    objc_sync_enter(lock)</span><br><span class="line">    closure()</span><br><span class="line">    objc_sync_exit(lock)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="怎么保证线程安全"><a href="#怎么保证线程安全" class="headerlink" title="怎么保证线程安全"></a>怎么保证线程安全</h1><p>这个问题我是接着上一个问题之后回答的，感觉线程安全主要是数据竞争带来的，下面简单讲解一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">线程安全的代码可以从多个线程或并发任务安全地调用，而不会造成任何问题（数据损坏，系统崩溃等）。例如当你多线程编程时，你用let定义一个数组，因为它是只读的，你能在同一时间不同线程去使用它，而不会造成线程安全的问题，然而当你用var定义一个数组时就不一样了，它不是线程安全的，当多个线程在同一时间访问和修改数组时会产生不可预知的结果。</span><br></pre></td></tr></table></figure>
+<h1 id="SDWebImage具体实现和具体类"><a href="#SDWebImage具体实现和具体类" class="headerlink" title="SDWebImage具体实现和具体类"></a>SDWebImage具体实现和具体类</h1><p>这个问题回答的一般般吧，说了一下简单的构造和实现，然后让我说具体类的时候有点心累了，因为确实记得不是很清楚了，下面简单总结一下一些主要的类：</p>
+<ul>
+<li><code>SDWebImageManager</code></li>
+<li><code>SDWebImageCombinedOperation</code></li>
+<li><code>SDImageCache</code></li>
+<li><code>SDWebImageDownloader</code></li>
+<li>各种类目</li>
+</ul>
+<p>这是一些简单的类，大家想要详细了解可以去<a href="https://github.com/Draveness/Analyze/blob/master/contents/SDWebImage/iOS%20源代码分析%20---%20SDWebImage.md" target="_blank" rel="external">这篇文章</a>去看，非常详细！！！</p>
+<h1 id="Alamofire实现原理和主要的类"><a href="#Alamofire实现原理和主要的类" class="headerlink" title="Alamofire实现原理和主要的类"></a>Alamofire实现原理和主要的类</h1><p>跟上个问题一样，简单的回答了一下，都怪自己没仔细专研过这些，只是简单看过，停留在应用层面上，下面同样简单介绍一下，附带<a href="https://github.com/Draveness/Analyze/blob/master/contents/Alamofire/iOS%20源代码分析%20----%20Alamofire.md" target="_blank" rel="external">大神blog地址</a>吧：</p>
+<ul>
+<li><code>Manager</code></li>
+<li><code>SessionDelegate</code></li>
+<li><code>ResponseSerialization</code></li>
+<li><code>URLStringConvertible</code></li>
+</ul>
+<p>这是一些简单的类，大家想要详细了解可以去<a href="https://github.com/Draveness/Analyze/blob/master/contents/Alamofire/iOS%20源代码分析%20----%20Alamofire.md" target="_blank" rel="external">这篇文章</a>去看，非常详细！！！</p>
+<h1 id="RxSwift的原理使用和主要类？"><a href="#RxSwift的原理使用和主要类？" class="headerlink" title="RxSwift的原理使用和主要类？"></a>RxSwift的原理使用和主要类？</h1><p>这个幸好用过了，不过也没深入过，就简单抽象的讲了一下响应式编程的思想，然后从应用使用方面讲解了一下：<code>RxSwift</code>的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用<code>swift</code>进行响应式编程；让后让我说一下<code>RxSwift</code>里面有哪些<code>Subjects</code>，这个就比较尴尬了，这让我只用过<code>PublishSubject</code>和<code>Driver</code>的人情何以堪，下面同样列一下<code>Subjects</code>列表和<a href="https://blog.callmewhy.com/2015/09/21/rxswift-getting-started-0/" target="_blank" rel="external">大神地址</a>：</p>
+<ul>
+<li><p><code>PublishSubject</code></p>
+</li>
+<li><p><code>ReplaySubject</code></p>
+</li>
+<li><p><code>BehaviorSubject</code></p>
+</li>
+<li><p><code>Variable</code></p>
+</li>
+<li><p><code>Driver</code></p>
+<p>下面是<a href="https://blog.callmewhy.com/2015/09/21/rxswift-getting-started-0/" target="_blank" rel="external">大神blog</a>，有详细介绍大家可以去阅读<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># realm的简单介绍和使用时的线程问题</span><br><span class="line"></span><br><span class="line">这个也简单用过，也是没往深入研究，也是大概说了一下使用过程，和多线程数据共享的坑，首先`realm`是一个跨平台移动数据库引擎，支持`iOS`、`OS X`（`Objective-C`和`Swift`）以及`Android`，核心数据引擎`C++`打造，并不是建立在`SQLite`之上的`ORM`。</span><br><span class="line"></span><br><span class="line">## 跨线程时的使用</span><br><span class="line"></span><br><span class="line">废话不多说，直接上代码：</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line">let person = Person(name: &quot;Jane&quot;)</span><br><span class="line">try! realm.write &#123;</span><br><span class="line">  realm.add(person)</span><br><span class="line">&#125;</span><br><span class="line">// 以下是跨线程必要的操作，先建一个Reference</span><br><span class="line">let personRef = ThreadSafeReference(to: person)</span><br><span class="line">// 然后在需要返回数据的线程里面去resolve</span><br><span class="line">DispatchQueue(label: &quot;background&quot;).async &#123;</span><br><span class="line">    let realm = try! Realm()</span><br><span class="line">    guard let person = realm.resolve(personRef) else &#123;</span><br><span class="line">    // person 已被删除</span><br><span class="line">      return </span><br><span class="line">    &#125;</span><br><span class="line">    try! realm.write &#123;</span><br><span class="line">      person.name = &quot;Jane Doe&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">这里是[官方中文文档](https://realm.io/cn/docs/swift/latest/)，大家可以去看看，非常详细</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h1 id="简单讲一讲RunTime和RunLoop"><a href="#简单讲一讲RunTime和RunLoop" class="headerlink" title="简单讲一讲RunTime和RunLoop"></a>简单讲一讲RunTime和RunLoop</h1><p><code>runtimer</code>和<code>runloop</code>因为看过一篇文章写的特别好，有一定了解，说了<code>runtime</code>的一些主要功能和应用的地方，下面简单介绍一下：</p>
+<h2 id="RunTime"><a href="#RunTime" class="headerlink" title="RunTime"></a>RunTime</h2><ul>
+<li><code>RunTime</code>简称运行时；</li>
+<li>OC就是运行时机制，就是在运行的时候调用一些机制；</li>
+<li>对于C语言，在编译的时候会决定调用哪个函数；</li>
+<li>对于OC，在编译的时候并不能决定调用哪个函数，只有在真正运行的时候才会根据函数的SEL来调用对应的函数。</li>
+</ul>
+<h2 id="RunTime-应用范围"><a href="#RunTime-应用范围" class="headerlink" title="RunTime 应用范围"></a>RunTime 应用范围</h2><ul>
+<li><strong>发送消息</strong></li>
+<li><strong>交换方法</strong></li>
+<li><strong>动态添加方法</strong></li>
+<li><strong>动态添加属性</strong></li>
+</ul>
+<p>其中用的比较多的就是用类目给某个类动态添加属性。</p>
+<h2 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a>RunLoop</h2><p><code>RunLoop</code>简单来说就是事件循环，保持APP一直处于存活方式的一种机制，让线程能随时处理事件但并不退出，下面有一篇超级棒的<code>RunLoop</code>文章给大家介绍一下，我这就不展开说了，了解<code>RunLoop</code>看那篇文章足够了。</p>
+<p><a href="http://blog.ibireme.com/2015/05/18/runloop/" target="_blank" rel="external">超级棒的文章地址</a></p>
+<h1 id="简单说一下iOS的几种持续化存储方式"><a href="#简单说一下iOS的几种持续化存储方式" class="headerlink" title="简单说一下iOS的几种持续化存储方式"></a>简单说一下iOS的几种持续化存储方式</h1><p>这个回答的就比较轻松了，下面随便列几个吧，大家有其他的可以补充一下：</p>
+<ul>
+<li><code>NSUserDefaults</code></li>
+<li><code>plist</code></li>
+<li><code>NSKeyedArchiver</code></li>
+<li><code>SQL</code></li>
+<li><code>coredata</code></li>
+<li><code>realm</code></li>
+</ul>
+<h1 id="WKWebView缓存和清理缓存的方法"><a href="#WKWebView缓存和清理缓存的方法" class="headerlink" title="WKWebView缓存和清理缓存的方法"></a>WKWebView缓存和清理缓存的方法</h1><h2 id="WKWebView缓存的使用"><a href="#WKWebView缓存的使用" class="headerlink" title="WKWebView缓存的使用"></a>WKWebView缓存的使用</h2><p>主要通过<code>NSURLCache</code>对请求的数据进行缓存，具体实现可以去这个<a href="https://github.com/xiayuqingfeng/DPWebViewLocalCache" target="_blank" rel="external">github</a>上去查看<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 清楚缓存的方法</span><br><span class="line"></span><br><span class="line">详情看这篇[blog](http://www.jianshu.com/p/186a3b236bc9)，这里简单陈述一下，其实在`iOS9`出了一个方法，调用一下就清除了：</span><br><span class="line"></span><br><span class="line">```objective-c</span><br><span class="line">NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];</span><br><span class="line">//// Date from</span><br><span class="line">NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];</span><br><span class="line">//// Execute</span><br><span class="line">[[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^&#123;</span><br><span class="line">// Done</span><br><span class="line">&#125;];</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"># WKWebview的cookie的使用</span><br><span class="line"></span><br><span class="line">主要用到的类有`NSHTTPCookie`，大家同样也可以去[大神的blog](http://www.jianshu.com/p/7062916177ac)去查看</span><br></pre></td></tr></table></figure></p>
+<h1 id="autorelease的实现，以及autorelease对象什么时候会被release"><a href="#autorelease的实现，以及autorelease对象什么时候会被release" class="headerlink" title="autorelease的实现，以及autorelease对象什么时候会被release"></a>autorelease的实现，以及autorelease对象什么时候会被release</h1><p>这个问题回答的不太好，说实话当时连续面试了两家，闹着已经有点蒙了，这里借用喵神翻译的一本书上的原话来描述一下：</p>
+<p>​    <code>autorelease</code>它会将接受该消息的对象放到一个预先建立的自动释放池 (<code>auto release pool</code>) 中，并在 自动释放池收到 <code>drain</code> 消息时将这些对象的引用计数减一，然后将它们从池子中移除 (这一过程形象地称为“抽干池子”)。”</p>
+<p>【摘录来自: 王巍 (onevcat). “Swifter - Swift 必备 Tips (第三版)”。 iBooks. 】</p>
+<p>实现原理的话大概就是被<code>autorelease</code>标记的类会被加入一个池子，当这个池子<code>drain</code>时里面的引用计数会减1。</p>
+<h1 id="swift写时复制，自己的结构体怎么实现写时复制"><a href="#swift写时复制，自己的结构体怎么实现写时复制" class="headerlink" title="swift写时复制，自己的结构体怎么实现写时复制"></a>swift写时复制，自己的结构体怎么实现写时复制</h1><p>幸好之前看了喵神翻译的【Swift进阶】 ，受益颇深，下面同样借用喵神的话给大家简单描述一下，大家可以去买这本书，还是挺划算的，下面大量复制喵神书里面的内容，请见谅：</p>
+<p>在 Swift 标准库中，像是 Array，Dictionary 和 Set 这样的集合类型是通过一种叫做写时复制 (copy-on-write) 的技术实现的。我们这里有一个整数数组：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> y = x</span><br></pre></td></tr></table></figure>
+<p>如果我们创建了一个新的变量 y，并且把 x 赋值给它时，会发生复制，现在 x 和 y 含有的是独立的结构体。在内部，这些 Array 结构体含有指向某个内存的引用。这个内存就是数组中元素所存储的位置，它们位于堆 (heap) 上。在这个时候，两个数组的引用指向的是内存中同一个位置，这两个数组共享了它们的存储部分。不过，当我们改变 x 的时候，这个共享会被检测到，内存将会被复制。这样一来，我们得以独立地改变两个变量。昂贵的元素复制操作只在必要的时候发生，也就是我们改变这两个变量的时候发生复制：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x.append(<span class="number">5</span>)</span><br><span class="line">y.removeLast()</span><br><span class="line">x <span class="comment">// [1, 2, 3, 5]</span></span><br><span class="line">y <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+<p>如果 Array 结构体中的引用在数组被改变的一瞬间时是唯一的话 (比如，没有声明 y)，那么也不会有复制发生，内存的改变将在原地进行。这种行为就是写时复制，作为一个结构体的作者，你并不能免费获得这种特性，你需要自己进行实现。当你自己的类型内部含有一个或多个可变引用，同时你想要保持值语义，并且避免不必要的复制时，为你的类型实现写时复制是有意义的。</p>
+<p>下面看看通过简单的例子看一下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="type">COWStruct</span>()]</span><br><span class="line">array[<span class="number">0</span>].change() <span class="comment">// No copy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> otherArray = [<span class="type">COWStruct</span>()]</span><br><span class="line"><span class="keyword">var</span> x = array[<span class="number">0</span>]</span><br><span class="line">x.change() <span class="comment">// Copy</span></span><br></pre></td></tr></table></figure>
+<p>然而自己去实现一个写时复制的话，首先你要判断引用的唯一性，不是唯一的话进行写时复制，唯一的话直接改变需要改变的值。</p>
+<h1 id="结构体和类以及它们的使用时机"><a href="#结构体和类以及它们的使用时机" class="headerlink" title="结构体和类以及它们的使用时机"></a>结构体和类以及它们的使用时机</h1><p>结构体和类主要的区别就是一个是值类型，一个是引用类型；值类型是写时复制的，引用类型是不会发生写时复制的；当我们需要一个简单不需要继承、不多变的数据时候我们首选结构体，因为在数据结构上来说结构体的存取效率是高于类的，反之当我们需要一个数据结构比较大，需要继承，变化比较多的时候我们选择类，因为在变化的过程中结构体可能会发生写时复制，而类不会；下面举一个简单的例子：</p>
+<p>以<code>Array</code>和<code>NSMutableArray</code>来说：</p>
+<p>当有一个数组，数据量相对比较小，也不用去经常改变它，只是用来存数据和取数据，我们首先<code>Array</code></p>
+<p>当数组的数据量很大的时候，并且经常要去对他进行添加，删除等操作，并且经常赋值给其他变量的话就推荐使用<code>NSMutableArray</code></p>
+<h1 id="让你实现一个数据存储的框架怎么去实现"><a href="#让你实现一个数据存储的框架怎么去实现" class="headerlink" title="让你实现一个数据存储的框架怎么去实现"></a>让你实现一个数据存储的框架怎么去实现</h1><p>这个是一个比较开发性的问题了，我想到的是用策略模式的方式来简单实现一下，使用策略模式的好处是方便文件类型的扩展，下面我简单画个简单的UML图大家看一看吧：</p>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/interview/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%8E%B0.png" alt=""></p>
+<p>当然这只是一个初步的模型，还有很多细节待考虑，比如文件缓存什么的，是存本地还是磁盘，这都得去考虑，小弟只是抛砖引玉给个简单的思路。</p>
+<blockquote>
+<p>写完已经是深夜了，以上是我丁香园电话面试的一些问题，和之前面试一些回答不好的问题，最后面试完我问了一下丁香园的面试官对我感觉怎样，他说广度还行深度不够，我确实又有这点问题，想学的知识比较多，有时候也没来得及去看实现原理，只是简单的过一下，没深入研究透彻，这是我需要加强的地方，之后如果有二面的话我会在继续更新的，最后谢谢大家的阅读~~我是WCL，大家可以去我<a href="https://github.com/imwcl" target="_blank" rel="external">github</a>关注一波</p>
+</blockquote>
+<hr>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 06月 21日</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[iOS动画进阶 - 实现炫酷的上拉刷新动效（二）]]></title>
       <url>http://imwcl.com/2017/04/27/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%82%AB%E9%85%B7%E7%9A%84%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E5%8A%A8%E6%95%88%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
