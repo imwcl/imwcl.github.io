@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="swift," />
 
 
 
@@ -104,28 +104,37 @@
 
 
 
-<meta name="description" content="前段时间在github上看见一个非常nice的动画效果，可惜是安卓的，想着用swift写一个iOS版的，下下来源代码研究了一下，下面是我写代码的心路历程
+<meta name="description" content="自从Xcode8之后就不支持插件了，没法用Xcode一键生成AppIcon，一直没找到好的解决方案，一怒之下决定自己写一个脚本用来生成AppIcon，下面是正文，小弟抛砖引玉，有写的不好的地方有请大佬们见谅：
 
-先上图和demo的地址">
+源码地址
+事前准备查看swift版本首先你要确定你的Mac上的swift版本：
+1swift --version
+我电脑上的执行结果是这样的：
+12Apple Swift version">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS动画进阶 - 手摸手教你写ShineButton动画">
-<meta property="og:url" content="http://imwcl.com/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/index.html">
+<meta property="og:title" content="swift脚本编程：一键生成AppIcon">
+<meta property="og:url" content="http://imwcl.com/2017/10/17/swift脚本编程：一键生成AppIcon/index.html">
 <meta property="og:site_name" content="W_C__L">
-<meta property="og:description" content="前段时间在github上看见一个非常nice的动画效果，可惜是安卓的，想着用swift写一个iOS版的，下下来源代码研究了一下，下面是我写代码的心路历程
+<meta property="og:description" content="自从Xcode8之后就不支持插件了，没法用Xcode一键生成AppIcon，一直没找到好的解决方案，一怒之下决定自己写一个脚本用来生成AppIcon，下面是正文，小弟抛砖引玉，有写的不好的地方有请大佬们见谅：
 
-先上图和demo的地址">
-<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/demo_shine_others.gif">
-<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl1.gif">
-<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl.gif">
-<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl2.gif">
-<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl3.gif">
-<meta property="og:updated_time" content="2017-02-15T16:28:54.000Z">
+源码地址
+事前准备查看swift版本首先你要确定你的Mac上的swift版本：
+1swift --version
+我电脑上的执行结果是这样的：
+12Apple Swift version">
+<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/AppIconGenerator/AppIconGenerator1.png">
+<meta property="og:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/AppIconGenerator/AppIconGenerator2.png">
+<meta property="og:updated_time" content="2017-10-16T16:20:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS动画进阶 - 手摸手教你写ShineButton动画">
-<meta name="twitter:description" content="前段时间在github上看见一个非常nice的动画效果，可惜是安卓的，想着用swift写一个iOS版的，下下来源代码研究了一下，下面是我写代码的心路历程
+<meta name="twitter:title" content="swift脚本编程：一键生成AppIcon">
+<meta name="twitter:description" content="自从Xcode8之后就不支持插件了，没法用Xcode一键生成AppIcon，一直没找到好的解决方案，一怒之下决定自己写一个脚本用来生成AppIcon，下面是正文，小弟抛砖引玉，有写的不好的地方有请大佬们见谅：
 
-先上图和demo的地址">
-<meta name="twitter:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/demo_shine_others.gif">
+源码地址
+事前准备查看swift版本首先你要确定你的Mac上的swift版本：
+1swift --version
+我电脑上的执行结果是这样的：
+12Apple Swift version">
+<meta name="twitter:image" content="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/AppIconGenerator/AppIconGenerator1.png">
 
 
 
@@ -153,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://imwcl.com/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/"/>
+  <link rel="canonical" href="http://imwcl.com/2017/10/17/swift脚本编程：一键生成AppIcon/"/>
 
 
 
 
 
-  <title>iOS动画进阶 - 手摸手教你写ShineButton动画 | W_C__L</title>
+  <title>swift脚本编程：一键生成AppIcon | W_C__L</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -342,7 +351,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/">
+    <link itemprop="mainEntityOfPage" href="http://imwcl.com/2017/10/17/swift脚本编程：一键生成AppIcon/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="W_C__L">
@@ -359,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS动画进阶 - 手摸手教你写ShineButton动画</h1>
+          <h1 class="post-title" itemprop="name headline">swift脚本编程：一键生成AppIcon</h1>
         
 
         <div class="post-meta">
@@ -371,8 +380,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T00:25:10+08:00">
-                2017-02-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T00:17:43+08:00">
+                2017-10-17
               </time>
             
 
@@ -382,28 +391,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS动画进阶/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS动画进阶</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -411,7 +398,7 @@
 
           
           
-             <span id="/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/" class="leancloud_visitors" data-flag-title="iOS动画进阶 - 手摸手教你写ShineButton动画">
+             <span id="/2017/10/17/swift脚本编程：一键生成AppIcon/" class="leancloud_visitors" data-flag-title="swift脚本编程：一键生成AppIcon">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -440,31 +427,45 @@
 
       
         <blockquote>
-<p>前段时间在github上看见一个非常nice的动画效果，可惜是安卓的，想着用swift写一个iOS版的，下下来源代码研究了一下，下面是我写代码的心路历程</p>
+<p>自从Xcode8之后就不支持插件了，没法用Xcode一键生成AppIcon，一直没找到好的解决方案，一怒之下决定自己写一个脚本用来生成AppIcon，下面是正文，小弟抛砖引玉，有写的不好的地方有请大佬们见谅：</p>
 </blockquote>
-<p>先上图和<a href="https://github.com/631106979/WCLShineButton" target="_blank" rel="external">demo的地址</a></p>
-<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/demo_shine_others.gif" alt=""></p>
+<p><a href="https://github.com/imwcl/AppIconGenerator" target="_blank" rel="external">源码地址</a></p>
+<h1 id="事前准备"><a href="#事前准备" class="headerlink" title="事前准备"></a>事前准备</h1><h2 id="查看swift版本"><a href="#查看swift版本" class="headerlink" title="查看swift版本"></a>查看swift版本</h2><p>首先你要确定你的Mac上的swift版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift --version</span><br></pre></td></tr></table></figure>
+<p>我电脑上的执行结果是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)</span><br><span class="line">Target: x86_64-apple-macosx10.9</span><br></pre></td></tr></table></figure>
+<p>然后就可以用Xcode建一个swift文件来编写swift脚本了，不过单独建一个swift文件，Xcode编辑起来非常不友好，我的方案是建一个在Mac上运行的Command Line Tool工程，这样的话有代码提示，要不然写起来太痛苦，如果大佬们有更好的办法，可以指导一下小弟。</p>
 <a id="more"></a>
-<h2 id="分析动画过程"><a href="#分析动画过程" class="headerlink" title="分析动画过程"></a>分析动画过程</h2><p>刚开始看的时候感觉这个动画很炫酷，实现起来应该挺复制的，后来我将gif图逐一分解，大致浏览了一下安卓的实现过程，大致了解的实现的过程，下面是一些关键的动画步骤：</p>
-<ol>
-<li>第一步是里面图片的缩放动画，使用<code>CALayer</code>配合<code>CAKeyframeAnimation</code>来实现；</li>
-<li>第二步是是里面一个圆环逐渐变大的过程，使用<code>CAShapeLayer</code>配合<code>CAKeyframeAnimation</code>来实现；</li>
-<li>第三步是最外面一层太阳的扩散效果同样也使用<code>CAShapeLayer</code>配合<code>CAKeyframeAnimation</code>来实现；</li>
-<li>最后是闪烁和颜色变化的的效果，使用<code>CABasicAnimation</code>和<code>CADisplayLink</code>来实现。</li>
-</ol>
-<h2 id="一、缩放动画的实现"><a href="#一、缩放动画的实现" class="headerlink" title="一、缩放动画的实现"></a>一、缩放动画的实现</h2><p>这个实现的过程相对而言比较简单，用<code>CALayer</code>做为<code>mask</code>来实现下图心形的图片，然后用<code>CAKeyframeAnimation</code>来实现动画，<code>values</code>的值为<code>[0.4, 1, 0.9, 1]</code>，差值器模式为<code>kCAAnimationCubic</code>，下面是实现结果和关键代码：</p>
-<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl1.gif" alt=""></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">startAnim</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> anim = <span class="type">CAKeyframeAnimation</span>(keyPath: <span class="string">"transform.scale"</span>)</span><br><span class="line">    anim.duration  = animDuration</span><br><span class="line">    anim.values = [<span class="number">0.4</span>, <span class="number">1</span>, <span class="number">0.9</span>, <span class="number">1</span>]</span><br><span class="line">    anim.calculationMode = kCAAnimationCubic</span><br><span class="line">    maskLayer.add(anim, forKey: <span class="string">"scale"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、圆环扩散动画的实现"><a href="#二、圆环扩散动画的实现" class="headerlink" title="二、圆环扩散动画的实现"></a>二、圆环扩散动画的实现</h2><p>首先圆环我们用<code>CAShapeLayer</code>来绘制一个圆环，然后通过<code>CAKeyframeAnimation</code>来改变圆环的<code>path</code>就可以了，下面是实现结果和关键代码：</p>
-<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl.gif" alt=""></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">startAnim</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> anim = <span class="type">CAKeyframeAnimation</span>(keyPath: <span class="string">"path"</span>)</span><br><span class="line">    anim.duration = params.animDuration * <span class="number">0.1</span></span><br><span class="line">    <span class="keyword">let</span> size = frame.size</span><br><span class="line">    <span class="keyword">let</span> fromPath = <span class="type">UIBezierPath</span>(arcCenter: <span class="type">CGPoint</span>.<span class="keyword">init</span>(x: size.width/<span class="number">2</span>, y: size.height/<span class="number">2</span>), radius: <span class="number">1</span>, startAngle: <span class="number">0</span>, endAngle: <span class="type">CGFloat</span>(<span class="type">M_PI</span>) * <span class="number">2.0</span>, clockwise: <span class="literal">false</span>).cgPath</span><br><span class="line">    <span class="keyword">let</span> toPath = <span class="type">UIBezierPath</span>(arcCenter: <span class="type">CGPoint</span>.<span class="keyword">init</span>(x: size.width/<span class="number">2</span>, y: size.height/<span class="number">2</span>), radius: size.width/<span class="number">2</span> * <span class="type">CGFloat</span>(params.shineDistanceMultiple), startAngle: <span class="number">0</span>, endAngle: <span class="type">CGFloat</span>(<span class="type">M_PI</span>) * <span class="number">2.0</span>, clockwise: <span class="literal">false</span>).cgPath</span><br><span class="line">    anim.delegate = <span class="keyword">self</span></span><br><span class="line">    anim.values = [fromPath, toPath]</span><br><span class="line">    anim.timingFunctions = [<span class="type">CAMediaTimingFunction</span>(name: kCAMediaTimingFunctionEaseOut)]</span><br><span class="line">    anim.isRemovedOnCompletion = <span class="literal">false</span></span><br><span class="line">    anim.fillMode = kCAFillModeForwards</span><br><span class="line">    shapeLayer.add(anim, forKey: <span class="string">"path"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三、太阳的扩散效果实现"><a href="#三、太阳的扩散效果实现" class="headerlink" title="三、太阳的扩散效果实现"></a>三、太阳的扩散效果实现</h2><p>首先我们得先算出每个太阳的位置和将要扩散到的位置，然后用<code>CAShapeLayer</code>绘制出太阳，用<code>CAKeyframeAnimation</code>实现扩散的效果，下面是实现后的结果和关键代码 :</p>
-<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl2.gif" alt=""></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">startAnim</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> radius = frame.size.width/<span class="number">2</span> * <span class="type">CGFloat</span>(params.shineDistanceMultiple*<span class="number">1.4</span>)</span><br><span class="line">    <span class="keyword">var</span> startAngle: <span class="type">CGFloat</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> angle = <span class="type">CGFloat</span>(<span class="type">M_PI</span>*<span class="number">2</span>/<span class="type">Double</span>(params.shineCount)) + startAngle</span><br><span class="line">    <span class="keyword">if</span> params.shineCount%<span class="number">2</span> != <span class="number">0</span> &#123;</span><br><span class="line">        startAngle = <span class="type">CGFloat</span>(<span class="type">M_PI</span>*<span class="number">2</span> - (<span class="type">Double</span>(angle)/<span class="type">Double</span>(params.shineCount)))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;params.shineCount &#123;</span><br><span class="line">        <span class="keyword">let</span> bigShine = shineLayers[i]</span><br><span class="line">        <span class="keyword">let</span> bigAnim = getAngleAnim(shine: bigShine, angle: startAngle + <span class="type">CGFloat</span>(angle)*<span class="type">CGFloat</span>(i), radius: radius)</span><br><span class="line">        <span class="keyword">let</span> smallShine = smallShineLayers[i]</span><br><span class="line">        <span class="keyword">var</span> radiusSub = frame.size.width*<span class="number">0.15</span>*<span class="number">0.66</span></span><br><span class="line">        <span class="keyword">if</span> params.shineSize != <span class="number">0</span> &#123;</span><br><span class="line">            radiusSub = params.shineSize*<span class="number">0.66</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> smallAnim = getAngleAnim(shine: smallShine, angle: startAngle + <span class="type">CGFloat</span>(angle)*<span class="type">CGFloat</span>(i) - <span class="type">CGFloat</span>(params.smallShineOffsetAngle)*<span class="type">CGFloat</span>(<span class="type">M_PI</span>)/<span class="number">180</span>, radius: radius-radiusSub)</span><br><span class="line">        bigShine.add(bigAnim, forKey: <span class="string">"path"</span>)</span><br><span class="line">        smallShine.add(smallAnim, forKey: <span class="string">"path"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> angleAnim = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"transform.rotation"</span>)</span><br><span class="line">    angleAnim.duration = params.animDuration * <span class="number">0.87</span></span><br><span class="line">    angleAnim.timingFunction = <span class="type">CAMediaTimingFunction</span>(name: kCAMediaTimingFunctionLinear)</span><br><span class="line">    angleAnim.fromValue = <span class="number">0</span></span><br><span class="line">    angleAnim.toValue = <span class="type">CGFloat</span>(params.shineTurnAngle)*<span class="type">CGFloat</span>(<span class="type">M_PI</span>)/<span class="number">180</span></span><br><span class="line">    angleAnim.delegate = <span class="keyword">self</span></span><br><span class="line">    add(angleAnim, forKey: <span class="string">"rotate"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、最后再将这些动画通过一定规律结合起来"><a href="#四、最后再将这些动画通过一定规律结合起来" class="headerlink" title="四、最后再将这些动画通过一定规律结合起来"></a>四、最后再将这些动画通过一定规律结合起来</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl3.gif" alt=""></p>
-<p>上图是将之前动画步骤组合起来后的效果，上面的一些代码只是部分代码，全部代码可以去我的<a href="https://github.com/631106979/WCLShineButton" target="_blank" rel="external">github地址</a>上去下在浏览，如果大家喜欢可以点一个赞，有更好的想法也可以提出来，大家一起交流一下，最后谢谢大家阅读~~</p>
+<h1 id="swift脚本编程小知识"><a href="#swift脚本编程小知识" class="headerlink" title="swift脚本编程小知识"></a>swift脚本编程小知识</h1><h2 id="终端输入和输出"><a href="#终端输入和输出" class="headerlink" title="终端输入和输出"></a>终端输入和输出</h2><p>刚入手脚本我们第一件事前就应该了解在终端如何进行输入和输出，下面是输入和输出的办法：</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>输入很简单，大家也很熟悉，就是<code>print</code>，下面是代码示例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Hello world!"</span>)</span><br></pre></td></tr></table></figure>
+<p>然后大家可以执行以下试试（test.swift是你的文件名）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift test.swift</span><br></pre></td></tr></table></figure>
+<p>执行后就能在终端上看到一行字：Hello world!</p>
+<p>这样子我们的第一个swift脚本就完成了。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>知道了怎么输出我们还得知道怎么输入，输入也非常简单，下面是代码示例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"请输入文字："</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> input = <span class="built_in">readLine</span>() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"你输入的文字：<span class="subst">\(input)</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行之后显示的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请输入文字：</span><br><span class="line">Hello world!</span><br><span class="line">你输入的文字：Hello world!</span><br></pre></td></tr></table></figure>
+<p>这样输入也完成了，我们也算swift脚本编程入门了。</p>
+<h2 id="在swift脚本中调用其他脚本"><a href="#在swift脚本中调用其他脚本" class="headerlink" title="在swift脚本中调用其他脚本"></a>在swift脚本中调用其他脚本</h2><p>我们经常用的脚本有很多，比如echo、mkdir、cd等等，我们能不能在swift中直接调用呢，答案是可以的，下面我们用简单的例子来了解一下，大家想深入的话可以去研究一下<a href="https://developer.apple.com/documentation/foundation/process" target="_blank" rel="external">传送门</a>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">execute</span><span class="params">(path: String, arguments: [String]? = <span class="literal">nil</span>)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> process = <span class="type">Process</span>()</span><br><span class="line">    process.launchPath = path</span><br><span class="line">    <span class="keyword">if</span> arguments != <span class="literal">nil</span> &#123;</span><br><span class="line">        process.arguments = arguments!</span><br><span class="line">    &#125;</span><br><span class="line">    process.launch()</span><br><span class="line">    process.waitUntilExit()</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Int</span>(process.terminationStatus)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> status = execute(path: <span class="string">"/bin/ls"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Status = <span class="subst">\(status)</span>"</span>)</span><br></pre></td></tr></table></figure>
+<p>以上的脚本相当于在终端中执行了ls，如果大家不知道脚本的路径的话，可以用where查找一下，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where ls</span><br></pre></td></tr></table></figure>
+<p>这是执行后的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls: aliased to ls -G</span><br><span class="line">/bin/ls</span><br></pre></td></tr></table></figure>
+<p>这里的/bin/ls就是ls脚本的路径。</p>
+<h1 id="开始编写脚本"><a href="#开始编写脚本" class="headerlink" title="开始编写脚本"></a>开始编写脚本</h1><h2 id="读取input-png"><a href="#读取input-png" class="headerlink" title="读取input.png"></a>读取input.png</h2><p>首先我们要从将需要转化的图片读取出来，下面是主要代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> inputPath = <span class="string">"input.png"</span></span><br><span class="line"><span class="keyword">let</span> inoutData = <span class="keyword">try</span> <span class="type">Data</span>(contentsOf: url)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"图片大小：<span class="subst">\(inoutData.<span class="built_in">count</span> / <span class="number">1024</span>)</span> kb"</span>)</span><br><span class="line"><span class="keyword">let</span> dataProvider = <span class="type">CGDataProvider</span>(data: inoutData <span class="keyword">as</span> <span class="type">CFData</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> inputImage = <span class="type">CGImage</span>(pngDataProviderSource: dataProvider!, decode: <span class="literal">nil</span>, shouldInterpolate: <span class="literal">true</span>, intent: .defaultIntent) &#123;</span><br><span class="line">	<span class="comment">/// inputImage就是需要转化的图片</span></span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">"转换失败，图片必须是png格式"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生成AppIcon-appiconset和Contents-json"><a href="#生成AppIcon-appiconset和Contents-json" class="headerlink" title="生成AppIcon.appiconset和Contents.json"></a>生成AppIcon.appiconset和Contents.json</h2><p>这里就设计到文件操作了，用FileManager就行了，相信大家已经轻车熟路了，我就贴一些主要代码，大家看完整版去我的<a href="https://github.com/imwcl/AppIconGenerator" target="_blank" rel="external">github源码</a>看就行了:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="comment">/// AppIcon的model</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AppIconImageItem</span>: <span class="title">Codable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> size: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> idiom: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> filename: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> scale: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> role: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">let</span> subtype: <span class="type">String</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AppIconInfo</span>: <span class="title">Codable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> version: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> author: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AppIcon</span>: <span class="title">Codable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> images: [<span class="type">AppIconImageItem</span>]</span><br><span class="line">    <span class="keyword">let</span> info: <span class="type">AppIconInfo</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 创建contentsJson</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameter appIcon: 传入的appIcon</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createAppIconContentsJson</span><span class="params">(appIcon: AppIcon)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n开始生成contentsJson\n"</span>)</span><br><span class="line">    <span class="keyword">let</span> encoder = <span class="type">JSONEncoder</span>()</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        encoder.outputFormatting = .prettyPrinted</span><br><span class="line">        <span class="keyword">let</span> appIconData = <span class="keyword">try</span> encoder.encode(appIcon)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> appIconStr  = <span class="type">String</span>.<span class="keyword">init</span>(data: appIconData, encoding: .utf8) &#123;</span><br><span class="line">            <span class="keyword">let</span> contentJsonPath = <span class="string">"AppIcon.appiconset/Contents.json"</span></span><br><span class="line">            <span class="keyword">let</span> contentJsonUrl = <span class="type">URL</span>(fileURLWithPath: contentJsonPath)</span><br><span class="line">            <span class="keyword">try</span> appIconStr.write(to: contentJsonUrl, atomically: <span class="literal">true</span>, encoding: .utf8)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"contentsJson生成成功\n"</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"contentsJson生成失败"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(error.localizedDescription)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 创建appicon文件</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameter appIcon: appicon</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createFile</span><span class="params">(appIcon: AppIcon, image: CGImage)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> fileManager = <span class="type">FileManager</span>.<span class="keyword">default</span></span><br><span class="line">    <span class="keyword">let</span> filePath = <span class="string">"AppIcon.appiconset"</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> fileManager.fileExists(atPath: filePath) &#123;</span><br><span class="line">            <span class="keyword">try</span> fileManager.removeItem(atPath: filePath)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> fileManager.createDirectory(atPath: filePath, withIntermediateDirectories: <span class="literal">true</span>, attributes: <span class="literal">nil</span>)</span><br><span class="line">        createAppIconContentsJson(appIcon: appIcon)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"~~~~~~~~~~~~~~完成~~~~~~~~~~~~~~"</span>)</span><br><span class="line">    &#125;<span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"文件目录<span class="subst">\(filePath)</span>创建失败"</span>)</span><br><span class="line">        <span class="built_in">print</span>(error.localizedDescription)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生成不同尺寸的image"><a href="#生成不同尺寸的image" class="headerlink" title="生成不同尺寸的image"></a>生成不同尺寸的image</h2><p>生成图片我们用的是Foundation框架里面的Core Graphics框架，下面是主要代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 生成单个image</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - size: 图片的size</span></span><br><span class="line"><span class="comment">///   - scale: 倍数，例如@2x就是2倍</span></span><br><span class="line"><span class="comment">///   - filename: 文件名</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createImage</span><span class="params">(size: CGSize, scale: CGFloat, image: CGImage, filename: String)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"开始生成图片: <span class="subst">\(filename)</span>"</span>)</span><br><span class="line">    <span class="keyword">let</span> width  = <span class="type">Int</span>(size.width * scale)</span><br><span class="line">    <span class="keyword">let</span> height = <span class="type">Int</span>(size.height * scale)</span><br><span class="line">    <span class="keyword">let</span> bitsPerComponent = image.bitsPerComponent</span><br><span class="line">    <span class="keyword">let</span> bytesPerRow = image.bytesPerRow</span><br><span class="line">    <span class="keyword">let</span> colorSpace  = image.colorSpace</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> context = <span class="type">CGContext</span>.<span class="keyword">init</span>(data: <span class="literal">nil</span>,</span><br><span class="line">                                    width: width,</span><br><span class="line">                                    height: height,</span><br><span class="line">                                    bitsPerComponent: bitsPerComponent,</span><br><span class="line">                                    bytesPerRow: bytesPerRow,</span><br><span class="line">                                    space: colorSpace!,</span><br><span class="line">                                    bitmapInfo: <span class="type">CGImageAlphaInfo</span>.premultipliedLast.rawValue) &#123;</span><br><span class="line">        context.interpolationQuality = .high</span><br><span class="line">        context.draw(image, <span class="keyword">in</span>: .<span class="keyword">init</span>(origin: .zero, size: .<span class="keyword">init</span>(width: width, height: height)))</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> inputImage = context.makeImage() &#123;</span><br><span class="line">            <span class="keyword">let</span> outputImagePath = <span class="string">"AppIcon.appiconset/<span class="subst">\(filename)</span>"</span></span><br><span class="line">            <span class="keyword">let</span> outputUrl = <span class="type">URL</span>(fileURLWithPath: outputImagePath) <span class="keyword">as</span> <span class="type">CFURL</span></span><br><span class="line">            <span class="keyword">let</span> destination = <span class="type">CGImageDestinationCreateWithURL</span>(outputUrl, kUTTypePNG, <span class="number">1</span>, <span class="literal">nil</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> destination = destination &#123;</span><br><span class="line">                <span class="type">CGImageDestinationAddImage</span>(destination, inputImage, <span class="literal">nil</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="type">CGImageDestinationFinalize</span>(destination) &#123;</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">"图片: <span class="subst">\(filename)</span> 生成成功\n"</span>)</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">"图片: <span class="subst">\(filename)</span> 生成失败\n"</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"图片: <span class="subst">\(filename)</span> 生成失败\n"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后给大家贴以下完成的截图：<br><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/AppIconGenerator/AppIconGenerator1.png" alt=""></p>
+<p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/AppIconGenerator/AppIconGenerator2.png" alt=""></p>
+<p>上面只是一部分主要代码，完整的代码太多了，大家可以去我的<a href="https://github.com/imwcl/AppIconGenerator" target="_blank" rel="external">github地址</a>上去下载执行以下试试，如果有什么做的不好的地方，欢迎大家指教~~</p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月16日</p>
+<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 10月 17日</p>
 
       
     </div>
@@ -515,7 +516,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/swift/" rel="tag"># swift</a>
           
         </div>
       
@@ -528,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/09/swift设计模式学习-装饰模式/" rel="next" title="swift设计模式学习 - 装饰模式">
-                <i class="fa fa-chevron-left"></i> swift设计模式学习 - 装饰模式
+              <a href="/2017/07/06/Objective-C编码规范/" rel="next" title="Objective-C编码规范">
+                <i class="fa fa-chevron-left"></i> Objective-C编码规范
               </a>
             
           </div>
@@ -537,10 +538,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/18/swift设计模式学习-策略模式/" rel="prev" title="swift设计模式学习 - 策略模式">
-                swift设计模式学习 - 策略模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -750,7 +747,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析动画过程"><span class="nav-number">1.</span> <span class="nav-text">分析动画过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、缩放动画的实现"><span class="nav-number">2.</span> <span class="nav-text">一、缩放动画的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、圆环扩散动画的实现"><span class="nav-number">3.</span> <span class="nav-text">二、圆环扩散动画的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、太阳的扩散效果实现"><span class="nav-number">4.</span> <span class="nav-text">三、太阳的扩散效果实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、最后再将这些动画通过一定规律结合起来"><span class="nav-number">5.</span> <span class="nav-text">四、最后再将这些动画通过一定规律结合起来</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事前准备"><span class="nav-number">1.</span> <span class="nav-text">事前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看swift版本"><span class="nav-number">1.1.</span> <span class="nav-text">查看swift版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swift脚本编程小知识"><span class="nav-number">2.</span> <span class="nav-text">swift脚本编程小知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#终端输入和输出"><span class="nav-number">2.1.</span> <span class="nav-text">终端输入和输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">2.1.1.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入"><span class="nav-number">2.1.2.</span> <span class="nav-text">输入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在swift脚本中调用其他脚本"><span class="nav-number">2.2.</span> <span class="nav-text">在swift脚本中调用其他脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始编写脚本"><span class="nav-number">3.</span> <span class="nav-text">开始编写脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#读取input-png"><span class="nav-number">3.1.</span> <span class="nav-text">读取input.png</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成AppIcon-appiconset和Contents-json"><span class="nav-number">3.2.</span> <span class="nav-text">生成AppIcon.appiconset和Contents.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成不同尺寸的image"><span class="nav-number">3.3.</span> <span class="nav-text">生成不同尺寸的image</span></a></li></ol></li></ol></div>
             
 
           </div>
