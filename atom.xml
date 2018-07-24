@@ -4,9 +4,9 @@
   <subtitle>我们都老得太快   却聪明的太迟~</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://imwcl.com/"/>
+  <link href="http://blog.imwcl.com/"/>
   <updated>2017-10-16T16:20:34.000Z</updated>
-  <id>http://imwcl.com/</id>
+  <id>http://blog.imwcl.com/</id>
   
   <author>
     <name>W_C__L</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>swift脚本编程：一键生成AppIcon</title>
-    <link href="http://imwcl.com/2017/10/17/swift%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90AppIcon/"/>
-    <id>http://imwcl.com/2017/10/17/swift脚本编程：一键生成AppIcon/</id>
+    <link href="http://blog.imwcl.com/2017/10/17/swift%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90AppIcon/"/>
+    <id>http://blog.imwcl.com/2017/10/17/swift脚本编程：一键生成AppIcon/</id>
     <published>2017-10-16T16:17:43.000Z</published>
     <updated>2017-10-16T16:20:34.000Z</updated>
     
@@ -61,7 +61,7 @@
 <p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/blog/AppIconGenerator/AppIconGenerator2.png" alt=""></p>
 <p>上面只是一部分主要代码，完整的代码太多了，大家可以去我的<a href="https://github.com/imwcl/AppIconGenerator" target="_blank" rel="external">github地址</a>上去下载执行以下试试，如果有什么做的不好的地方，欢迎大家指教~~</p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 10月 17日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 10月 17日</p>
 ]]></content>
     
     <summary type="html">
@@ -79,14 +79,14 @@
     </summary>
     
     
-      <category term="swift" scheme="http://imwcl.com/tags/swift/"/>
+      <category term="swift" scheme="http://blog.imwcl.com/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>Objective-C编码规范</title>
-    <link href="http://imwcl.com/2017/07/06/Objective-C%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>http://imwcl.com/2017/07/06/Objective-C编码规范/</id>
+    <link href="http://blog.imwcl.com/2017/07/06/Objective-C%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    <id>http://blog.imwcl.com/2017/07/06/Objective-C编码规范/</id>
     <published>2017-07-06T04:46:19.000Z</published>
     <updated>2017-08-28T03:11:19.000Z</updated>
     
@@ -106,7 +106,7 @@
 <p><strong>不应该:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// colon-aligning makes the block indentation hard to read</span><br><span class="line">[UIView animateWithDuration:1.0</span><br><span class="line">                 animations:^&#123;</span><br><span class="line">                     // something</span><br><span class="line">                 &#125;</span><br><span class="line">                 completion:^(BOOL finished) &#123;</span><br><span class="line">                     // something</span><br><span class="line">                 &#125;];</span><br></pre></td></tr></table></figure>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 07月 06日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 07月 06日</p>
 ]]></content>
     
     <summary type="html">
@@ -116,14 +116,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>丁香园iOS电话面试问题总结</title>
-    <link href="http://imwcl.com/2017/06/21/%E4%B8%81%E9%A6%99%E5%9B%ADiOS%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    <id>http://imwcl.com/2017/06/21/丁香园iOS电话面试问题总结/</id>
+    <link href="http://blog.imwcl.com/2017/06/21/%E4%B8%81%E9%A6%99%E5%9B%ADiOS%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.imwcl.com/2017/06/21/丁香园iOS电话面试问题总结/</id>
     <published>2017-06-20T17:37:36.000Z</published>
     <updated>2017-07-12T08:12:10.000Z</updated>
     
@@ -384,7 +384,7 @@
 <p>写完已经是深夜了，以上是我丁香园电话面试的一些问题，和之前面试一些回答不好的问题，最后面试完我问了一下丁香园的面试官对我感觉怎样，他说广度还行深度不够，我确实又有这点问题，想学的知识比较多，有时候也没来得及去看实现原理，只是简单的过一下，没深入研究透彻，这是我需要加强的地方，之后如果有二面的话我会在继续更新的，最后谢谢大家的阅读~~我是WCL，大家可以去我<a href="https://github.com/imwcl" target="_blank" rel="external">github</a>关注一波</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 06月 21日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 06月 21日</p>
 ]]></content>
     
     <summary type="html">
@@ -400,17 +400,17 @@
     
     </summary>
     
-      <category term="面试小结" scheme="http://imwcl.com/categories/%E9%9D%A2%E8%AF%95%E5%B0%8F%E7%BB%93/"/>
+      <category term="面试小结" scheme="http://blog.imwcl.com/categories/%E9%9D%A2%E8%AF%95%E5%B0%8F%E7%BB%93/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS动画进阶 - 实现炫酷的上拉刷新动效（二）</title>
-    <link href="http://imwcl.com/2017/04/27/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%82%AB%E9%85%B7%E7%9A%84%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E5%8A%A8%E6%95%88%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://imwcl.com/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/</id>
+    <link href="http://blog.imwcl.com/2017/04/27/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%82%AB%E9%85%B7%E7%9A%84%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E5%8A%A8%E6%95%88%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://blog.imwcl.com/2017/04/27/iOS动画进阶-实现炫酷的上拉刷新动效（二）/</id>
     <published>2017-04-27T13:08:53.000Z</published>
     <updated>2017-04-27T13:10:02.000Z</updated>
     
@@ -458,7 +458,7 @@
 <p>完整的代码，大家可以去<a href="https://github.com/CRAnimation/CRRefresh" target="_blank" rel="external">github地址</a>去下载，欢迎大家star和发表意见和贡献代码，有好的动效的话也可以提供，最后谢谢大家的阅读</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 03月17日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 03月17日</p>
 ]]></content>
     
     <summary type="html">
@@ -471,17 +471,17 @@
     
     </summary>
     
-      <category term="iOS动画进阶" scheme="http://imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS动画进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS动画进阶 - 实现炫酷的上拉刷新动效</title>
-    <link href="http://imwcl.com/2017/03/17/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%82%AB%E9%85%B7%E7%9A%84%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E5%8A%A8%E6%95%88/"/>
-    <id>http://imwcl.com/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/</id>
+    <link href="http://blog.imwcl.com/2017/03/17/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E5%AE%9E%E7%8E%B0%E7%82%AB%E9%85%B7%E7%9A%84%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E5%8A%A8%E6%95%88/"/>
+    <id>http://blog.imwcl.com/2017/03/17/iOS动画进阶-实现炫酷的上拉刷新动效/</id>
     <published>2017-03-17T06:57:10.000Z</published>
     <updated>2017-03-17T06:59:20.000Z</updated>
     
@@ -537,7 +537,7 @@
 <p>完整的代码，大家可以去<a href="https://github.com/CRAnimation/CRRefresh" target="_blank" rel="external">github地址</a>去下载，欢迎大家star和发表意见和贡献代码，有好的动效的话也可以提供，最后谢谢大家的阅读</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 03月17日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 03月17日</p>
 ]]></content>
     
     <summary type="html">
@@ -551,17 +551,17 @@
     
     </summary>
     
-      <category term="iOS动画进阶" scheme="http://imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS动画进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>手把手教你发布自己的开源框架到CocoaPods</title>
-    <link href="http://imwcl.com/2017/03/17/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E5%88%B0CocoaPods/"/>
-    <id>http://imwcl.com/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/</id>
+    <link href="http://blog.imwcl.com/2017/03/17/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E5%88%B0CocoaPods/"/>
+    <id>http://blog.imwcl.com/2017/03/17/手把手教你发布自己的开源框架到CocoaPods/</id>
     <published>2017-03-16T16:17:19.000Z</published>
     <updated>2017-03-16T16:18:33.000Z</updated>
     
@@ -596,7 +596,7 @@
 <p>以上是基本流程，如果有什么问题欢迎交流，最后谢谢大家的阅读</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 03月 09日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 03月 09日</p>
 ]]></content>
     
     <summary type="html">
@@ -609,17 +609,17 @@
     
     </summary>
     
-      <category term="CocoaPods" scheme="http://imwcl.com/categories/CocoaPods/"/>
+      <category term="CocoaPods" scheme="http://blog.imwcl.com/categories/CocoaPods/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift设计模式学习 - 外观模式</title>
-    <link href="http://imwcl.com/2017/03/09/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://imwcl.com/2017/03/09/swift设计模式学习-外观模式/</id>
+    <link href="http://blog.imwcl.com/2017/03/09/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.imwcl.com/2017/03/09/swift设计模式学习-外观模式/</id>
     <published>2017-03-09T03:56:53.000Z</published>
     <updated>2017-03-09T04:00:23.000Z</updated>
     
@@ -639,7 +639,7 @@
 <h2 id="外观模式的优点"><a href="#外观模式的优点" class="headerlink" title="外观模式的优点"></a>外观模式的优点</h2><p>（1）实现了子系统与客户端之间的松耦合关系。</p>
 <p>（2）客户端屏蔽了子系统组件，减少了客户端所需处理的对象数目，并使得子系统使用起来更加容易。</p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 03月 09日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 03月 09日</p>
 ]]></content>
     
     <summary type="html">
@@ -649,17 +649,17 @@
     
     </summary>
     
-      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="swift设计模式学习" scheme="http://blog.imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift设计模式学习 - 模板方法模式</title>
-    <link href="http://imwcl.com/2017/02/24/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://imwcl.com/2017/02/24/swift设计模式学习-模板方法模式/</id>
+    <link href="http://blog.imwcl.com/2017/02/24/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.imwcl.com/2017/02/24/swift设计模式学习-模板方法模式/</id>
     <published>2017-02-24T05:48:43.000Z</published>
     <updated>2017-02-24T05:53:05.000Z</updated>
     
@@ -680,7 +680,7 @@
 <p>以上是我对模板方法模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 24日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 02月 24日</p>
 ]]></content>
     
     <summary type="html">
@@ -690,17 +690,17 @@
     
     </summary>
     
-      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="swift设计模式学习" scheme="http://blog.imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift设计模式学习 - 代理模式</title>
-    <link href="http://imwcl.com/2017/02/21/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://imwcl.com/2017/02/21/swift设计模式学习-代理模式/</id>
+    <link href="http://blog.imwcl.com/2017/02/21/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.imwcl.com/2017/02/21/swift设计模式学习-代理模式/</id>
     <published>2017-02-21T15:32:55.000Z</published>
     <updated>2017-02-21T15:35:42.000Z</updated>
     
@@ -733,7 +733,7 @@
 <p>以上是我对于代理模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 21日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 02月 21日</p>
 ]]></content>
     
     <summary type="html">
@@ -750,17 +750,17 @@
     
     </summary>
     
-      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="swift设计模式学习" scheme="http://blog.imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift设计模式学习 - 原型模式</title>
-    <link href="http://imwcl.com/2017/02/20/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://imwcl.com/2017/02/20/swift设计模式学习-原型模式/</id>
+    <link href="http://blog.imwcl.com/2017/02/20/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.imwcl.com/2017/02/20/swift设计模式学习-原型模式/</id>
     <published>2017-02-20T11:50:21.000Z</published>
     <updated>2017-02-20T11:53:11.000Z</updated>
     
@@ -783,7 +783,7 @@
 <p>以上是我对于原型模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 20日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 02月 20日</p>
 ]]></content>
     
     <summary type="html">
@@ -796,17 +796,17 @@
     
     </summary>
     
-      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="swift设计模式学习" scheme="http://blog.imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift设计模式学习 - 策略模式</title>
-    <link href="http://imwcl.com/2017/02/18/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://imwcl.com/2017/02/18/swift设计模式学习-策略模式/</id>
+    <link href="http://blog.imwcl.com/2017/02/18/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.imwcl.com/2017/02/18/swift设计模式学习-策略模式/</id>
     <published>2017-02-18T14:08:53.000Z</published>
     <updated>2017-02-18T14:10:12.000Z</updated>
     
@@ -834,7 +834,7 @@
 <p>以上是我对于策略模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 18日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 02月 18日</p>
 ]]></content>
     
     <summary type="html">
@@ -848,17 +848,17 @@
     
     </summary>
     
-      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="swift设计模式学习" scheme="http://blog.imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS动画进阶 - 手摸手教你写ShineButton动画</title>
-    <link href="http://imwcl.com/2017/02/16/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99ShineButton%E5%8A%A8%E7%94%BB/"/>
-    <id>http://imwcl.com/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/</id>
+    <link href="http://blog.imwcl.com/2017/02/16/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6-%E6%89%8B%E6%91%B8%E6%89%8B%E6%95%99%E4%BD%A0%E5%86%99ShineButton%E5%8A%A8%E7%94%BB/"/>
+    <id>http://blog.imwcl.com/2017/02/16/iOS动画进阶-手摸手教你写ShineButton动画/</id>
     <published>2017-02-15T16:25:10.000Z</published>
     <updated>2017-02-15T16:28:54.000Z</updated>
     
@@ -887,7 +887,7 @@
 <h2 id="四、最后再将这些动画通过一定规律结合起来"><a href="#四、最后再将这些动画通过一定规律结合起来" class="headerlink" title="四、最后再将这些动画通过一定规律结合起来"></a>四、最后再将这些动画通过一定规律结合起来</h2><p><img src="http://imwcl.oss-cn-shanghai.aliyuncs.com/github/WCLShineButton/wcl3.gif" alt=""></p>
 <p>上图是将之前动画步骤组合起来后的效果，上面的一些代码只是部分代码，全部代码可以去我的<a href="https://github.com/631106979/WCLShineButton" target="_blank" rel="external">github地址</a>上去下在浏览，如果大家喜欢可以点一个赞，有更好的想法也可以提出来，大家一起交流一下，最后谢谢大家阅读~~</p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月16日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 02月16日</p>
 ]]></content>
     
     <summary type="html">
@@ -900,17 +900,17 @@
     
     </summary>
     
-      <category term="iOS动画进阶" scheme="http://imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS动画进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%8A%A8%E7%94%BB%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift设计模式学习 - 装饰模式</title>
-    <link href="http://imwcl.com/2017/02/09/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://imwcl.com/2017/02/09/swift设计模式学习-装饰模式/</id>
+    <link href="http://blog.imwcl.com/2017/02/09/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0-%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.imwcl.com/2017/02/09/swift设计模式学习-装饰模式/</id>
     <published>2017-02-09T09:29:39.000Z</published>
     <updated>2017-02-09T09:36:07.000Z</updated>
     
@@ -956,7 +956,7 @@
 <p>以上是我对于策略模式的理解，如果有不对的地方欢迎大家交流，最后谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 02月 09日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 02月 09日</p>
 ]]></content>
     
     <summary type="html">
@@ -970,17 +970,17 @@
     
     </summary>
     
-      <category term="swift设计模式学习" scheme="http://imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+      <category term="swift设计模式学习" scheme="http://blog.imwcl.com/categories/swift%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - Photos详解基于Photos的图片选择器</title>
-    <link href="http://imwcl.com/2017/01/11/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-Photos%E8%AF%A6%E8%A7%A3%E5%9F%BA%E4%BA%8EPhotos%E7%9A%84%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E5%99%A8/"/>
-    <id>http://imwcl.com/2017/01/11/iOS开发进阶-Photos详解基于Photos的图片选择器/</id>
+    <link href="http://blog.imwcl.com/2017/01/11/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-Photos%E8%AF%A6%E8%A7%A3%E5%9F%BA%E4%BA%8EPhotos%E7%9A%84%E5%9B%BE%E7%89%87%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <id>http://blog.imwcl.com/2017/01/11/iOS开发进阶-Photos详解基于Photos的图片选择器/</id>
     <published>2017-01-11T07:15:05.000Z</published>
     <updated>2017-01-11T07:16:41.000Z</updated>
     
@@ -1110,7 +1110,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行变化</span></span><br><span class="line"><span class="type">PHPhotoLibrary</span>.shared().performChanges(&#123;</span><br><span class="line">		<span class="comment">//创建一个图片资源</span></span><br><span class="line">        <span class="type">PHAssetChangeRequest</span>.creationRequestForAsset(from: image)</span><br><span class="line">    &#125;, completionHandler: &#123; (flag, error) <span class="keyword">in</span></span><br><span class="line">        <span class="comment">//执行结果回调</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上简单的讲解了一下Photos相关知识点和使用方法，更多的可以去官方文档上去查看。用Photos自己写了一个<a href="https://github.com/631106979/WCLImagePickerController" target="_blank" rel="external">图片选择器</a>，大家有兴趣的可以去看一下，有用的话可以star一下，写不不是很好，有什么错误可以指出来~最后谢谢大家的阅读。</p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 01月 11日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 01月 11日</p>
 ]]></content>
     
     <summary type="html">
@@ -1123,17 +1123,17 @@
     
     </summary>
     
-      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS开发进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>swift学习笔记 - Range、ClosedRange、CountableClosedRange与CountableRange学习</title>
-    <link href="http://imwcl.com/2017/01/05/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Range%E3%80%81ClosedRange%E3%80%81CountableClosedRange%E4%B8%8ECountableRange%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/</id>
+    <link href="http://blog.imwcl.com/2017/01/05/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Range%E3%80%81ClosedRange%E3%80%81CountableClosedRange%E4%B8%8ECountableRange%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://blog.imwcl.com/2017/01/05/swift学习笔记-Range、ClosedRange、CountableClosedRange与CountableRange学习/</id>
     <published>2017-01-05T14:22:31.000Z</published>
     <updated>2017-01-05T14:25:55.000Z</updated>
     
@@ -1174,7 +1174,7 @@
 <p>以上是我总结的<code>Range、ClosedRange、CountableClosedRange和CountableRange</code>的区别，希望对大家有帮助，如果写的有错误希望大家能指出，谢谢大家的阅读</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2017 年 01月 05日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2017 年 01月 05日</p>
 ]]></content>
     
     <summary type="html">
@@ -1191,17 +1191,17 @@
     
     </summary>
     
-      <category term="swift学习笔记" scheme="http://imwcl.com/categories/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="swift学习笔记" scheme="http://blog.imwcl.com/categories/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 自定义UICollectionViewLayout实现瀑布流布局</title>
-    <link href="http://imwcl.com/2016/12/21/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E8%87%AA%E5%AE%9A%E4%B9%89UICollectionViewLayout%E5%AE%9E%E7%8E%B0%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/"/>
-    <id>http://imwcl.com/2016/12/21/iOS开发进阶-自定义UICollectionViewLayout实现瀑布流布局/</id>
+    <link href="http://blog.imwcl.com/2016/12/21/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E8%87%AA%E5%AE%9A%E4%B9%89UICollectionViewLayout%E5%AE%9E%E7%8E%B0%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/"/>
+    <id>http://blog.imwcl.com/2016/12/21/iOS开发进阶-自定义UICollectionViewLayout实现瀑布流布局/</id>
     <published>2016-12-21T14:52:16.000Z</published>
     <updated>2016-12-21T14:54:39.000Z</updated>
     
@@ -1225,7 +1225,7 @@
 <p>上面是简单的瀑布流的实现过程，希望大家能学到东西，有很多地方考虑的不足，欢迎大家交流学习，谢谢大家的阅读~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 12月 21日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2016 年 12月 21日</p>
 ]]></content>
     
     <summary type="html">
@@ -1238,17 +1238,17 @@
     
     </summary>
     
-      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS开发进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 富文本正则替换表情</title>
-    <link href="http://imwcl.com/2016/11/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AF%8C%E6%96%87%E6%9C%AC%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2%E8%A1%A8%E6%83%85/"/>
-    <id>http://imwcl.com/2016/11/28/iOS开发进阶-富文本正则替换表情/</id>
+    <link href="http://blog.imwcl.com/2016/11/28/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E5%AF%8C%E6%96%87%E6%9C%AC%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2%E8%A1%A8%E6%83%85/"/>
+    <id>http://blog.imwcl.com/2016/11/28/iOS开发进阶-富文本正则替换表情/</id>
     <published>2016-11-28T09:13:17.000Z</published>
     <updated>2016-11-28T09:17:24.000Z</updated>
     
@@ -1270,7 +1270,7 @@
 <p>以上是简单的富文本显示表情的方式，抛砖引玉，大家见笑了，希望大家能学到东西，谢谢大家的阅读</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 11月 28日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2016 年 11月 28日</p>
 ]]></content>
     
     <summary type="html">
@@ -1283,17 +1283,17 @@
     
     </summary>
     
-      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS开发进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 项目的本地化处理(多语言开发)</title>
-    <link href="http://imwcl.com/2016/11/21/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86-%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91/"/>
-    <id>http://imwcl.com/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/</id>
+    <link href="http://blog.imwcl.com/2016/11/21/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86-%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91/"/>
+    <id>http://blog.imwcl.com/2016/11/21/iOS开发进阶-项目的本地化处理-多语言开发/</id>
     <published>2016-11-21T05:35:04.000Z</published>
     <updated>2016-11-21T05:37:33.000Z</updated>
     
@@ -1343,7 +1343,7 @@
 <p>借鉴了许多大神的博客，总结了一篇比较全的，希望大家能学到东西，又什么疑问可以留言，谢谢大家的阅读~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 11月 21日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2016 年 11月 21日</p>
 ]]></content>
     
     <summary type="html">
@@ -1355,17 +1355,17 @@
     
     </summary>
     
-      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS开发进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>Shell学习小结 - 深入认识变量</title>
-    <link href="http://imwcl.com/2016/10/23/Shell%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93-%E6%B7%B1%E5%85%A5%E8%AE%A4%E8%AF%86%E5%8F%98%E9%87%8F/"/>
-    <id>http://imwcl.com/2016/10/23/Shell学习小结-深入认识变量/</id>
+    <link href="http://blog.imwcl.com/2016/10/23/Shell%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93-%E6%B7%B1%E5%85%A5%E8%AE%A4%E8%AF%86%E5%8F%98%E9%87%8F/"/>
+    <id>http://blog.imwcl.com/2016/10/23/Shell学习小结-深入认识变量/</id>
     <published>2016-10-23T15:17:33.000Z</published>
     <updated>2016-10-23T15:34:01.000Z</updated>
     
@@ -1563,7 +1563,7 @@
 <p>最近在学习<code>Shell</code>，把学习中的一些知识点记录下来，供以后自己复习使用。谢谢大家的阅读，有什么问题欢迎指出~~</p>
 </blockquote>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 09月 20日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2016 年 09月 20日</p>
 ]]></content>
     
     <summary type="html">
@@ -1573,17 +1573,17 @@
     
     </summary>
     
-      <category term="Shell" scheme="http://imwcl.com/categories/Shell/"/>
+      <category term="Shell" scheme="http://blog.imwcl.com/categories/Shell/"/>
     
     
-      <category term="Shell学习小结" scheme="http://imwcl.com/tags/Shell%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/"/>
+      <category term="Shell学习小结" scheme="http://blog.imwcl.com/tags/Shell%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发进阶 - 使用Carthage管理iOS第三方库</title>
-    <link href="http://imwcl.com/2016/09/20/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8Carthage%E7%AE%A1%E7%90%86iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
-    <id>http://imwcl.com/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/</id>
+    <link href="http://blog.imwcl.com/2016/09/20/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E4%BD%BF%E7%94%A8Carthage%E7%AE%A1%E7%90%86iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    <id>http://blog.imwcl.com/2016/09/20/iOS开发进阶-使用Carthage管理iOS第三方库/</id>
     <published>2016-09-20T14:56:41.000Z</published>
     <updated>2016-09-20T15:03:05.000Z</updated>
     
@@ -1644,7 +1644,7 @@
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="http://www.jianshu.com/p/5ccde5f22a17" target="_blank" rel="external">http://www.jianshu.com/p/5ccde5f22a17</a></p>
 <p><a href="https://imtx.me/archives/1939.html" target="_blank" rel="external">https://imtx.me/archives/1939.html</a></p>
 <hr>
-<p>作者 <a href="http://imwcl.com/">@W_C__L</a><br>2016 年 09月 20日</p>
+<p>作者 <a href="http://imwcl.com/" target="_blank" rel="external">@W_C__L</a><br>2016 年 09月 20日</p>
 ]]></content>
     
     <summary type="html">
@@ -1656,10 +1656,10 @@
     
     </summary>
     
-      <category term="iOS开发进阶" scheme="http://imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
+      <category term="iOS开发进阶" scheme="http://blog.imwcl.com/categories/iOS%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/"/>
     
     
-      <category term="iOS" scheme="http://imwcl.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://blog.imwcl.com/tags/iOS/"/>
     
   </entry>
   
